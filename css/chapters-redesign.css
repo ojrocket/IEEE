@@ -1,0 +1,281 @@
+/* Technical Chapters Redesign - Blueprint Aesthetic */
+
+:root {
+    --blueprint-line: rgba(14, 165, 233, 0.1);
+    --blueprint-grid: 40px;
+    --blueprint-dot: rgba(14, 165, 233, 0.2);
+}
+
+.chapters-page {
+    background: #0F172A;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* 1. Blueprint Background */
+.blueprint-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+        linear-gradient(var(--blueprint-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--blueprint-line) 1px, transparent 1px);
+    background-size: var(--blueprint-grid) var(--blueprint-grid);
+    mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+}
+
+.blueprint-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--blueprint-dot) 1px, transparent 1px);
+    background-size: calc(var(--blueprint-grid) / 2) calc(var(--blueprint-grid) / 2);
+}
+
+/* 2. Hero Section */
+.hero-chapters {
+    position: relative;
+    z-index: 10;
+    padding-top: 140px;
+    padding-bottom: 80px;
+}
+
+.hero-blueprint-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    width: 60%;
+    bottom: 0;
+    left: 0;
+}
+
+/* 3. Stats Strip */
+.stats-strip {
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 20;
+}
+
+.stat-item {
+    padding: 2rem;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-item:last-child {
+    border-right: none;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* 4. Filter System */
+.sticky-filter-bar {
+    position: sticky;
+    top: 80px;
+    z-index: 40;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.filter-tab {
+    position: relative;
+    padding: 1.5rem 0.5rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.filter-tab.active {
+    color: var(--accent-color);
+}
+
+.filter-tab::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.filter-tab.active::after {
+    transform: scaleX(1);
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+.search-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 99px;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    color: white;
+    width: 250px;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    width: 320px;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+/* 5. Chapter Grid */
+.chapter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 4rem 0;
+}
+
+.chapter-card-refined {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.chapter-card-refined::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.chapter-card-refined:hover {
+    transform: translateY(-10px);
+    background: rgba(30, 41, 59, 0.6);
+    border-color: rgba(14, 165, 233, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(14, 165, 233, 0.1);
+}
+
+.chapter-card-refined:hover::before {
+    opacity: 1;
+}
+
+.chapter-icon-box {
+    width: 64px;
+    height: 64px;
+    background: rgba(14, 165, 233, 0.1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.chapter-card-refined:hover .chapter-icon-box {
+    background: var(--accent-color);
+    color: white;
+    transform: rotate(10deg);
+}
+
+.chapter-tag {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 99px;
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 6. Featured Section */
+.featured-chapter-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 32px;
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-chapter-card::after {
+    content: 'CHAPTER';
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    font-size: 15rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.02);
+    pointer-events: none;
+    line-height: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .featured-chapter-card {
+        grid-template-columns: 1fr;
+        padding: 2.5rem;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-chapters {
+        padding-top: 100px;
+        text-align: center;
+    }
+
+    .hero-blueprint-line {
+        width: 100%;
+    }
+
+    .sticky-filter-bar {
+        top: 64px;
+    }
+
+    .stats-strip [class*="grid-cols"] {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .stat-item:nth-child(even) {
+        border-right: none;
+    }
+}

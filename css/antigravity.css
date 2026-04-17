@@ -1,0 +1,244 @@
+/* 
+   ANTIGRAVITY CORE BACKGROUND SYSTEM 
+   Enforces strict layering and visual constraints for brand consistency.
+*/
+
+:root {
+    --bg-deep: #0B1E3C;
+    --accent-glow: #00C2FF;
+    --secondary-glow: #00E5FF;
+    --pointer-events: none;
+}
+
+/* 1️⃣ DOM STRUCTURE & Z-INDEX ENFORCEMENT - Checklist 2 */
+#background-layer {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    /* Corrected to 0 as per checklist 2 */
+    pointer-events: none !important;
+    background-color: var(--bg-deep);
+    /* Base color fallback */
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Ensure content is above background */
+.cinematic-layer {
+    position: relative !important;
+    z-index: 10 !important;
+    /* Enforced as per checklist 2 */
+}
+
+/* Base Body Override - Checklist 3 */
+body {
+    background: transparent !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* HOME PAGE EXTRAS: Interactive Mesh */
+.home-page #background-layer::before,
+.home-page #background-layer::after {
+    content: '';
+    position: absolute;
+    width: 80vmax;
+    height: 80vmax;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
+}
+
+.home-page #background-layer::before {
+    background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+    top: -20%;
+    left: -10%;
+    animation: blob-float 25s infinite alternate ease-in-out;
+}
+
+.home-page #background-layer::after {
+    background: radial-gradient(circle, var(--secondary-glow), transparent 70%);
+    bottom: -20%;
+    right: -10%;
+    animation: blob-float 30s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes blob-float {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate3d(5%, 10%, 0) scale(1.1);
+    }
+
+    100% {
+        transform: translate3d(-5%, -5%, 0) scale(0.9);
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* EVENTS PAGE: Dynamic Wave Motion */
+.events-page #background-layer {
+    background: linear-gradient(135deg, var(--bg-deep) 0%, #152A4A 100%);
+}
+
+.events-page #background-layer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(90deg,
+            transparent,
+            transparent 10%,
+            rgba(0, 194, 255, 0.05) 15%,
+            transparent 20%);
+    background-size: 200% 100%;
+    animation: wave-move 15s linear infinite;
+}
+
+@keyframes wave-move {
+    from {
+        background-position: 200% 0;
+    }
+
+    to {
+        background-position: 0 0;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* BLOG PAGE: Tech Grid */
+.blog-page #background-layer {
+    background-color: var(--bg-deep);
+    background-image:
+        radial-gradient(circle at 2px 2px, rgba(0, 194, 255, 0.1) 1px, transparent 0);
+    background-size: 40px 40px;
+}
+
+.blog-page #background-layer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 194, 255, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/* GALLERY PAGE: Spotlight */
+.gallery-page #background-layer {
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            #152A4A 0%,
+            var(--bg-deep) 60%);
+}
+
+/* -------------------------------------------------------------------------- */
+/* About/TEAM PAGE: Floating Orbs */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* -------------------------------------------------------------------------- */
+/* GLOBAL ANIMATION SYSTEM (Reveal & Pop) */
+
+/* Base Reveal - Stays hidden until .active class is added */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Pop - Scaling effect for cards/images */
+.pop {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform, opacity;
+}
+
+.pop.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Unified Wing Icon System */
+.wing-icon {
+    background: rgba(206, 1, 1, 0.08) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 0, 0, 0.15) !important;
+    color: rgb(245, 245, 245) !important;
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.5rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.wing-accordion:hover .wing-icon {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    transform: scale(1.05) rotate(5deg);
+}
+
+/* Animation Delay Utilities */
+.delay-100 {
+    transition-delay: 100ms !important;
+}
+
+.delay-200 {
+    transition-delay: 200ms !important;
+}
+
+.delay-300 {
+    transition-delay: 300ms !important;
+}
+
+.delay-400 {
+    transition-delay: 400ms !important;
+}
+
+.delay-500 {
+    transition-delay: 500ms !important;
+}
+
+/* Staggered Animation System */
+.stagger-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
+}
+
+.stagger-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stagger-pop {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform, opacity;
+}
+
+.stagger-pop.active {
+    opacity: 1;
+    transform: scale(1);
+}

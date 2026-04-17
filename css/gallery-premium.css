@@ -1,0 +1,397 @@
+/* IEEE SRM AP - Premium Gallery Overhaul System */
+
+:root {
+    --accent-cyan: #22d3ee;
+    --accent-blue: #3b82f6;
+    --glass-bg: rgba(15, 23, 42, 0.7);
+    --card-bg: rgba(30, 41, 59, 0.5);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 1. Cinematic Hero Slideshow */
+.hero-slideshow {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide.active {
+    opacity: 1;
+    animation: slowZoom 8s infinite alternate ease-in-out;
+}
+
+@keyframes slowZoom {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* 2. Featured 3D Rotating Showcase (Carousel Redesign) */
+.carousel-3d-container {
+    perspective: 2000px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-3d-track {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-3d-item {
+    position: absolute;
+    width: 500px;
+    height: 350px;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    backface-visibility: hidden;
+    background: #000;
+}
+
+.carousel-3d-item.active {
+    z-index: 10;
+    transform: translateZ(200px) !important;
+    opacity: 1 !important;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 50px rgba(34, 211, 238, 0.3);
+}
+
+.carousel-3d-item.prev,
+.carousel-3d-item.next {
+    z-index: 5;
+    opacity: 0.6;
+    filter: blur(2px) brightness(0.7);
+}
+
+.carousel-3d-item.prev {
+    transform: translateX(-350px) translateZ(0) rotateY(30deg) scale(0.85);
+}
+
+.carousel-3d-item.next {
+    transform: translateX(350px) translateZ(0) rotateY(-30deg) scale(0.85);
+}
+
+.carousel-3d-item:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 60px rgba(34, 211, 238, 0.4);
+    filter: brightness(1.1) !important;
+}
+
+.carousel-item-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.carousel-3d-item.active .carousel-item-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* 3. Professional Masonry Grid */
+.masonry-grid {
+    display: flex;
+    margin-left: -30px;
+    /* gutter size offset */
+    width: auto;
+}
+
+.masonry-column {
+    padding-left: 30px;
+    /* gutter size */
+    background-clip: padding-box;
+}
+
+.masonry-item {
+    margin-bottom: 30px;
+    border-radius: 2rem;
+    overflow: hidden;
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.masonry-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.masonry-item:hover {
+    border-color: rgba(34, 211, 238, 0.5);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.masonry-item:hover img {
+    transform: scale(1.1) translateZ(20px);
+}
+
+.masonry-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(12, 18, 34, 0.95), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    z-index: 2;
+}
+
+.masonry-item:hover .masonry-overlay {
+    opacity: 1;
+}
+
+/* 4. Digital Universe Orbit */
+.sphere-container {
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 2000px;
+    padding: 6rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.sphere-pivot {
+    width: 300px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: sphereRotate 30s infinite linear;
+    transition: animation-play-state 0.3s;
+}
+
+.sphere-pivot:hover {
+    animation-play-state: paused;
+}
+
+.orb-image {
+    position: absolute;
+    width: 350px;
+    height: 230px;
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    background: #000;
+    transform: rotateY(var(--ry)) translateZ(var(--tz));
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    backface-visibility: hidden;
+    cursor: pointer;
+    filter: grayscale(80%) brightness(0.6);
+}
+
+.orb-image:hover {
+    filter: grayscale(0%) brightness(1.1);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 50px rgba(34, 211, 238, 0.4);
+    z-index: 100 !important;
+}
+
+@keyframes sphereRotate {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+/* 5. 3D Background Canvas */
+#gallery-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+/* 6. Micro Interactions */
+.category-tab {
+    position: relative;
+    overflow: hidden;
+}
+
+.category-tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-cyan);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.category-tab:hover::after,
+.category-tab.active::after {
+    width: 100%;
+}
+
+.btn-glow {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-glow:hover::before {
+    opacity: 1;
+}
+
+/* Scroll Indicators & Floating Elements */
+.scroll-indicator-line {
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--accent-cyan), transparent);
+    animation: scrollLine 2s infinite;
+}
+
+@keyframes scrollLine {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+    51% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+}
+
+/* Reveal Animations */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3D Cube (Hero) */
+.scene-3d {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    perspective: 1200px;
+    pointer-events: none;
+}
+
+.cube-3d {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    animation: rotateCube 20s infinite linear;
+    opacity: 0.3;
+}
+
+.face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--accent-cyan);
+    background: rgba(34, 211, 238, 0.05);
+}
+
+@keyframes rotateCube {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
+.face-front {
+    transform: translateZ(50px);
+}
+
+.face-back {
+    transform: rotateY(180deg) translateZ(50px);
+}
+
+.face-right {
+    transform: rotateY(90deg) translateZ(50px);
+}
+
+.face-left {
+    transform: rotateY(-90deg) translateZ(50px);
+}
+
+.face-top {
+    transform: rotateX(90deg) translateZ(50px);
+}
+
+.face-bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+}

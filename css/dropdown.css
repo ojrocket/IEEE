@@ -1,0 +1,89 @@
+/* ── Dropdown Navigation Styles ─────────────────────────────────────────────
+   Isolated file — does NOT modify any existing CSS.
+   Only affects elements with class .nav-dropdown
+────────────────────────────────────────────────────────────────────────── */
+
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 190px;
+    z-index: 9999;
+    background: rgba(8, 12, 28, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 12px;
+    padding: 6px 0;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(59, 130, 246, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Small arrow pointer */
+.nav-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent rgba(255, 255, 255, 0.09) transparent;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown-menu:hover {
+    display: block;
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 9px 18px;
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+    letter-spacing: 0.01em;
+}
+
+.nav-dropdown-menu a:hover {
+    background: rgba(59, 130, 246, 0.13);
+    color: #60a5fa;
+    padding-left: 24px;
+}
+
+.nav-dropdown-menu .dropdown-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.07);
+    margin: 4px 0;
+}
+
+/* Chevron indicator on parent link */
+.nav-dropdown > .nav-link::after {
+    content: ' ▾';
+    font-size: 0.65em;
+    opacity: 0.6;
+    vertical-align: middle;
+    margin-left: 1px;
+}
+
+/* Mobile sub-links */
+.mobile-sub-link {
+    display: block;
+    padding: 6px 16px 6px 28px;
+    color: #94a3b8 !important;
+    font-size: 0.82rem;
+    transition: color 0.15s ease;
+}
+
+.mobile-sub-link:hover {
+    color: #60a5fa !important;
+}
