@@ -9,6 +9,11 @@
    ======================== */
 
 .animated-hero {
+  --color-deep-navy: #152C55;
+  --color-brand-blue: #3C72B0;
+  --color-cyan-accent: #40B2D6;
+  --color-light-bg: #F5F7FA;
+  --color-white: #FFFFFF;
   position: relative;
   width: 100%;
   min-height: 92vh;

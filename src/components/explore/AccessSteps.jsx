@@ -11,11 +11,11 @@ const StepCard = ({ step, index }) => {
       transition={{ delay: index * 0.1 }}
       className="relative p-10 rounded-[32px] glass-enhanced border border-ieee-deep/12 hover:border-ieee-cyan/35 transition-all duration-500 group text-center"
     >
-      <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-ieee-deep border border-ieee-bright/25 flex items-center justify-center text-xs font-semibold text-ieee-beige group-hover:text-ieee-cyan group-hover:border-ieee-cyan/50 transition-colors">
+      <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-ieee-deep border border-ieee-bright/25 flex items-center justify-center text-xs font-semibold text-white group-hover:text-ieee-cyan group-hover:border-ieee-cyan/50 transition-colors">
         {index + 1}
       </div>
       
-      <div className={`w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-8 border transition-all duration-500 ${step.color} bg-ieee-light group-hover:scale-110`}>
+      <div className={`w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-8 border transition-all duration-500 ${step.color} bg-white group-hover:scale-110`}>
         <Icon className="w-6 h-6" />
       </div>
 

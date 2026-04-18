@@ -18,7 +18,7 @@ const AgendaNode = ({ item, index }) => {
         </div>
         <div className={`flex-1 p-8 rounded-3xl glass-enhanced border transition-all duration-500 ${
           item.type === 'break' 
-          ? 'border-ieee-deep/12 bg-ieee-light border-dashed' 
+          ? 'border-ieee-deep/12 bg-white border-dashed' 
           : 'border-ieee-deep/12 hover:border-ieee-cyan/35'
         }`}>
           {item.type === 'break' ? (
@@ -56,12 +56,12 @@ const AgendaSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-semibold uppercase tracking-[0.24em] text-ieee-beige mb-4"
+            className="text-4xl font-semibold uppercase tracking-[0.24em] text-white mb-4"
           >
             Agenda
           </motion.h2>
           <div className="w-16 h-1 bg-gradient-to-r from-ieee-bright to-ieee-cyan mx-auto rounded-full" />
-          <p className="mt-6 text-ieee-beige/70 font-semibold uppercase tracking-widest text-xs">Detailed session timeline (Day 1 structure shown)</p>
+          <p className="mt-6 text-white/70 font-semibold uppercase tracking-widest text-xs">Detailed session timeline (Day 1 structure shown)</p>
         </div>
 
         <div className="relative border-l-4 border-ieee-bright/20 ml-12">
@@ -71,7 +71,7 @@ const AgendaSection = () => {
         </div>
 
         <div className="text-center mt-16">
-           <button className="px-8 py-3 bg-ieee-bright/15 border border-ieee-bright/30 rounded-full text-[10px] font-semibold uppercase tracking-[0.3em] text-ieee-beige/85 hover:text-ieee-beige hover:bg-ieee-bright/25 transition-all">
+           <button className="px-8 py-3 bg-ieee-bright/15 border border-ieee-bright/30 rounded-full text-[10px] font-semibold uppercase tracking-[0.3em] text-white/85 hover:text-white hover:bg-ieee-bright/25 transition-all">
              View Full 3-Day Agenda
            </button>
         </div>

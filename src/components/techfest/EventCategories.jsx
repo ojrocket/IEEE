@@ -10,7 +10,7 @@ const CategoryCard = ({ category, index }) => {
       viewport={{ once: true }}
       transition={{ delay: index * 0.05 }}
       whileHover={{ y: -10 }}
-      className="tf-card group rounded-[28px] p-8 bg-ieee-beige border border-ieee-deep/12 hover:border-ieee-bright/35 transition-all duration-300"
+      className="tf-card group rounded-[28px] p-8 bg-white border border-ieee-deep/12 hover:border-ieee-bright/35 transition-all duration-300"
     >
       <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 border transition-all duration-300 ${category.bg} ${category.border} group-hover:scale-110`}>
         <Icon className={`w-7 h-7 ${category.color}`} />

@@ -9,9 +9,9 @@ const OutcomeCard = ({ outcome, index }) => {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="p-8 rounded-[28px] bg-ieee-light border border-ieee-deep/12 hover:border-ieee-bright/35 transition-all duration-500 text-center flex flex-col items-center group"
+      className="p-8 rounded-[28px] bg-white border border-ieee-deep/12 hover:border-ieee-bright/35 transition-all duration-500 text-center flex flex-col items-center group"
     >
-      <div className="w-16 h-16 rounded-2xl bg-ieee-beige flex items-center justify-center mb-6 group-hover:bg-ieee-beige group-hover:scale-110 transition-all border border-ieee-deep/12">
+      <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-6 group-hover:bg-white group-hover:scale-110 transition-all border border-ieee-deep/12">
         <Icon className="w-8 h-8 text-ieee-bright transition-colors" />
       </div>
       <h4 className="text-lg font-semibold text-ieee-deep mb-3 tracking-tight group-hover:text-ieee-bright transition-colors">{outcome.title}</h4>

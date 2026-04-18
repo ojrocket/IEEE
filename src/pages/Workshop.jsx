@@ -48,14 +48,14 @@ const Workshop = () => {
   ];
 
   return (
-    <div className="bg-ieee-light text-ieee-deep">
+    <div className="bg-white text-ieee-deep">
       <WorkshopHero />
 
       <section className="bg-ieee-deep border-t border-ieee-bright/20 border-b border-ieee-bright/20">
         <WorkshopQuickInfo />
       </section>
 
-      <section className="bg-ieee-light border-b border-ieee-deep/10">
+      <section className="bg-white border-b border-ieee-deep/10">
         <SpeakersSection />
       </section>
 
@@ -63,7 +63,7 @@ const Workshop = () => {
         <AgendaSection />
       </section>
 
-      <section className="bg-ieee-light border-b border-ieee-deep/10">
+      <section className="bg-white border-b border-ieee-deep/10">
         <LearningOutcomes />
       </section>
 
@@ -75,7 +75,7 @@ const Workshop = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl font-semibold uppercase tracking-[0.16em] text-ieee-beige mb-4"
+              className="text-4xl font-semibold uppercase tracking-[0.16em] text-white mb-4"
             >
               Who Can Attend?
             </motion.h2>
@@ -100,16 +100,16 @@ const Workshop = () => {
                     className="p-6 rounded-2xl bg-ieee-bright/14 border border-ieee-cyan/25 flex items-center group transition-all"
                   >
                     <CheckCircle className="w-5 h-5 text-ieee-cyan mr-6 transition-colors" />
-                    <span className="text-ieee-beige/90 font-medium transition-colors">{text}</span>
+                    <span className="text-white/90 font-medium transition-colors">{text}</span>
                   </motion.div>
                 ))}
              </div>
              
              <div className="relative group">
                 <div className="relative p-12 rounded-[36px] bg-ieee-deep border border-ieee-bright/20 text-center">
-                   <h3 className="text-3xl font-semibold text-ieee-beige mb-6 uppercase tracking-tight">Reserve Your Spot</h3>
-                   <p className="text-ieee-beige/75 mb-10 font-medium">Early bird registration ends in 48 hours. Secure your seat now.</p>
-                   <button className="w-full py-4 bg-ieee-bright text-ieee-beige rounded-full font-semibold text-xs uppercase tracking-[0.2em] hover:bg-ieee-cyan transition-all">
+                   <h3 className="text-3xl font-semibold text-white mb-6 uppercase tracking-tight">Reserve Your Spot</h3>
+                   <p className="text-white/75 mb-10 font-medium">Early bird registration ends in 48 hours. Secure your seat now.</p>
+                   <button className="w-full py-4 bg-ieee-bright text-white rounded-full font-semibold text-xs uppercase tracking-[0.2em] hover:bg-ieee-cyan transition-all">
                      Register Now
                    </button>
                 </div>

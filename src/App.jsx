@@ -15,8 +15,6 @@ import Governance from './pages/about/Governance';
 import Leadership from './pages/about/Leadership';
 
 import ExecutiveBoard from './pages/ExecutiveBoard';
-import Chapters from './pages/Chapters';
-import Achievements from './pages/Achievements';
 import Join from './pages/Join';
 import NotFound from './pages/NotFound';
 
@@ -28,10 +26,6 @@ import Workshop from './pages/Workshop';
 import Gallery from './pages/Gallery';
 import Explore from './pages/Explore';
 import Events from './pages/Events';
-import AISociety from './pages/societies/AISociety';
-import ComputerSociety from './pages/societies/ComputerSociety';
-import PowerEnergy from './pages/societies/PowerEnergy';
-import RoboticsSociety from './pages/societies/RoboticsSociety';
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -65,12 +59,6 @@ function App() {
               {/* Board — blur transition */}
               <Route path="/executive-board" element={<PageTransition variant="blur"><ExecutiveBoard /></PageTransition>} />
               
-              {/* Chapters — vertical rise */}
-              <Route path="/chapters" element={<PageTransition variant="rise"><Chapters /></PageTransition>} />
-              
-              {/* Achievements — clip reveal */}
-              <Route path="/achievements" element={<PageTransition variant="reveal"><Achievements /></PageTransition>} />
-              
               {/* Join — fade */}
               <Route path="/join" element={<PageTransition variant="fade"><Join /></PageTransition>} />
               
@@ -82,12 +70,6 @@ function App() {
               <Route path="/workshop" element={<PageTransition variant="blur"><Workshop /></PageTransition>} />
               <Route path="/gallery" element={<PageTransition variant="reveal"><Gallery /></PageTransition>} />
               <Route path="/explore" element={<PageTransition variant="fade"><Explore /></PageTransition>} />
-              
-                            <Route path="/societies/ai" element={<PageTransition variant="slideRight"><AISociety /></PageTransition>} />
-              <Route path="/societies/computer" element={<PageTransition variant="slideRight"><ComputerSociety /></PageTransition>} />
-              <Route path="/societies/power" element={<PageTransition variant="slideRight"><PowerEnergy /></PageTransition>} />
-              <Route path="/societies/robotics" element={<PageTransition variant="slideRight"><RoboticsSociety /></PageTransition>} />
-              
               {/* Sponsors page */}
               <Route path="/sponsors" element={<PageTransition variant="fade"><Sponsors /></PageTransition>} />
               

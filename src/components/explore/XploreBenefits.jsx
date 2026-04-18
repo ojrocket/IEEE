@@ -11,7 +11,7 @@ const BenefitCard = ({ benefit, index }) => {
       transition={{ delay: index * 0.1 }}
       className="p-10 rounded-[40px] glass-enhanced border border-ieee-deep/12 hover:border-ieee-cyan/35 transition-all duration-500 group"
     >
-      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 border transition-all duration-500 ${benefit.color} bg-ieee-light group-hover:scale-110`}>
+      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 border transition-all duration-500 ${benefit.color} bg-white group-hover:scale-110`}>
         <Icon className="w-6 h-6" />
       </div>
       <h3 className="text-xl font-semibold text-ieee-deep mb-4 tracking-tight group-hover:text-ieee-bright transition-colors">{benefit.title}</h3>

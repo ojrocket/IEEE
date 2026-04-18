@@ -22,7 +22,7 @@ const TechFestHero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[88vh] flex items-center justify-center pt-28 pb-14 overflow-hidden bg-ieee-light border-b border-ieee-deep/10">
+    <section className="relative min-h-[88vh] flex items-center justify-center pt-28 pb-14 overflow-hidden bg-white border-b border-ieee-deep/10">
 
       <div className="container mx-auto px-6 relative z-10 text-center">
         <motion.h1 
@@ -49,11 +49,11 @@ const TechFestHero = () => {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="flex flex-col md:flex-row items-center justify-center gap-6 mb-16"
         >
-          <div className="flex items-center gap-3 text-lg text-ieee-deep bg-ieee-beige px-8 py-3 rounded-full border border-ieee-deep/12">
+          <div className="flex items-center gap-3 text-lg text-ieee-deep bg-white px-8 py-3 rounded-full border border-ieee-deep/12">
             <Calendar className="w-5 h-5 text-ieee-bright" />
             <span>Oct 15 - 16, 2026</span>
           </div>
-          <div className="flex items-center gap-3 text-lg text-ieee-deep bg-ieee-beige px-8 py-3 rounded-full border border-ieee-deep/12">
+          <div className="flex items-center gap-3 text-lg text-ieee-deep bg-white px-8 py-3 rounded-full border border-ieee-deep/12">
             <MapPin className="w-5 h-5 text-ieee-bright" />
             <span>SRM University AP</span>
           </div>
@@ -87,7 +87,7 @@ const TechFestHero = () => {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
-          <button className="px-12 py-4 bg-ieee-bright text-ieee-beige rounded-full font-semibold text-sm uppercase tracking-[0.12em] hover:bg-ieee-cyan transition-all">
+          <button className="px-12 py-4 bg-ieee-bright text-white rounded-full font-semibold text-sm uppercase tracking-[0.12em] hover:bg-ieee-cyan transition-all">
             Register Now
           </button>
           <button className="px-12 py-4 bg-transparent text-ieee-deep border border-ieee-deep/25 hover:border-ieee-bright rounded-full font-semibold text-sm uppercase tracking-[0.12em] transition-all">

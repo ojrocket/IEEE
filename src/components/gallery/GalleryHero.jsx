@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 
 const GalleryHero = () => {
   return (
-    <section className="bg-ieee-light pt-36 pb-24 px-6 relative overflow-hidden border-b border-ieee-deep/10">
+    <section className="bg-white pt-36 pb-24 px-6 relative overflow-hidden border-b border-ieee-deep/10">
       <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="inline-block px-4 py-1.5 bg-ieee-beige border border-ieee-deep/15 rounded-full text-[10px] font-semibold tracking-[0.2em] text-ieee-bright uppercase mb-8"
+          className="inline-block px-4 py-1.5 bg-white border border-ieee-deep/15 rounded-full text-[10px] font-semibold tracking-[0.2em] text-ieee-bright uppercase mb-8"
         >
           IEEE SRM AP 24'
         </motion.div>

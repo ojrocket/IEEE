@@ -34,9 +34,9 @@ const Events = () => {
   ];
 
   return (
-    <div className="bg-ieee-light text-ieee-deep min-h-screen">
+    <div className="bg-white text-ieee-deep min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-6 overflow-hidden bg-ieee-light border-b border-ieee-deep/10">
+      <section className="relative py-20 px-6 overflow-hidden bg-white border-b border-ieee-deep/10">
         <div className="container mx-auto max-w-6xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -48,7 +48,7 @@ const Events = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="inline-block px-4 py-1.5 bg-ieee-beige border border-ieee-deep/15 rounded-full text-[10px] font-semibold tracking-[0.2em] text-ieee-bright uppercase mb-8"
+              className="inline-block px-4 py-1.5 bg-white border border-ieee-deep/15 rounded-full text-[10px] font-semibold tracking-[0.2em] text-ieee-bright uppercase mb-8"
             >
               IEEE SRM AP 24'
             </motion.div>
@@ -97,7 +97,7 @@ const Events = () => {
       </section>
 
       {/* Events Grid */}
-      <section className="py-20 px-6 bg-ieee-light">
+      <section className="py-20 px-6 bg-white">
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {eventsData.map((event, index) => {
@@ -141,7 +141,7 @@ const Events = () => {
                       {event.features.map((feature, featureIndex) => (
                         <span
                           key={featureIndex}
-                          className="px-3 py-1 bg-ieee-beige/50 text-ieee-deep text-xs font-medium rounded-full"
+                          className="px-3 py-1 bg-white/50 text-ieee-deep text-xs font-medium rounded-full"
                         >
                           {feature}
                         </span>
@@ -177,7 +177,7 @@ const Events = () => {
               Ready to Join?
             </h2>
             <div className="w-20 h-1 bg-ieee-cyan mx-auto mb-10 rounded-full" />
-            <p className="text-xl text-ieee-beige/80 font-light leading-relaxed mb-12">
+            <p className="text-xl text-white/80 font-light leading-relaxed mb-12">
               Whether you're a participant, volunteer, or sponsor, there's a place for you in our vibrant tech community.
             </p>
             

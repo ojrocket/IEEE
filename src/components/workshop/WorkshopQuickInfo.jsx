@@ -14,8 +14,8 @@ const InfoCard = ({ item, index }) => {
     >
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-ieee-cyan to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
       <Icon className="w-10 h-10 text-ieee-cyan mb-6 transition-all" />
-      <h4 className="text-ieee-beige font-semibold text-lg tracking-tight">{item.title}</h4>
-      <p className="text-[10px] text-ieee-beige/70 font-semibold uppercase tracking-[0.2em] mt-2 italic">{item.subtitle}</p>
+      <h4 className="text-white font-semibold text-lg tracking-tight">{item.title}</h4>
+      <p className="text-[10px] text-white/70 font-semibold uppercase tracking-[0.2em] mt-2 italic">{item.subtitle}</p>
     </motion.div>
   );
 };

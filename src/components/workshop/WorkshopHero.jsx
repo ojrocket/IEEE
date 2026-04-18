@@ -22,7 +22,7 @@ const WorkshopHero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[86vh] flex items-center pt-24 pb-12 overflow-hidden border-b border-ieee-deep/10 bg-ieee-light">
+    <section className="relative min-h-[86vh] flex items-center pt-24 pb-12 overflow-hidden border-b border-ieee-deep/10 bg-white">
       
       <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-12 gap-16 items-center">
         {/* Left Area */}
@@ -32,7 +32,7 @@ const WorkshopHero = () => {
           transition={{ duration: 0.8 }}
           className="lg:col-span-8 flex flex-col items-start"
         >
-          <div className="inline-block px-5 py-2 rounded-full border border-ieee-bright/30 bg-ieee-beige text-ieee-bright text-xs font-semibold tracking-[0.24em] uppercase mb-8">
+          <div className="inline-block px-5 py-2 rounded-full border border-ieee-bright/30 bg-white text-ieee-bright text-xs font-semibold tracking-[0.24em] uppercase mb-8">
             Official Workshop Series
           </div>
 
@@ -45,14 +45,14 @@ const WorkshopHero = () => {
             Understanding underlying core protocols, smart contract deployment, and decentralized architecture for next-gen applications.
           </p>
 
-          <div className="text-[10px] text-[#5d6a84] font-semibold tracking-[0.22em] uppercase mb-12 flex flex-wrap gap-8 items-center bg-ieee-beige p-4 rounded-2xl border border-ieee-deep/10">
+          <div className="text-[10px] text-[#5d6a84] font-semibold tracking-[0.22em] uppercase mb-12 flex flex-wrap gap-8 items-center bg-white p-4 rounded-2xl border border-ieee-deep/10">
             <span className="flex items-center gap-3"><Calendar className="w-4 h-4 text-ieee-cyan" /> Oct 15-17, 2026</span>
             <span className="flex items-center gap-3"><Clock className="w-4 h-4 text-ieee-cyan" /> 9:00 AM - 5:00 PM</span>
             <span className="flex items-center gap-3"><MapPin className="w-4 h-4 text-ieee-cyan" /> Hybrid Mode</span>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 mb-12 w-full sm:w-auto">
-            <button className="px-10 py-4 bg-ieee-bright hover:bg-ieee-cyan text-ieee-beige font-semibold rounded-full transition-all flex items-center justify-center gap-3 group text-sm uppercase tracking-[0.12em]">
+            <button className="px-10 py-4 bg-ieee-bright hover:bg-ieee-cyan text-white font-semibold rounded-full transition-all flex items-center justify-center gap-3 group text-sm uppercase tracking-[0.12em]">
               Register Now <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </button>
             <button className="px-10 py-4 bg-transparent border border-ieee-deep/25 text-ieee-deep font-semibold rounded-full transition-all hover:border-ieee-bright flex items-center justify-center gap-3 text-sm uppercase tracking-[0.12em]">
@@ -61,7 +61,7 @@ const WorkshopHero = () => {
           </div>
 
           {/* Live Countdown */}
-          <div className="flex items-center gap-10 p-6 rounded-3xl bg-ieee-beige border border-ieee-deep/10">
+          <div className="flex items-center gap-10 p-6 rounded-3xl bg-white border border-ieee-deep/10">
              <div className="text-[10px] text-[#5d6a84] font-semibold uppercase tracking-[0.3em] writing-vertical-rl transform rotate-180">Starts In</div>
              <div className="flex gap-8">
                 {[
@@ -88,7 +88,7 @@ const WorkshopHero = () => {
         >
            <div className="w-full aspect-square rounded-full border border-ieee-deep/12 flex items-center justify-center">
              <div className="absolute w-3/4 aspect-square rounded-full border border-dashed border-ieee-bright/25" />
-             <div className="relative z-10 p-10 bg-ieee-beige rounded-full border border-ieee-deep/10">
+             <div className="relative z-10 p-10 bg-white rounded-full border border-ieee-deep/10">
                <div className="text-8xl text-ieee-bright font-semibold">Ξ</div>
              </div>
           </div>

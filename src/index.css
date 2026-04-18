@@ -5,22 +5,22 @@
 
 /* Theme variables from iee-changes-main */
 :root {
-  --primary: #0A66C2;
-  --bg-dark: #0A1F44;
-  --accent: #00C2FF;
-  --bg-light: #F5F7FA;
+  --primary: #3C72B0;
+  --bg-dark: #152C55;
+  --accent: #40B2D6;
+  --bg-light: #F9FAFB;
   --white: #FFFFFF;
   --text-primary: #FFFFFF;
-  --text-dark: #0A1F44;
+  --text-dark: #152C55;
   --text-secondary: #cbd5e1;
   --neon-cyan: #0ff;
-  --neon-blue: #007bff;
+  --neon-blue: #3C72B0;
   --dark-bg: #0a0f1d;
 }
 
 @layer base {
   body {
-    @apply bg-[#FDFCF0] text-ieee-deep antialiased font-sans overflow-x-hidden;
+    @apply bg-[#FFFFFF] text-ieee-deep antialiased font-sans overflow-x-hidden;
   }
 }
 
@@ -29,10 +29,10 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FDFCF0;
+  background: #FFFFFF;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0A66C2;
+  background: #3C72B0;
   border-radius: 4px;
 }
 

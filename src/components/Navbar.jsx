@@ -22,13 +22,11 @@ export default function Navbar() {
   const navLinks = [
     { name: 'About', path: '/about' },
     { name: 'Board', path: '/executive-board' },
-    { name: 'Chapters', path: '/chapters' },
-    { name: 'Achievements', path: '/achievements' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Events', path: '/events', hasDropdown: true },
-    { name: 'Societies', path: '/societies/ai', hasDropdown: true },
     { name: 'Sponsors', path: '/sponsors' },
+    { name: 'Events', path: '/events', hasDropdown: true },
     { name: 'Gallery', path: '/gallery' },
+    { name: 'Membership', path: '/join' },
+    { name: 'Blog', path: '/blog' },
   ];
 
   const eventsDropdownItems = [

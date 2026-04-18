@@ -20,7 +20,7 @@ const HackathonHero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[82vh] flex items-center justify-center pt-28 pb-14 px-6 overflow-hidden bg-ieee-light border-b border-ieee-deep/10">
+    <section className="relative min-h-[82vh] flex items-center justify-center pt-28 pb-14 px-6 overflow-hidden bg-white border-b border-ieee-deep/10">
 
       <div className="container mx-auto relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
         <motion.div 
@@ -38,7 +38,7 @@ const HackathonHero = () => {
             <span className="text-ieee-bright italic">Hackathon 2026</span>
           </motion.h1>
 
-          <div className="flex gap-6 md:gap-10 my-12 bg-ieee-beige p-8 rounded-3xl border border-ieee-deep/10">
+          <div className="flex gap-6 md:gap-10 my-12 bg-white p-8 rounded-3xl border border-ieee-deep/10">
             {[
               { label: 'Days', value: timeLeft.days },
               { label: 'Hours', value: timeLeft.hours },
@@ -56,7 +56,7 @@ const HackathonHero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
-            <button className="px-10 py-4 bg-ieee-bright hover:bg-ieee-cyan text-ieee-beige font-semibold rounded-full transition-all uppercase tracking-[0.1em] text-sm">
+            <button className="px-10 py-4 bg-ieee-bright hover:bg-ieee-cyan text-white font-semibold rounded-full transition-all uppercase tracking-[0.1em] text-sm">
               REGISTER NOW
             </button>
             <button className="px-10 py-4 bg-transparent border border-ieee-deep/25 text-ieee-deep font-semibold rounded-full transition-all hover:border-ieee-bright uppercase tracking-[0.1em] text-sm">

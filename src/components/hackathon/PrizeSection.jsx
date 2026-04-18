@@ -9,7 +9,7 @@ const PrizeCard = ({ prize, index }) => {
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
       whileHover={{ y: -10 }}
-      className={`relative p-8 rounded-[28px] bg-ieee-beige border transition-all duration-500 group flex flex-col items-center text-center ${
+      className={`relative p-8 rounded-[28px] bg-white border transition-all duration-500 group flex flex-col items-center text-center ${
         prize.featured 
         ? 'border-yellow-500/40 shadow-[0_18px_40px_rgba(234,179,8,0.12)] scale-105 z-10' 
         : 'border-ieee-deep/12 hover:border-ieee-bright/30'
@@ -18,7 +18,7 @@ const PrizeCard = ({ prize, index }) => {
       <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-6 border transition-all duration-500 ${
         prize.featured 
         ? 'bg-yellow-500/10 border-yellow-500/20 group-hover:bg-yellow-500/20' 
-        : 'bg-ieee-light border-ieee-deep/12 group-hover:bg-ieee-cyan/10 group-hover:border-ieee-cyan/30'
+        : 'bg-white border-ieee-deep/12 group-hover:bg-ieee-cyan/10 group-hover:border-ieee-cyan/30'
       }`}>
         <prize.icon className={`w-10 h-10 ${prize.color} drop-shadow-lg group-hover:scale-110 transition-transform`} />
       </div>
@@ -63,7 +63,7 @@ const PrizeSection = () => {
         <PrizeCard prize={prizes[2]} index={2} />
       </div>
 
-      <div className="bg-ieee-beige p-8 rounded-3xl border-l-4 border-ieee-cyan border border-ieee-deep/10">
+      <div className="bg-white p-8 rounded-3xl border-l-4 border-ieee-cyan border border-ieee-deep/10">
         <h4 className="text-ieee-deep font-semibold mb-6 text-lg">Judging Criteria</h4>
         <div className="space-y-6">
           {[
@@ -77,7 +77,7 @@ const PrizeSection = () => {
                 <span>{item.label}</span>
                 <span className="text-ieee-bright">{item.val}</span>
               </div>
-              <div className="h-2 bg-ieee-light rounded-full overflow-hidden border border-ieee-deep/10">
+              <div className="h-2 bg-white rounded-full overflow-hidden border border-ieee-deep/10">
                 <motion.div 
                   initial={{ width: 0 }}
                   whileInView={{ width: item.val }}

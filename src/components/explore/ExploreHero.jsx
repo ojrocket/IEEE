@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const ExploreHero = () => {
   return (
-    <section className="min-h-[82vh] flex items-center justify-center relative pt-28 pb-14 overflow-hidden bg-ieee-light border-b border-ieee-deep/10">
+    <section className="min-h-[82vh] flex items-center justify-center relative pt-28 pb-14 overflow-hidden bg-white border-b border-ieee-deep/10">
 
       <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
         <motion.div 
@@ -41,7 +41,7 @@ const ExploreHero = () => {
             href="https://ieeexplore.ieee.org" 
             target="_blank"
             rel="noopener noreferrer"
-            className="px-12 py-4 bg-ieee-bright text-ieee-beige rounded-full font-semibold text-sm uppercase tracking-[0.12em] border border-ieee-bright hover:bg-ieee-cyan transition-all"
+            className="px-12 py-4 bg-ieee-bright text-white rounded-full font-semibold text-sm uppercase tracking-[0.12em] border border-ieee-bright hover:bg-ieee-cyan transition-all"
           >
             Access Now
           </a>

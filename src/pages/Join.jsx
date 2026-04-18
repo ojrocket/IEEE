@@ -30,7 +30,7 @@ export default function Join() {
       exit={{ opacity: 0 }}
       className="bg-black"
     >
-      <section className="join-panel h-screen w-full flex items-center justify-center bg-ieee-deep text-ieee-light relative z-[1]">
+      <section className="join-panel h-screen w-full flex items-center justify-center bg-ieee-deep text-white relative z-[1]">
         <div className="text-center px-8">
           <h1 className="text-6xl md:text-[8rem] font-display font-medium tracking-tighter mb-8 leading-none">
             Ready to <br /><span className="italic text-ieee-cyan">Upgrade?</span>

@@ -6,11 +6,11 @@ import { motion } from 'framer-motion';
 
 const TechFest = () => {
   return (
-    <div className="bg-ieee-light text-ieee-deep">
+    <div className="bg-white text-ieee-deep">
       <TechFestHero />
       
       {/* About Section (Inline for fidelity) */}
-      <section className="py-24 border-t border-ieee-deep/10 bg-ieee-light">
+      <section className="py-24 border-t border-ieee-deep/10 bg-white">
         <div className="container mx-auto px-6 max-w-4xl text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -64,7 +64,7 @@ const TechFest = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-semibold text-ieee-beige mb-8 tracking-tight"
+            className="text-4xl md:text-6xl font-semibold text-white mb-8 tracking-tight"
           >
             Ready to Join TechFest 2026?
           </motion.h2>
@@ -73,16 +73,16 @@ const TechFest = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-ieee-beige/80 mb-12 max-w-3xl mx-auto font-medium"
+            className="text-xl text-white/80 mb-12 max-w-3xl mx-auto font-medium"
           >
             Be part of the biggest technical extravaganza. Register now and secure your spot in this celebration of innovation and excellence.
           </motion.p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <button className="px-12 py-4 bg-ieee-bright text-ieee-beige rounded-full font-semibold text-base tracking-[0.08em] uppercase hover:bg-ieee-cyan transition-all">
+            <button className="px-12 py-4 bg-ieee-bright text-white rounded-full font-semibold text-base tracking-[0.08em] uppercase hover:bg-ieee-cyan transition-all">
               Register Now
             </button>
-            <button className="px-12 py-4 bg-transparent border border-ieee-beige/35 text-ieee-beige rounded-full font-semibold text-base tracking-[0.08em] uppercase hover:border-ieee-cyan hover:text-ieee-cyan transition-all">
+            <button className="px-12 py-4 bg-transparent border border-white/35 text-white rounded-full font-semibold text-base tracking-[0.08em] uppercase hover:border-ieee-cyan hover:text-ieee-cyan transition-all">
               Download Brochure
             </button>
           </div>

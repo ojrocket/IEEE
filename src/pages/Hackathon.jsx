@@ -8,19 +8,19 @@ import { motion } from 'framer-motion';
 
 const Hackathon = () => {
   return (
-    <div className="bg-ieee-light text-ieee-deep">
+    <div className="bg-white text-ieee-deep">
       <HackathonHero />
       
       {/* Sponsor Strip */}
       <div className="w-full bg-ieee-deep border-y border-ieee-bright/20 py-10 relative overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-            <div className="text-ieee-beige/70 font-semibold tracking-[0.35em] text-[10px] uppercase whitespace-nowrap">
+            <div className="text-white/70 font-semibold tracking-[0.35em] text-[10px] uppercase whitespace-nowrap">
               Main Event Partners
             </div>
             <div className="flex flex-wrap items-center justify-center md:justify-end gap-12 opacity-80 transition-all duration-700">
                {['AWS', 'Intel', 'Microsoft', 'Google', 'Cloudflare'].map(s => (
-                 <span key={s} className="text-2xl font-semibold text-ieee-beige hover:text-ieee-cyan transition-colors cursor-pointer">{s}</span>
+                 <span key={s} className="text-2xl font-semibold text-white hover:text-ieee-cyan transition-colors cursor-pointer">{s}</span>
                ))}
             </div>
           </div>
@@ -30,7 +30,7 @@ const Hackathon = () => {
       <Tracks />
 
       {/* Main Content Grid */}
-      <section className="py-24 px-6 relative bg-ieee-light">
+      <section className="py-24 px-6 relative bg-white">
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             
@@ -38,7 +38,7 @@ const Hackathon = () => {
             <div className="lg:col-span-4 space-y-20">
               <HackathonTimeline />
               
-              <div className="p-10 rounded-[32px] bg-ieee-beige border border-ieee-deep/10 relative overflow-hidden group">
+              <div className="p-10 rounded-[32px] bg-white border border-ieee-deep/10 relative overflow-hidden group">
                 <h3 className="text-2xl font-semibold text-ieee-deep mb-10 flex items-center">
                    <span className="w-2 h-8 bg-ieee-cyan mr-4 rounded-full" />
                    Eligibility
@@ -71,8 +71,8 @@ const Hackathon = () => {
                       { name: 'Dr. Raj Sharma', role: 'AI Expert' },
                       { name: 'Priya Patel', role: 'Cloud Architect' }
                     ].map((m, i) => (
-                       <div key={i} className="flex items-center gap-6 p-6 bg-ieee-beige rounded-3xl border border-ieee-deep/10 transition-all group">
-                         <div className="w-14 h-14 rounded-2xl bg-ieee-light flex items-center justify-center border border-ieee-deep/10 transition-transform">
+                       <div key={i} className="flex items-center gap-6 p-6 bg-white rounded-3xl border border-ieee-deep/10 transition-all group">
+                         <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center border border-ieee-deep/10 transition-transform">
                           <User className="text-ieee-bright transition-colors" />
                          </div>
                          <div>

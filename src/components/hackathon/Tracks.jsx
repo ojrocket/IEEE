@@ -13,7 +13,7 @@ const TrackCard = ({ track, index }) => {
     >
       <div className="hexagon-container bg-gradient-to-br from-ieee-deep to-[#0f305f] p-8 flex flex-col items-center justify-center text-center transition-all duration-500 group-hover:bg-ieee-bright/14 border border-ieee-bright/20 hover:border-ieee-cyan/50">
         <Icon className={`w-12 h-12 mb-6 ${track.color} group-hover:scale-110 transition-transform`} />
-        <h3 className="text-ieee-beige font-semibold text-xs md:text-sm uppercase tracking-widest leading-relaxed">
+        <h3 className="text-white font-semibold text-xs md:text-sm uppercase tracking-widest leading-relaxed">
           {track.title.split(' ').map((word, i) => (
             <span key={i} className="block">{word}</span>
           ))}
@@ -37,7 +37,7 @@ const Tracks = () => {
     <section className="py-24 bg-ieee-deep relative z-10">
       <div className="container mx-auto max-w-6xl px-6">
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-semibold text-ieee-beige tracking-[0.2em] uppercase mb-4">
+          <h2 className="text-3xl md:text-5xl font-semibold text-white tracking-[0.2em] uppercase mb-4">
             Themes <span className="text-ieee-cyan">/ Tracks</span>
           </h2>
           <div className="w-32 h-1 bg-ieee-cyan mx-auto rounded-full" />

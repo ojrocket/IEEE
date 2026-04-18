@@ -8,10 +8,10 @@ const SpeakerCard = ({ speaker, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="speaker-card p-10 rounded-[32px] bg-ieee-beige border border-ieee-deep/12 hover:border-ieee-bright/35 flex flex-col items-center text-center transition-all duration-500 group"
+      className="speaker-card p-10 rounded-[32px] bg-white border border-ieee-deep/12 hover:border-ieee-bright/35 flex flex-col items-center text-center transition-all duration-500 group"
     >
       <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-ieee-deep/12 group-hover:border-ieee-bright transition-all duration-500 mb-8 p-1">
-        <div className="w-full h-full rounded-full bg-ieee-light flex items-center justify-center text-ieee-bright overflow-hidden relative">
+        <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-ieee-bright overflow-hidden relative">
            <User className="w-12 h-12 group-hover:scale-110 transition-transform" />
            {/* In production, an img tag would go here */}
         </div>

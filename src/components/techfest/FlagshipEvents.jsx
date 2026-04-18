@@ -8,7 +8,7 @@ const FlagshipCard = ({ event, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="group relative overflow-hidden rounded-[28px] bg-ieee-beige border border-ieee-deep/12 hover:border-ieee-bright/30 transition-all duration-700"
+      className="group relative overflow-hidden rounded-[28px] bg-white border border-ieee-deep/12 hover:border-ieee-bright/30 transition-all duration-700"
     >
       <div className={`h-48 relative overflow-hidden bg-gradient-to-br ${event.bg}`}>
         <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-700" />
@@ -29,7 +29,7 @@ const FlagshipCard = ({ event, index }) => {
             Prize Pool: {event.prize}
           </p>
         </div>
-        <button className="w-full py-4 bg-ieee-light border border-ieee-deep/15 rounded-2xl text-ieee-deep font-semibold text-xs uppercase tracking-widest hover:bg-ieee-bright hover:text-ieee-beige transition-all">
+        <button className="w-full py-4 bg-white border border-ieee-deep/15 rounded-2xl text-ieee-deep font-semibold text-xs uppercase tracking-widest hover:bg-ieee-bright hover:text-white transition-all">
           Register Now
         </button>
       </div>

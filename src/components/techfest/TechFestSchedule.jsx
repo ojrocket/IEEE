@@ -9,9 +9,9 @@ const ScheduleItem = ({ item, index }) => {
       transition={{ delay: index * 0.1 }}
       className="relative pl-12 mb-8 last:mb-0 group"
     >
-      <div className="absolute left-[7px] top-6 w-3 h-3 rounded-full bg-ieee-beige border border-ieee-bright z-10 group-hover:bg-ieee-cyan transition-all" />
+      <div className="absolute left-[7px] top-6 w-3 h-3 rounded-full bg-white border border-ieee-bright z-10 group-hover:bg-ieee-cyan transition-all" />
       
-      <div className="tf-card p-6 rounded-2xl bg-ieee-beige border border-ieee-deep/12 group-hover:border-ieee-bright/30 transition-all">
+      <div className="tf-card p-6 rounded-2xl bg-white border border-ieee-deep/12 group-hover:border-ieee-bright/30 transition-all">
         <div className="flex justify-between items-start mb-3">
           <h4 className="text-lg font-semibold text-ieee-deep tracking-tight">{item.title}</h4>
           <span className={`text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-ieee-deep ${item.color} border border-ieee-bright/30`}>

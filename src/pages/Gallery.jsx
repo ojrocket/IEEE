@@ -186,9 +186,9 @@ const Gallery = () => {
         <motion.div 
           className="bg-ieee-deep p-14 rounded-card flex flex-col md:flex-row justify-between items-center gap-10 border border-ieee-bright/20"
         >
-          <div className="text-ieee-beige">
+          <div className="text-white">
             <h2 className="text-4xl font-semibold mb-4 tracking-tight uppercase">Have photos to share?</h2>
-            <p className="text-ieee-beige/75 max-w-lg leading-relaxed font-light">
+            <p className="text-white/75 max-w-lg leading-relaxed font-light">
               Contributing to the IEEE archive is easy. Submit your high-quality captures from recent events to be featured in our official gallery.
             </p>
           </div>
@@ -196,14 +196,14 @@ const Gallery = () => {
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 bg-ieee-bright text-ieee-beige rounded-full font-semibold text-xs uppercase tracking-[0.12em] hover:bg-ieee-cyan transition-all"
+              className="px-10 py-4 bg-ieee-bright text-white rounded-full font-semibold text-xs uppercase tracking-[0.12em] hover:bg-ieee-cyan transition-all"
             >
               Submit Photos
             </motion.button>
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 bg-transparent border border-ieee-beige/35 text-ieee-beige rounded-full font-semibold text-xs uppercase tracking-[0.12em] hover:border-ieee-cyan hover:text-ieee-cyan transition-all"
+              className="px-10 py-4 bg-transparent border border-white/35 text-white rounded-full font-semibold text-xs uppercase tracking-[0.12em] hover:border-ieee-cyan hover:text-ieee-cyan transition-all"
             >
               Volunteer Photographer
             </motion.button>
