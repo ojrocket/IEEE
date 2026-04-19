@@ -27,58 +27,57 @@ export default function Preloader() {
          {isLoading && (
             <motion.div
                initial={{ opacity: 1 }}
-               exit={{ opacity: 0 }}
-               transition={{ duration: 0.8, ease: "easeOut" }}
+               exit={{ opacity: 0, scale: 1.05 }}
+               transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
                className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#0a0f1d] pointer-events-none"
             >
-               {/* The Core Container */}
-               <div className="relative w-full max-w-sm px-8 overflow-hidden flex flex-col items-center">
+               <div className="relative w-full px-12 md:px-24 flex flex-col items-start">
+                  
+                  {/* Top Label */}
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className="text-mono-label mb-2"
+                  >
+                    ( 00 ) BOOTING_IEEE_PORTAL
+                  </motion.div>
 
-                  {/* Top Logo Badge */}
-                  <div className="overflow-hidden mb-8">
-                     <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                     >
-                        <img
-                           src="/ieee-horizontal-logo.png"
-                           alt="IEEE SRM AP Logo"
-                           className="h-10 md:h-14 w-auto object-contain mx-auto"
-                        />
-                     </motion.div>
-                  </div>
+                  {/* Massive Counter */}
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                    className="font-display text-[clamp(80px,20vw,240px)] font-extralight text-blue-50 leading-none tracking-tighter flex items-baseline gap-4"
+                  >
+                    <span ref={numberRef}>0</span>
+                    <span className="text-[0.4em] text-ieee-cyan">%</span>
+                  </motion.div>
 
-                  {/* Center Precision Line */}
-                  <div className="w-full h-px bg-white/20 relative overflow-hidden mb-4">
-                     <motion.div
-                        initial={{ scaleX: 0, originX: 0 }}
-                        animate={{ scaleX: 1 }}
-                        exit={{ scaleX: 0, originX: 1 }} // Snaps beautifully out to the right on exit
-                        transition={{ duration: 2.2, ease: "easeInOut" }}
-                        className="absolute inset-0 bg-ieee-cyan"
-                     />
-                  </div>
-
-                  {/* Bottom Counter */}
-                  <div className="flex w-full justify-between items-center px-1 overflow-hidden">
-                     <motion.span
-                        initial={{ y: -20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-blue-200/50 text-[10px] font-body uppercase tracking-widest"
-                     >
-                        Loading Environment
-                     </motion.span>
-
-                     <motion.div
-                        initial={{ y: -20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-blue-50 text-[10px] font-mono tracking-wider flex items-center"
-                     >
-                        <span ref={numberRef}>0</span>%
-                     </motion.div>
+                  {/* Sub-label */}
+                  <div className="flex w-full justify-between items-end mt-4">
+                    <motion.span 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.8 }}
+                      className="text-mono-label max-w-[200px]"
+                    >
+                      EST. 2019 — SRM UNIVERSITY AP AMARAVATI CAMPUS
+                    </motion.span>
+                    <motion.div 
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 2.2, ease: "easeInOut" }}
+                      className="flex-1 h-px bg-white/10 mx-8 origin-left"
+                    />
+                    <motion.span 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                      className="text-mono-label"
+                    >
+                      v4.2.0_STABLE
+                    </motion.span>
                   </div>
 
                </div>

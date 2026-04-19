@@ -137,13 +137,12 @@ const Blog = () => {
             animate="visible"
           >
             <motion.div className="space-y-4" variants={itemVariants}>
-              <h2 className="section-index flex items-center gap-3">
-                <span className="w-12 h-[1px] bg-[#40B2D6]"></span> IEEE Insights
+              <h2 className="paren-index uppercase">
+                2025 // IEEE_SRM_AP // EDITORIAL_COLLECTION
               </h2>
-              <h1 className="font-display text-[clamp(44px,8vw,120px)] font-light leading-[0.9] tracking-tight text-blue-50">
-                Engineering.<br />
-                Research.<br />
-                <span className="text-[#40B2D6] italic">Innovation.</span>
+              <h1 className="editorial-headline text-blue-50 mb-12">
+                Voices of <br />
+                <span className="text-[#40B2D6] italic">Technology.</span>
               </h1>
             </motion.div>
             <motion.p 
@@ -199,13 +198,13 @@ const Blog = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1d] via-[#0a0f1d]/80 to-transparent"></div>
               
               <div className="relative p-10 md:p-20 max-w-4xl space-y-6">
-                <span className="section-index text-[#40B2D6] px-0">
-                  Featured Research
+                <span className="paren-index text-[#40B2D6] px-0 mb-4 bg-transparent border-none">
+                  RESEARCH_ACTIVATION_01
                 </span>
-                <h2 className="font-display text-[clamp(32px,5vw,64px)] font-medium leading-tight text-blue-50 group-hover:text-[#40B2D6] transition-colors">
+                <h2 className="text-editorial text-[clamp(40px,5vw,72px)] text-blue-50 group-hover:text-[#40B2D6] transition-colors uppercase italic leading-none mb-4">
                   {featuredPost.title}
                 </h2>
-                <p className="text-[16px] md:text-[18px] font-body text-blue-200/60 line-clamp-2 max-w-2xl leading-relaxed">
+                <p className="text-body-loose text-lg max-w-2xl">
                   {featuredPost.excerpt}
                 </p>
                 <div className="flex flex-wrap items-center justify-between gap-8 pt-8 border-t border-white/10">
@@ -301,7 +300,7 @@ const Blog = () => {
           {filteredPosts.filter(post => !post.featured).slice(0, visiblePosts).map((post, index) => (
             <motion.article
               key={post.id}
-              className="group relative bg-[#0e1e3a] border border-white/5 rounded-[2.5rem] overflow-hidden transition-all duration-500"
+              className="group indexed-card bg-[#0e1e3a] overflow-hidden transition-all duration-500"
               variants={itemVariants}
               whileHover={{ y: -8 }}
             >
@@ -312,7 +311,7 @@ const Blog = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0e1e3a] via-transparent to-transparent opacity-80"></div>
-                <span className="absolute top-6 left-6 section-index px-4 py-1.5 bg-white/5 border border-white/10 backdrop-blur-xl text-[#40B2D6] !rounded-full">
+                <span className="absolute top-6 left-6 paren-index px-3 py-1 bg-black/40 border border-white/10 backdrop-blur-xl text-[#40B2D6]">
                   {categories.find(cat => cat.id === post.category)?.name}
                 </span>
                 <button className="absolute top-6 right-6 w-10 h-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-blue-200/60 hover:text-[#40B2D6] transition-all active:scale-90">
@@ -322,10 +321,10 @@ const Blog = () => {
               
               <div className="p-8 space-y-6">
                 <div className="space-y-4">
-                  <h3 className="font-display text-[22px] font-medium leading-tight text-blue-50 group-hover:text-[#40B2D6] transition-colors">
+                  <h3 className="text-editorial text-2xl text-blue-50 group-hover:text-[#40B2D6] transition-colors uppercase italic mb-4">
                     {post.title}
                   </h3>
-                  <p className="text-[14px] font-body text-blue-200/60 line-clamp-3 leading-relaxed">
+                  <p className="text-body-loose text-xs line-clamp-3 leading-relaxed">
                     {post.excerpt}
                   </p>
                   <div className="flex flex-wrap gap-2">

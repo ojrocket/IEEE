@@ -18,13 +18,13 @@ export default function Footer() {
 
             <div className="flex gap-8 md:gap-24 font-body">
                <div className="flex flex-col gap-2">
-                  <span className="text-[11px] uppercase tracking-widest text-[#5a7fa8] mb-3 font-body">Explore</span>
+                  <span className="paren-wrap text-mono-label mb-4 uppercase">Explore</span>
                   <Link to="/about" className="text-[13px] text-blue-200 hover:text-[#40B2D6] transition-colors">About Us</Link>
                   <Link to="/executive-board" className="text-[13px] text-blue-200 hover:text-[#40B2D6] transition-colors">Executive Board</Link>
                   <Link to="/events" className="text-[13px] text-blue-200 hover:text-[#40B2D6] transition-colors">Events</Link>
                </div>
                <div className="flex flex-col gap-2">
-                  <span className="text-[11px] uppercase tracking-widest text-[#5a7fa8] mb-3 font-body">Connect</span>
+                  <span className="paren-wrap text-mono-label mb-4 uppercase">Connect</span>
                   <Link to="/join" className="text-[13px] text-blue-200 hover:text-[#40B2D6] transition-colors">Join IEEE</Link>
                   <a href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer" className="text-[13px] text-blue-200 hover:text-[#40B2D6] transition-colors">IEEE Global</a>
                </div>

@@ -305,6 +305,124 @@ main > *:first-child {
   margin-bottom: 0.5rem;
 }
 
+
 @media (pointer: coarse) {
   .custom-cursor { display: none; }
+}
+
+/* ════════════════════════════════════════════
+   ( ADCKER ) BRUTALIST-EDITORIAL SYSTEM
+   ════════════════════════════════════════════ */
+
+.paren-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.paren-wrap::before { content: '('; font-family: 'Outfit', sans-serif !important; }
+.paren-wrap::after  { content: ')'; font-family: 'Outfit', sans-serif !important; }
+.paren-wrap::before,
+.paren-wrap::after {
+  font-family: 'Outfit', serif;
+  font-size: 0.9em;
+  font-weight: 300;
+  color: var(--text-muted-c);
+  line-height: 1;
+}
+
+.paren-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted-c);
+}
+.paren-index::before { content: '('; color: #40B2D6; }
+.paren-index::after  { content: ')'; color: #40B2D6; }
+
+.text-editorial {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  font-weight: 300;
+}
+
+.text-mono-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted-c);
+}
+
+.text-body-loose {
+  font-family: 'Inter', sans-serif !important;
+  line-height: 1.8 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--text-muted-c);
+  font-weight: 300 !important;
+}
+
+/* ══════════ ELEMENT WRAPPERS ══════════ */
+
+.indexed-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--ieee-deep);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.indexed-card:hover { border-color: #40B2D6; }
+
+.editorial-headline {
+  font-size: clamp(64px, 12vw, 180px);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 200;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.editorial-word-row {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.flat-section-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: padding 0.4s ease;
+}
+.flat-section-row:hover {
+  padding-left: 1rem;
+  border-bottom-color: #40B2D6;
+}
+
+/* ══════════ GSAP REVEALS ══════════ */
+.reveal-up {
+  display: block;
+  overflow: hidden;
+}
+.reveal-up span {
+  display: block;
+}
+
+/* ══════════ OVERWRITES ══════════ */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr) !important;
+  gap: 1px !important;
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.05) !important;
+}
+.bento-card {
+  background: var(--ieee-deep) !important;
+  border: none !important;
+  border-radius: 0 !important;
 }

@@ -244,7 +244,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[999] bg-[#0a0f1d]/97 backdrop-blur-sm text-white flex flex-col items-center justify-center pt-20"
+            className="fixed inset-0 z-[999] bg-[#0a0f1d]/97 backdrop-blur-sm text-white flex flex-col items-center overflow-y-auto pt-32 pb-20"
           >
             <div className="flex flex-col gap-5 text-center">
               {navLinks.map((link, i) => {

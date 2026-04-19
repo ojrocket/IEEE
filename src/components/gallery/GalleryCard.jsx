@@ -26,23 +26,25 @@ const GalleryCard = ({ item, onClick, index }) => {
          transition: { duration: 0.3 } 
       }}
       onClick={() => onClick(item)}
-      className="glass-card p-3 cursor-pointer group transition-all duration-500"
+      className="indexed-card p-4 cursor-pointer group transition-all duration-500"
     >
-      <div className="relative aspect-[4/3] rounded-[16px] overflow-hidden mb-6">
+      <div className="relative aspect-[4/3] overflow-hidden mb-6">
         <img 
           src={item.image_url} 
           alt={item.title} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-[#0a0f1d]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute top-4 left-4 z-10">
+          <span className="paren-index backdrop-blur-sm bg-black/20 px-2 py-1">IMG_{String(index + 1).padStart(3, '0')}</span>
+        </div>
       </div>
       
       <div className="px-2 pb-2">
-        <h4 className="font-display text-[18px] font-medium text-blue-50 mb-2 tracking-tight line-clamp-1 group-hover:text-[#40B2D6] transition-colors">
+        <h4 className="text-editorial text-xl text-blue-50 mb-2 leading-none group-hover:text-[#40B2D6] transition-colors uppercase italic">
           {item.title}
         </h4>
-        <p className="text-[13px] font-body text-blue-200/50 leading-relaxed line-clamp-2">
+        <p className="text-body-loose text-xs line-clamp-2">
           {item.description}
         </p>
       </div>

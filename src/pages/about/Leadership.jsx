@@ -52,18 +52,18 @@ export default function Leadership() {
   return (
     <div ref={container} className="max-w-5xl touch-pan-y">
       {/* ── HEADER ── */}
-      <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-ieee-bright font-bold border border-ieee-bright/30 rounded-full px-3 py-1 inline-block mb-6">2025–2026 Term</span>
-      <h1 className="text-5xl md:text-7xl font-display font-light tracking-tighter mb-4 text-blue-50 leading-[0.95]">
+      <span className="paren-index mb-6">2025–2026 Term // BRANCH_LEADERS</span>
+      <h1 className="editorial-headline text-blue-50 mb-10">
         Our <span className="text-[#40B2D6] italic">Leadership.</span>
       </h1>
-      <p className="text-lg font-sans text-blue-200/60 leading-relaxed mb-16 max-w-2xl font-light">
+      <p className="text-body-loose text-lg max-w-2xl mb-20">
         The leaders who have shaped and continue to drive IEEE SRM AP forward.
       </p>
 
       {/* ── CURRENT LEADERS ── */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 leadership-grid mb-16">
         {leaders.map((leader, i) => (
-          <div key={i} className="leader-card group relative overflow-hidden rounded-2xl cursor-default transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
+          <div key={i} className="indexed-card leader-card group relative overflow-hidden cursor-default transition-all duration-500">
             <div className="relative aspect-[4/5] overflow-hidden">
               <img src={leader.img} alt={leader.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1d] via-[#0a0f1d]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
@@ -71,10 +71,10 @@ export default function Leadership() {
                 className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 hover:bg-[#0A66C2] hover:border-[#0A66C2]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
               </a>
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <h3 className="text-xl font-display font-medium text-white leading-tight mb-1">{leader.name}</h3>
-                <p className="font-sans text-[#40B2D6] text-xs uppercase tracking-[0.15em] font-bold mb-1">{leader.role}</p>
-                <p className="font-sans text-white/40 text-[11px] uppercase tracking-wider">{leader.dept}</p>
+              <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+                <h3 className="text-editorial text-2xl text-white leading-none mb-2 uppercase italic">{leader.name}</h3>
+                <p className="text-mono-label text-[#40B2D6] mb-1">{leader.role}</p>
+                <p className="text-mono-label text-white/30 text-[9px]">{leader.dept}</p>
               </div>
             </div>
           </div>
@@ -83,8 +83,8 @@ export default function Leadership() {
 
       {/* ── PAST LEADERS ── */}
       <div className="mb-16">
-        <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#40B2D6] font-bold block mb-4">Legacy</span>
-        <h2 className="text-2xl md:text-3xl font-display font-light text-blue-50 mb-8 tracking-tight">Past Leaders</h2>
+        <span className="paren-index mb-8">LEGACY_ARCHIVE_B2</span>
+        <h2 className="text-editorial text-[clamp(48px,8vw,90px)] text-blue-50 uppercase">Past Leaders</h2>
         <div className="relative pl-8 border-l-2 border-white/5">
           {pastLeaders.map((l, i) => (
             <div key={i} className="relative mb-8 last:mb-0 group">

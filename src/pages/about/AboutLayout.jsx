@@ -36,18 +36,17 @@ export default function AboutLayout() {
            })}
          </div>
 
-         {/* Sidebar Navigation */}
          <aside className="w-1/4 hidden md:block">
-            <div className="sticky top-40 flex flex-col gap-6">
-              <span className="section-index mb-4">About Us</span>
+            <div className="sticky top-40 flex flex-col gap-8">
+              <span className="paren-index mb-4 uppercase">ABT_DIRECTIVE_B4</span>
               {aboutLinks.map((link) => {
                  const isActive = location.pathname === link.path;
                  return (
                    <Link 
                      key={link.path}
                      to={link.path}
-                     className={`text-2xl font-display font-light transition-all ${
-                       isActive ? 'text-[#40B2D6] translate-x-2' : 'text-blue-200/60 hover:text-blue-50 hover:translate-x-1'
+                     className={`text-editorial text-4xl transition-all uppercase ${
+                       isActive ? 'text-[#40B2D6] italic' : 'text-blue-200/40 hover:text-blue-50'
                      }`}
                    >
                      {link.name}

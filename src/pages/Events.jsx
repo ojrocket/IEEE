@@ -48,27 +48,27 @@ const Events = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="section-index mb-8"
+              className="paren-index mb-10"
             >
-              IEEE SRM AP 24'
+              IEEE_SRM_AP // ACTIVATION_LIST
             </motion.div>
             
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-display text-[clamp(44px,6vw,84px)] font-light tracking-tight leading-[0.95] text-blue-50 mb-8"
+              className="editorial-headline text-blue-50 mb-12"
             >
-              Events at IEEE
+              Events<span className="text-[#40B2D6] italic">.archive</span>
             </motion.h1>
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-[17px] md:text-[20px] font-body text-blue-200/60 max-w-3xl mx-auto leading-relaxed mb-12"
+              className="text-body-loose text-[20px] max-w-3xl mx-auto mb-16"
             >
-              Discover our diverse range of events designed to inspire, challenge, and empower the next generation of innovators and engineers.
+              Discover our diverse range of activations designed to empower the next generation of innovators.
             </motion.p>
           </motion.div>
         </div>
@@ -109,7 +109,7 @@ const Events = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.8 }}
-                  className="group glass-card transition-all duration-500 overflow-hidden"
+                  className="indexed-card group transition-all duration-500 overflow-hidden"
                 >
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden">

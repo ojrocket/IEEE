@@ -187,10 +187,12 @@ const Gallery = () => {
           className="glass-card p-14 bg-gradient-to-br from-[#0a0f1d] to-[#0d152a] flex flex-col md:flex-row justify-between items-center gap-10 relative overflow-hidden group"
         >
           <div className="absolute top-0 right-0 w-[20rem] h-[20rem] bg-ieee-bright/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-          <div className="relative z-10">
-            <h2 className="font-display text-[clamp(32px,4vw,42px)] font-light mb-4 tracking-tight text-blue-50">Have photos to share?</h2>
-            <p className="text-[15px] font-body text-blue-200/60 max-w-lg leading-relaxed font-light">
-              Contributing to the IEEE archive is easy. Submit your high-quality captures from recent events to be featured in our official gallery.
+          <div className="relative z-10 w-full md:w-2/3">
+            <h2 className="text-editorial text-[clamp(44px,6vw,84px)] text-blue-50 mb-6 uppercase">
+              Capture the <span className="italic">moment.</span>
+            </h2>
+            <p className="text-body-loose text-sm max-w-lg mb-8 uppercase tracking-widest text-[#40B2D6]">
+              CONTRIBUTING TO THE IEEE ARCHIVE IS EASY. SUBMIT YOUR CAPTURES TO BE FEATURED.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto relative z-10">

@@ -64,10 +64,11 @@ export default function Governance() {
       transition={{ duration: 0.6 }}
       className="max-w-4xl"
     >
-      <h1 className="text-5xl md:text-7xl font-display font-light tracking-tighter mb-4 text-blue-50 leading-[0.95]">
-        Governance<span className="text-[#40B2D6]">.</span>
+      <span className="paren-index mb-6">ORG_PROTOCOL_B1</span>
+      <h1 className="editorial-headline text-blue-50 mb-10">
+        Governance<span className="text-[#40B2D6] lowercase italic">.core</span>
       </h1>
-      <p className="text-lg font-sans text-blue-200/60 leading-relaxed mb-16 max-w-2xl font-light">
+      <p className="text-body-loose text-lg max-w-2xl mb-20">
         Transparency, structured growth, and accountability form the pillars of our branch. Our governance framework ensures we remain steadfast to IEEE bylaws while adapting to the needs of a modern engineering community.
       </p>
 
@@ -75,13 +76,12 @@ export default function Governance() {
       <div className="mb-16">
         <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#40B2D6] font-bold block mb-4">Structure</span>
         <h2 className="text-2xl md:text-3xl font-display font-light text-blue-50 mb-8 tracking-tight">Organizational Hierarchy</h2>
-        <div className="relative pl-8 border-l-2 border-[#40B2D6]/20">
+        <div className="space-y-1">
           {orgHierarchy.map((level, i) => (
-            <div key={i} className="relative mb-6 last:mb-0 group">
-              <div className="absolute -left-[25px] top-1.5 w-3 h-3 rounded-full bg-[#0a0f1d] border-2 border-[#40B2D6]/40 group-hover:bg-[#40B2D6] group-hover:border-[#40B2D6] transition-colors duration-300" />
-              <div className="flex items-center gap-3">
-                <span className="text-[10px] font-mono text-[#40B2D6]/60 font-bold">{String(i + 1).padStart(2, '0')}</span>
-                <span className="font-sans text-blue-200/80 text-base font-medium">{level}</span>
+            <div key={i} className="flat-section-row group cursor-default">
+              <div className="flex items-center gap-6">
+                <span className="paren-index uppercase">Lvl_{String(i + 1).padStart(2, '0')}</span>
+                <span className="text-editorial text-2xl text-blue-50 uppercase">{level}</span>
               </div>
             </div>
           ))}
@@ -92,7 +92,7 @@ export default function Governance() {
       <div className="mb-16">
         <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#40B2D6] font-bold block mb-4">Documents</span>
         <h2 className="text-2xl md:text-3xl font-display font-light text-blue-50 mb-8 tracking-tight">Key Documents</h2>
-        <div className="space-y-4">
+        <div className="space-y-2">
           {keyDocuments.map((doc, i) => {
             const Icon = doc.icon;
             return (
@@ -101,14 +101,16 @@ export default function Governance() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.08 + 0.3 }}
-                className="group flex gap-6 p-6 md:p-8 rounded-xl border border-white/5 hover:border-[#40B2D6]/20 bg-white/5 transition-all duration-300 glass-card"
+                className="flat-section-row group cursor-pointer"
               >
-                <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-[#40B2D6]/10 transition-colors duration-300">
-                  <Icon size={20} className="text-blue-200/30 group-hover:text-[#40B2D6] transition-colors duration-300" />
-                </div>
-                <div>
-                  <h3 className="text-xl md:text-2xl font-display font-medium text-blue-50 mb-2">{doc.title}</h3>
-                  <p className="text-blue-200/50 leading-relaxed text-sm md:text-base font-light">{doc.desc}</p>
+                <div className="flex gap-8 items-center">
+                  <div className="w-16 h-16 border border-white/5 flex items-center justify-center flex-shrink-0 group-hover:border-[#40B2D6]/40 transition-colors duration-300">
+                    <Icon size={24} className="text-blue-200/30 group-hover:text-[#40B2D6] transition-colors duration-300" />
+                  </div>
+                  <div>
+                    <h3 className="text-editorial text-3xl text-blue-50 mb-2 uppercase italic">{doc.title}</h3>
+                    <p className="text-body-loose text-sm max-w-xl">{doc.desc}</p>
+                  </div>
                 </div>
               </motion.div>
             );
