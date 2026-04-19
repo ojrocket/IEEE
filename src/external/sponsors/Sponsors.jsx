@@ -88,7 +88,7 @@ const Sponsors = () => {
         ref={preloaderRef}
         style={{
           position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh',
-          backgroundColor: 'var(--color-deep-navy)', zIndex: 9999,
+          backgroundColor: '#0a0f1d', zIndex: 9999,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           overflow: 'hidden'
         }}
@@ -100,11 +100,11 @@ const Sponsors = () => {
 
       <AnimatedHero />
 
-      <section className="section" style={{ paddingTop: '80px', paddingBottom: '120px', background: 'linear-gradient(180deg, #f8fafc 0%, #e0f2fe 100%)', marginTop: '-2px' }}>
+      <section className="section bg-[#0a0f1d]" style={{ paddingTop: '80px', paddingBottom: '120px', marginTop: '-2px' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-            <h2 style={{ color: '#1e3a8a', fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-1px', margin: '0 0 16px' }}>Our Valued Partners</h2>
-            <p style={{ color: '#475569', fontSize: '1.1rem', maxWidth: '500px', margin: '0 auto', lineHeight: '1.7' }}>
+            <h2 className="font-display" style={{ color: '#F1F5F9', fontSize: 'clamp(32px, 5vw, 48px)', fontWeight: 300, letterSpacing: '-1px', margin: '0 0 16px' }}>Our Valued Partners</h2>
+            <p className="font-body" style={{ color: 'rgba(200, 223, 245, 0.6)', fontSize: '1.1rem', maxWidth: '500px', margin: '0 auto', lineHeight: '1.7' }}>
               World-class organizations driving innovation alongside IEEE.
             </p>
           </div>
@@ -120,13 +120,13 @@ const Sponsors = () => {
 
       <section 
         className="marquee-section"
-        style={{ background: '#f1f5f9', padding: '80px 0', overflow: 'hidden', position: 'relative', transform: 'rotate(-2deg) scale(1.05)', marginTop: '40px' }}
+        style={{ background: '#0a0f1d', padding: '80px 0', overflow: 'hidden', position: 'relative', transform: 'rotate(-2deg) scale(1.05)', marginTop: '40px' }}
       >
-        <div style={{ position: 'absolute', left: 0, top: 0, width: '20%', height: '100%', background: 'linear-gradient(90deg, #f1f5f9 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}></div>
-        <div style={{ position: 'absolute', right: 0, top: 0, width: '20%', height: '100%', background: 'linear-gradient(-90deg, #f1f5f9 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', left: 0, top: 0, width: '20%', height: '100%', background: 'linear-gradient(90deg, #0a0f1d 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', right: 0, top: 0, width: '20%', height: '100%', background: 'linear-gradient(-90deg, #0a0f1d 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}></div>
         
         <div className="container flex justify-center text-elem" style={{ marginBottom: '40px', transform: 'rotate(2deg)' }}>
-          <h4 style={{ color: '#0284c7', fontSize: '1rem', letterSpacing: '8px', textTransform: 'uppercase', opacity: 0.9, fontWeight: 700 }}>Alliance Network</h4>
+          <h4 className="section-index" style={{ color: '#40B2D6', fontSize: '1rem', letterSpacing: '8px', textTransform: 'uppercase', opacity: 0.9, fontWeight: 700 }}>Alliance Network</h4>
         </div>
 
         <div 
@@ -137,22 +137,11 @@ const Sponsors = () => {
           onMouseLeave={handleMarqueeLeave}
         >
           {[...minorSponsors, ...minorSponsors].map((sponsor, index) => (
-            <div key={index} className="flex align-center" style={{ 
+            <div key={index} className="flex items-center" style={{ 
                 padding: '0 50px', flexShrink: 0, opacity: 0.6, transition: 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.opacity = '1';
-                e.currentTarget.style.transform = 'scale(1.1) skewX(-10deg)';
-                e.currentTarget.style.color = '#0284c7';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.opacity = '0.6';
-                e.currentTarget.style.transform = 'scale(1) skewX(0deg)';
-                e.currentTarget.style.color = '#334155';
-              }}
-            >
-              <div style={{ width: '40px', height: '40px', background: '#0ea5e9', opacity: 0.7, borderRadius: '4px', marginRight: '20px', transform: 'rotate(45deg)' }}></div>
-              <span style={{ color: '#334155', fontSize: '1.8rem', fontWeight: 800, letterSpacing: '-0.5px' }}>{sponsor}</span>
+              }}>
+              <div style={{ width: '40px', height: '40px', background: '#3C72B0', opacity: 0.7, borderRadius: '4px', marginRight: '20px', transform: 'rotate(45deg)' }}></div>
+              <span className="font-display" style={{ color: 'rgba(200, 223, 245, 0.4)', fontSize: '1.8rem', fontWeight: 300, letterSpacing: '-0.5px' }}>{sponsor}</span>
             </div>
           ))}
         </div>

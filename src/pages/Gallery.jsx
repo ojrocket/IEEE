@@ -162,7 +162,7 @@ const Gallery = () => {
   }, [activeFilter, filteredItems]);
 
   return (
-    <main className="bg-bg-light font-poppins min-h-screen">
+    <main className="bg-[#0a0f1d] font-body min-h-screen">
       <GalleryHero />
       <FilterBar activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
 
@@ -184,26 +184,27 @@ const Gallery = () => {
       {/* CTA Section (From Design) */}
       <section className="py-24 container mx-auto px-6 max-w-6xl">
         <motion.div 
-          className="bg-ieee-deep p-14 rounded-card flex flex-col md:flex-row justify-between items-center gap-10 border border-ieee-bright/20"
+          className="glass-card p-14 bg-gradient-to-br from-[#0a0f1d] to-[#0d152a] flex flex-col md:flex-row justify-between items-center gap-10 relative overflow-hidden group"
         >
-          <div className="text-white">
-            <h2 className="text-4xl font-semibold mb-4 tracking-tight uppercase">Have photos to share?</h2>
-            <p className="text-white/75 max-w-lg leading-relaxed font-light">
+          <div className="absolute top-0 right-0 w-[20rem] h-[20rem] bg-ieee-bright/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+          <div className="relative z-10">
+            <h2 className="font-display text-[clamp(32px,4vw,42px)] font-light mb-4 tracking-tight text-blue-50">Have photos to share?</h2>
+            <p className="text-[15px] font-body text-blue-200/60 max-w-lg leading-relaxed font-light">
               Contributing to the IEEE archive is easy. Submit your high-quality captures from recent events to be featured in our official gallery.
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+          <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto relative z-10">
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 bg-ieee-bright text-white rounded-full font-semibold text-xs uppercase tracking-[0.12em] hover:bg-ieee-cyan transition-all"
+              className="ieee-btn-primary px-10 py-4 flex items-center justify-center"
             >
               Submit Photos
             </motion.button>
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 bg-transparent border border-white/35 text-white rounded-full font-semibold text-xs uppercase tracking-[0.12em] hover:border-ieee-cyan hover:text-ieee-cyan transition-all"
+              className="ieee-btn-outline px-10 py-4 flex items-center justify-center"
             >
               Volunteer Photographer
             </motion.button>

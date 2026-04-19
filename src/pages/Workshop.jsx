@@ -9,15 +9,15 @@ import { CheckCircle, ChevronDown } from 'lucide-react';
 
 const FAQItem = ({ faq, isOpen, onClick }) => {
   return (
-    <div className="border-t border-ieee-deep/10 first:border-t-0">
+    <div className="border-t border-white/5 first:border-t-0 font-body">
       <button
         onClick={onClick}
         className="w-full py-8 flex items-center justify-between text-left group transition-colors"
       >
-        <span className={`text-lg font-semibold tracking-tight transition-colors ${isOpen ? 'text-ieee-bright' : 'text-ieee-deep group-hover:text-ieee-bright'}`}>
+        <span className={`text-lg font-medium tracking-tight transition-colors ${isOpen ? 'text-[#40B2D6]' : 'text-blue-50 group-hover:text-[#40B2D6]'}`}>
           {faq.question}
         </span>
-        <ChevronDown className={`w-5 h-5 text-ieee-bright transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-5 h-5 text-[#40B2D6] transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -28,7 +28,7 @@ const FAQItem = ({ faq, isOpen, onClick }) => {
             transition={{ duration: 0.5, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <p className="pb-8 text-[#55627a] font-medium leading-relaxed max-w-3xl">
+            <p className="pb-8 text-blue-200/60 font-medium leading-relaxed max-w-3xl">
               {faq.answer}
             </p>
           </motion.div>
@@ -48,38 +48,38 @@ const Workshop = () => {
   ];
 
   return (
-    <div className="bg-white text-ieee-deep">
+    <div className="bg-[#0a0f1d] text-blue-50 font-body">
       <WorkshopHero />
 
-      <section className="bg-ieee-deep border-t border-ieee-bright/20 border-b border-ieee-bright/20">
+      <section className="bg-[#0a0f1d] border-t border-white/5 border-b border-white/5">
         <WorkshopQuickInfo />
       </section>
 
-      <section className="bg-white border-b border-ieee-deep/10">
+      <section className="bg-[#0a0f1d] border-b border-white/5">
         <SpeakersSection />
       </section>
 
-      <section className="bg-ieee-deep border-b border-ieee-bright/20">
+      <section className="bg-[#0a0f1d] border-b border-white/5">
         <AgendaSection />
       </section>
 
-      <section className="bg-white border-b border-ieee-deep/10">
+      <section className="bg-[#0a0f1d] border-b border-white/5">
         <LearningOutcomes />
       </section>
 
       {/* Who Can Attend Section */}
-      <section className="py-24 bg-ieee-deep border-t border-ieee-bright/20 overflow-hidden">
+      <section className="py-24 bg-[#0a0f1d] border-t border-white/5 overflow-hidden">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-20">
+          <div className="text-center mb-20 space-y-4">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl font-semibold uppercase tracking-[0.16em] text-white mb-4"
+              className="section-index mx-auto"
             >
               Who Can Attend?
             </motion.h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-ieee-bright to-ieee-cyan mx-auto rounded-full" />
+            <div className="w-16 h-1 bg-[#40B2D6] mx-auto rounded-full" />
           </div>
 
           <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
@@ -97,19 +97,19 @@ const Workshop = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="p-6 rounded-2xl bg-ieee-bright/14 border border-ieee-cyan/25 flex items-center group transition-all"
+                    className="p-6 rounded-2xl glass-card border border-white/5 flex items-center group transition-all"
                   >
-                    <CheckCircle className="w-5 h-5 text-ieee-cyan mr-6 transition-colors" />
-                    <span className="text-white/90 font-medium transition-colors">{text}</span>
+                    <CheckCircle className="w-5 h-5 text-[#40B2D6] mr-6 transition-colors" />
+                    <span className="text-blue-200/60 font-medium transition-colors">{text}</span>
                   </motion.div>
                 ))}
              </div>
              
              <div className="relative group">
-                <div className="relative p-12 rounded-[36px] bg-ieee-deep border border-ieee-bright/20 text-center">
-                   <h3 className="text-3xl font-semibold text-white mb-6 uppercase tracking-tight">Reserve Your Spot</h3>
-                   <p className="text-white/75 mb-10 font-medium">Early bird registration ends in 48 hours. Secure your seat now.</p>
-                   <button className="w-full py-4 bg-ieee-bright text-white rounded-full font-semibold text-xs uppercase tracking-[0.2em] hover:bg-ieee-cyan transition-all">
+                <div className="relative p-12 rounded-[36px] glass-card border border-white/5 text-center">
+                   <h3 className="font-display text-3xl font-light text-blue-50 mb-6 uppercase tracking-tight">Reserve Your Spot</h3>
+                   <p className="text-blue-200/40 mb-10 font-light">Early bird registration ends in 48 hours. Secure your seat now.</p>
+                   <button className="ieee-btn-primary w-full py-4 text-xs tracking-widest uppercase">
                      Register Now
                    </button>
                 </div>
@@ -120,19 +120,19 @@ const Workshop = () => {
 
       {/* FAQ Section */}
       <section className="py-24 container mx-auto px-6 max-w-4xl">
-         <div className="text-center mb-20">
+         <div className="text-center mb-20 space-y-4">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl font-semibold uppercase tracking-[0.16em] text-ieee-deep mb-4"
+              className="section-index mx-auto"
             >
               Frequently Asked Questions
             </motion.h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-ieee-bright to-ieee-cyan mx-auto rounded-full" />
+            <div className="w-16 h-1 bg-[#40B2D6] mx-auto rounded-full" />
           </div>
 
-          <div className="border-b border-ieee-deep/10">
+          <div className="border-b border-white/5">
             {faqs.map((faq, i) => (
               <FAQItem 
                 key={i} 

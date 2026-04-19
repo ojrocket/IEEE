@@ -11,14 +11,14 @@ const ScheduleItem = ({ item, index }) => {
     >
       <div className="absolute left-[7px] top-6 w-3 h-3 rounded-full bg-white border border-ieee-bright z-10 group-hover:bg-ieee-cyan transition-all" />
       
-      <div className="tf-card p-6 rounded-2xl bg-white border border-ieee-deep/12 group-hover:border-ieee-bright/30 transition-all">
+      <div className="glass-card p-6 rounded-2xl border border-white/5 group-hover:border-[#40B2D6]/30 transition-all">
         <div className="flex justify-between items-start mb-3">
-          <h4 className="text-lg font-semibold text-ieee-deep tracking-tight">{item.title}</h4>
-          <span className={`text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-ieee-deep ${item.color} border border-ieee-bright/30`}>
+          <h4 className="text-lg font-medium text-blue-50 tracking-tight">{item.title}</h4>
+          <span className={`text-[10px] font-medium uppercase tracking-[0.2em] px-3 py-1 rounded-full bg-white/10 ${item.color} border border-white/10`}>
             {item.time}
           </span>
         </div>
-        <p className="text-[#55637c] text-sm leading-relaxed">{item.description}</p>
+        <p className="text-blue-200/60 text-sm leading-relaxed">{item.description}</p>
       </div>
     </motion.div>
   );
@@ -40,26 +40,26 @@ const TechFestSchedule = () => {
   ];
 
   return (
-    <section className="py-24 bg-ieee-deep relative overflow-hidden">
+    <section className="py-24 bg-[#0a0f1d] relative overflow-hidden font-body">
       <div className="container mx-auto px-6 max-w-4xl">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 space-y-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-black text-white mb-4 uppercase tracking-[0.3em]"
+            className="section-index mx-auto"
           >
             Event Schedule
           </motion.h2>
-          <div className="w-16 h-1 bg-ieee-cyan mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-[#40B2D6] mx-auto rounded-full" />
         </div>
 
         <div className="relative border-l-2 border-white/5 ml-4">
           {/* Day 1 */}
           <div className="mb-16 ml-8 relative pt-2">
-            <div className="absolute -left-[45px] top-6 w-6 h-6 rounded-full bg-ieee-bright ring-8 ring-ieee-deep shadow-[0_0_20px_rgba(10,102,194,0.5)]" />
-            <h3 className="text-2xl font-black text-ieee-cyan mb-1 uppercase tracking-widest">Day 1: Genesis</h3>
-            <p className="text-slate-500 text-xs font-black uppercase tracking-[0.2em] mb-10">October 15, 2026</p>
+            <div className="absolute -left-[45px] top-6 w-6 h-6 rounded-full bg-[#3C72B0] ring-8 ring-[#0a0f1d] shadow-[0_0_20px_rgba(60,114,176,0.5)]" />
+            <h3 className="text-2xl font-medium text-[#40B2D6] mb-1 uppercase tracking-widest">Day 1: Genesis</h3>
+            <p className="text-blue-200/20 text-[10px] font-medium uppercase tracking-[0.2em] mb-10">October 15, 2026</p>
             <div className="space-y-6">
               {day1.map((item, i) => (
                 <ScheduleItem key={i} item={item} index={i} />
@@ -69,9 +69,9 @@ const TechFestSchedule = () => {
 
           {/* Day 2 */}
           <div className="ml-8 relative pt-2">
-            <div className="absolute -left-[45px] top-6 w-6 h-6 rounded-full bg-ieee-cyan ring-8 ring-ieee-deep shadow-[0_0_20px_rgba(0,194,255,0.5)]" />
-            <h3 className="text-2xl font-black text-ieee-cyan mb-1 uppercase tracking-widest">Day 2: Zenith</h3>
-            <p className="text-slate-500 text-xs font-black uppercase tracking-[0.2em] mb-10">October 16, 2026</p>
+            <div className="absolute -left-[45px] top-6 w-6 h-6 rounded-full bg-[#40B2D6] ring-8 ring-[#0a0f1d] shadow-[0_0_20px_rgba(64,178,214,0.5)]" />
+            <h3 className="text-2xl font-medium text-[#40B2D6] mb-1 uppercase tracking-widest">Day 2: Zenith</h3>
+            <p className="text-blue-200/20 text-[10px] font-medium uppercase tracking-[0.2em] mb-10">October 16, 2026</p>
             <div className="space-y-6">
               {day2.map((item, i) => (
                 <ScheduleItem key={i} item={item} index={i} />

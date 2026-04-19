@@ -28,7 +28,7 @@ function ParticleUniverse() {
       <Points ref={ref} positions={points} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
-          color="#00c2ff"
+          color="#3C72B0"
           size={0.05}
           sizeAttenuation={true}
           depthWrite={false}

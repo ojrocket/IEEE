@@ -53,10 +53,10 @@ export default function Leadership() {
     <div ref={container} className="max-w-5xl touch-pan-y">
       {/* ── HEADER ── */}
       <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-ieee-bright font-bold border border-ieee-bright/30 rounded-full px-3 py-1 inline-block mb-6">2025–2026 Term</span>
-      <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter mb-4 text-ieee-deep leading-[0.95]">
-        Our <span className="text-ieee-bright italic">Leadership.</span>
+      <h1 className="text-5xl md:text-7xl font-display font-light tracking-tighter mb-4 text-blue-50 leading-[0.95]">
+        Our <span className="text-[#40B2D6] italic">Leadership.</span>
       </h1>
-      <p className="text-lg font-sans text-ieee-deep/60 leading-relaxed mb-16 max-w-2xl">
+      <p className="text-lg font-sans text-blue-200/60 leading-relaxed mb-16 max-w-2xl font-light">
         The leaders who have shaped and continue to drive IEEE SRM AP forward.
       </p>
 
@@ -66,14 +66,14 @@ export default function Leadership() {
           <div key={i} className="leader-card group relative overflow-hidden rounded-2xl cursor-default transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
             <div className="relative aspect-[4/5] overflow-hidden">
               <img src={leader.img} alt={leader.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ieee-deep via-ieee-deep/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1d] via-[#0a0f1d]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
               <a href={leader.linkedin} target="_blank" rel="noopener noreferrer"
                 className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 hover:bg-[#0A66C2] hover:border-[#0A66C2]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
               </a>
               <div className="absolute bottom-0 left-0 right-0 p-5">
-                <h3 className="text-xl font-display font-bold text-white leading-tight mb-1">{leader.name}</h3>
-                <p className="font-sans text-ieee-cyan text-xs uppercase tracking-[0.15em] font-bold mb-1">{leader.role}</p>
+                <h3 className="text-xl font-display font-medium text-white leading-tight mb-1">{leader.name}</h3>
+                <p className="font-sans text-[#40B2D6] text-xs uppercase tracking-[0.15em] font-bold mb-1">{leader.role}</p>
                 <p className="font-sans text-white/40 text-[11px] uppercase tracking-wider">{leader.dept}</p>
               </div>
             </div>
@@ -83,15 +83,15 @@ export default function Leadership() {
 
       {/* ── PAST LEADERS ── */}
       <div className="mb-16">
-        <span className="text-xs font-sans uppercase tracking-[0.3em] text-ieee-bright font-bold block mb-4">Legacy</span>
-        <h2 className="text-2xl md:text-3xl font-display font-bold text-ieee-deep mb-8 tracking-tight">Past Leaders</h2>
-        <div className="relative pl-8 border-l-2 border-ieee-deep/10">
+        <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#40B2D6] font-bold block mb-4">Legacy</span>
+        <h2 className="text-2xl md:text-3xl font-display font-light text-blue-50 mb-8 tracking-tight">Past Leaders</h2>
+        <div className="relative pl-8 border-l-2 border-white/5">
           {pastLeaders.map((l, i) => (
             <div key={i} className="relative mb-8 last:mb-0 group">
-              <div className="absolute -left-[25px] top-1 w-3 h-3 rounded-full bg-ieee-slate border-2 border-ieee-deep/20 group-hover:bg-ieee-bright group-hover:border-ieee-bright transition-colors duration-300" />
-              <span className="text-sm font-mono text-ieee-bright font-bold block mb-1">{l.year}</span>
-              <h4 className="text-lg font-display font-bold text-ieee-deep mb-1">{l.name}</h4>
-              <p className="font-sans text-ieee-deep/50 text-sm leading-relaxed">{l.desc}</p>
+              <div className="absolute -left-[25px] top-1 w-3 h-3 rounded-full bg-[#0a0f1d] border-2 border-white/20 group-hover:bg-[#40B2D6] group-hover:border-[#40B2D6] transition-colors duration-300" />
+              <span className="text-sm font-mono text-[#40B2D6] font-bold block mb-1">{l.year}</span>
+              <h4 className="text-lg font-display font-medium text-blue-50 mb-1">{l.name}</h4>
+              <p className="font-sans text-blue-200/60 text-sm leading-relaxed">{l.desc}</p>
             </div>
           ))}
         </div>
@@ -99,25 +99,26 @@ export default function Leadership() {
 
       {/* ── LEADERSHIP VALUES ── */}
       <div className="mb-16">
-        <span className="text-xs font-sans uppercase tracking-[0.3em] text-ieee-bright font-bold block mb-4">What Drives Us</span>
-        <h2 className="text-2xl md:text-3xl font-display font-bold text-ieee-deep mb-8 tracking-tight">Leadership Values</h2>
+        <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#40B2D6] font-bold block mb-4">What Drives Us</span>
+        <h2 className="text-2xl md:text-3xl font-display font-light text-blue-50 mb-8 tracking-tight">Leadership Values</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {leadershipValues.map((v, i) => (
-            <div key={i} className="p-6 rounded-xl border border-ieee-deep/5 hover:border-ieee-bright/20 transition-all duration-300 text-center">
-              <h4 className="font-display font-bold text-ieee-deep text-lg mb-2">{v.title}</h4>
-              <p className="font-sans text-ieee-deep/50 text-sm leading-relaxed">{v.desc}</p>
+            <div key={i} className="p-6 rounded-xl border border-white/5 hover:border-[#40B2D6]/20 transition-all duration-300 text-center glass-card">
+              <h4 className="font-display font-medium text-blue-50 text-lg mb-2">{v.title}</h4>
+              <p className="font-sans text-blue-200/50 text-sm leading-relaxed">{v.desc}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── CTA ── */}
-      <div className="p-8 md:p-12 rounded-2xl bg-gradient-to-br from-ieee-bright to-blue-700 text-white">
-        <h3 className="text-2xl md:text-3xl font-display font-bold mb-4">Ready to Lead?</h3>
-        <p className="font-sans text-white/60 mb-8 max-w-xl leading-relaxed">Join IEEE SRM AP and build your path to leadership.</p>
-        <div className="flex flex-wrap gap-4">
+      <div className="p-8 md:p-12 rounded-2xl bg-gradient-to-br from-[#3C72B0] to-blue-700 text-white relative overflow-hidden group">
+        <div className="absolute top-0 right-0 w-[20rem] h-[20rem] bg-ieee-bright/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+        <h3 className="text-2xl md:text-4xl font-display font-light mb-4 relative z-10 text-white tracking-tight">Ready to Lead?</h3>
+        <p className="font-sans text-white/70 mb-8 max-w-xl leading-relaxed relative z-10 font-light">Join IEEE SRM AP and build your path to leadership.</p>
+        <div className="flex flex-wrap gap-4 relative z-10">
           <a href="https://www.ieee.org/membership/join/index.html" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-ieee-deep px-6 py-3 rounded-full font-sans text-sm uppercase tracking-[0.15em] font-bold hover:-translate-y-0.5 transition-all duration-300">
+            className="group flex items-center justify-center gap-2 ieee-btn-primary !bg-white !text-[#0a0f1d] hover:!bg-blue-50 transition-all">
             Join IEEE SRM AP <ArrowRight size={16} />
           </a>
           <Link to="/executive-board"

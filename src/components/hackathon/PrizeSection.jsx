@@ -9,16 +9,16 @@ const PrizeCard = ({ prize, index }) => {
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
       whileHover={{ y: -10 }}
-      className={`relative p-8 rounded-[28px] bg-white border transition-all duration-500 group flex flex-col items-center text-center ${
+      className={`relative p-8 rounded-[28px] glass-card border transition-all duration-500 group flex flex-col items-center text-center ${
         prize.featured 
         ? 'border-yellow-500/40 shadow-[0_18px_40px_rgba(234,179,8,0.12)] scale-105 z-10' 
-        : 'border-ieee-deep/12 hover:border-ieee-bright/30'
+        : 'border-white/5 hover:border-[#40B2D6]/30'
       }`}
     >
       <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-6 border transition-all duration-500 ${
         prize.featured 
         ? 'bg-yellow-500/10 border-yellow-500/20 group-hover:bg-yellow-500/20' 
-        : 'bg-white border-ieee-deep/12 group-hover:bg-ieee-cyan/10 group-hover:border-ieee-cyan/30'
+        : 'bg-white/5 border-white/10 group-hover:bg-[#40B2D6]/10 group-hover:border-[#40B2D6]/30'
       }`}>
         <prize.icon className={`w-10 h-10 ${prize.color} drop-shadow-lg group-hover:scale-110 transition-transform`} />
       </div>
@@ -26,10 +26,10 @@ const PrizeCard = ({ prize, index }) => {
       <span className={`text-[10px] font-black uppercase tracking-[0.3em] mb-2 ${prize.color}`}>
         {prize.rank}
       </span>
-      <h3 className="text-4xl font-semibold text-ieee-deep mb-3">
+      <h3 className="text-4xl font-display font-medium text-blue-50 mb-3">
         {prize.amount}
       </h3>
-      <p className="text-[#57657f] text-xs font-semibold uppercase tracking-widest">
+      <p className="text-blue-200/40 text-[10px] font-medium uppercase tracking-widest">
         {prize.extras}
       </p>
 
@@ -51,9 +51,9 @@ const PrizeSection = () => {
 
   return (
     <div className="space-y-16">
-      <div className="text-center">
-        <h3 className="text-2xl font-semibold text-ieee-deep mb-2 uppercase tracking-widest">Prizes & Rewards</h3>
-        <p className="text-[#5c6982] text-sm font-medium uppercase tracking-[0.2em]">Competitions with massive stakes</p>
+      <div className="text-center space-y-4">
+        <h3 className="section-index mx-auto">Prizes & Rewards</h3>
+        <p className="text-blue-200/40 text-[11px] font-medium uppercase tracking-[0.2em]">Competitions with massive stakes</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
@@ -63,8 +63,8 @@ const PrizeSection = () => {
         <PrizeCard prize={prizes[2]} index={2} />
       </div>
 
-      <div className="bg-white p-8 rounded-3xl border-l-4 border-ieee-cyan border border-ieee-deep/10">
-        <h4 className="text-ieee-deep font-semibold mb-6 text-lg">Judging Criteria</h4>
+      <div className="glass-card p-8 border-l-4 border-[#40B2D6] border border-white/5">
+        <h4 className="text-blue-50 font-medium mb-6 text-lg uppercase tracking-widest">Judging Criteria</h4>
         <div className="space-y-6">
           {[
             { label: 'Innovation & Creativity', val: '30%', w: 'w-[30%]' },
@@ -73,17 +73,17 @@ const PrizeSection = () => {
             { label: 'Presentation & UI/UX', val: '20%', w: 'w-[20%]' },
           ].map((item) => (
             <div key={item.label}>
-              <div className="flex justify-between text-xs font-semibold text-[#5a6781] uppercase tracking-widest mb-2">
+              <div className="flex justify-between text-[10px] font-medium text-blue-200/40 uppercase tracking-widest mb-2">
                 <span>{item.label}</span>
-                <span className="text-ieee-bright">{item.val}</span>
+                <span className="text-[#40B2D6]">{item.val}</span>
               </div>
-              <div className="h-2 bg-white rounded-full overflow-hidden border border-ieee-deep/10">
+              <div className="h-2 bg-white/5 rounded-full overflow-hidden border border-white/10">
                 <motion.div 
                   initial={{ width: 0 }}
                   whileInView={{ width: item.val }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.5, ease: "easeOut" }}
-                  className="h-full bg-gradient-to-r from-ieee-bright to-ieee-cyan" 
+                  className="h-full bg-gradient-to-r from-blue-600 to-[#40B2D6]" 
                 />
               </div>
             </div>

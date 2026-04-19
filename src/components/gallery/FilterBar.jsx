@@ -8,7 +8,7 @@ const FilterBar = ({ activeFilter, setActiveFilter }) => {
       <motion.div 
         animate={{ y: [0, -5, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="glass-pill p-2 flex gap-2 shadow-2xl hover:shadow-ieee-cyan/20 transition-all duration-700"
+        className="glass-card !rounded-full p-2 flex gap-2 shadow-2xl hover:shadow-[#40B2D6]/20 transition-all duration-700"
       >
         {filters.map((f, i) => (
           <motion.button
@@ -22,14 +22,14 @@ const FilterBar = ({ activeFilter, setActiveFilter }) => {
             className="relative px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest transition-all overflow-hidden group"
           >
             <span className={`relative z-10 transition-colors duration-300 ${
-              activeFilter === f ? 'text-white' : 'text-slate-500 group-hover:text-ieee-dark'
+              activeFilter === f ? 'text-blue-50' : 'text-blue-200/40 group-hover:text-blue-200'
             }`}>
               {f}
             </span>
             {activeFilter === f && (
               <motion.div
                 layoutId="activeFilter"
-                className="absolute inset-0 bg-ieee-dark shadow-lg shadow-ieee-dark/20"
+                className="absolute inset-0 bg-[#40B2D6] shadow-lg shadow-[#40B2D6]/20"
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
             )}

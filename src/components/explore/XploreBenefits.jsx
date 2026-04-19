@@ -9,13 +9,13 @@ const BenefitCard = ({ benefit, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="p-10 rounded-[40px] glass-enhanced border border-ieee-deep/12 hover:border-ieee-cyan/35 transition-all duration-500 group"
+      className="p-10 rounded-[40px] glass-card border border-white/5 hover:border-[#40B2D6]/35 transition-all duration-500 group font-body"
     >
-      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 border transition-all duration-500 ${benefit.color} bg-white group-hover:scale-110`}>
+      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 border transition-all duration-500 ${benefit.color} bg-white/5 border-white/10 backdrop-blur-xl group-hover:scale-110`}>
         <Icon className="w-6 h-6" />
       </div>
-      <h3 className="text-xl font-semibold text-ieee-deep mb-4 tracking-tight group-hover:text-ieee-bright transition-colors">{benefit.title}</h3>
-      <p className="text-[#55637c] text-sm leading-relaxed font-medium">
+      <h3 className="text-xl font-medium text-blue-50 mb-4 tracking-tight group-hover:text-[#40B2D6] transition-colors">{benefit.title}</h3>
+      <p className="text-blue-200/60 text-sm leading-relaxed font-light">
         {benefit.description}
       </p>
     </motion.div>
@@ -51,18 +51,18 @@ const XploreBenefits = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#0f172a] border-y border-white/5">
+    <section className="py-24 bg-[#0a0f1d] border-y border-white/5">
       <div className="container mx-auto px-6 max-w-6xl">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 space-y-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-black text-white mb-4 uppercase tracking-tight"
+            className="section-index mx-auto"
           >
             Why IEEE Xplore Matters
           </motion.h2>
-          <div className="w-16 h-1 bg-ieee-bright mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-[#40B2D6] mx-auto rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">

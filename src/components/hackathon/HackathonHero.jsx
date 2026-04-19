@@ -20,7 +20,7 @@ const HackathonHero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[82vh] flex items-center justify-center pt-28 pb-14 px-6 overflow-hidden bg-white border-b border-ieee-deep/10">
+    <section className="relative min-h-[82vh] flex items-center justify-center pt-28 pb-14 px-6 overflow-hidden bg-[#0a0f1d] border-b border-white/5 font-body">
 
       <div className="container mx-auto relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
         <motion.div 
@@ -32,23 +32,23 @@ const HackathonHero = () => {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-semibold uppercase tracking-tight mb-8 leading-tight text-ieee-deep"
+            className="font-display text-5xl md:text-7xl font-light uppercase tracking-tight mb-8 leading-tight text-blue-50"
           >
             SRM AP<br />
-            <span className="text-ieee-bright italic">Hackathon 2026</span>
+            <span className="text-[#40B2D6] italic">Hackathon 2026</span>
           </motion.h1>
 
-          <div className="flex gap-6 md:gap-10 my-12 bg-white p-8 rounded-3xl border border-ieee-deep/10">
+          <div className="flex gap-6 md:gap-10 my-12 glass-card p-8 border border-white/5">
             {[
               { label: 'Days', value: timeLeft.days },
               { label: 'Hours', value: timeLeft.hours },
               { label: 'Mins', value: timeLeft.minutes }
             ].map((unit, i) => (
               <div key={unit.label} className="flex flex-col items-center">
-                <div className="text-4xl md:text-6xl font-semibold font-mono text-ieee-bright">
+                <div className="text-4xl md:text-6xl font-light font-display text-blue-50">
                   {unit.value.toString().padStart(2, '0')}
                 </div>
-                <div className="text-[10px] text-[#5f6c86] uppercase tracking-[0.3em] mt-3 font-semibold">
+                <div className="text-[10px] text-blue-200/40 uppercase tracking-[0.3em] mt-3 font-medium">
                   {unit.label}
                 </div>
               </div>
@@ -56,10 +56,10 @@ const HackathonHero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
-            <button className="px-10 py-4 bg-ieee-bright hover:bg-ieee-cyan text-white font-semibold rounded-full transition-all uppercase tracking-[0.1em] text-sm">
+            <button className="ieee-btn-primary px-10 py-4 uppercase tracking-widest text-xs">
               REGISTER NOW
             </button>
-            <button className="px-10 py-4 bg-transparent border border-ieee-deep/25 text-ieee-deep font-semibold rounded-full transition-all hover:border-ieee-bright uppercase tracking-[0.1em] text-sm">
+            <button className="ieee-btn-outline px-10 py-4 uppercase tracking-widest text-xs">
               VIEW BROCHURE
             </button>
           </div>
@@ -71,9 +71,9 @@ const HackathonHero = () => {
           transition={{ duration: 1 }}
           className="lg:w-5/12 text-center lg:text-right"
         >
-          <p className="text-2xl md:text-3xl text-[#53617c] font-light leading-relaxed">
+          <p className="text-2xl md:text-3xl text-blue-200/40 font-light leading-relaxed">
             A 36-hour cross-disciplinary arena pushing the boundaries of technology.<br />
-            <span className="text-ieee-bright font-semibold block mt-4">Where code meets the future.</span>
+            <span className="text-blue-50 font-medium block mt-4">Where code meets the future.</span>
           </p>
         </motion.div>
       </div>

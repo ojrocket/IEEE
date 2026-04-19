@@ -7,15 +7,15 @@ const FAQItem = ({ faq, isOpen, onClick }) => {
     <div className="mb-4 last:mb-0">
       <button
         onClick={onClick}
-        className={`w-full p-6 flex items-center justify-between text-left glass-enhanced border transition-all duration-300 rounded-2xl ${
-          isOpen ? 'border-ieee-cyan/50 bg-ieee-cyan/5' : 'border-white/5 hover:border-white/20'
+        className={`w-full p-6 flex items-center justify-between text-left glass-card border transition-all duration-300 rounded-2xl ${
+          isOpen ? 'border-[#40B2D6]/50 bg-[#40B2D6]/5' : 'border-white/5 hover:border-white/20'
         }`}
       >
-        <span className={`text-sm font-bold tracking-wide ${isOpen ? 'text-white' : 'text-slate-300'}`}>
+        <span className={`text-sm font-medium tracking-wide ${isOpen ? 'text-blue-50' : 'text-blue-200/40'}`}>
           {faq.question}
         </span>
         <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${
-          isOpen ? 'rotate-180 text-ieee-cyan' : 'text-slate-500'
+          isOpen ? 'rotate-180 text-[#40B2D6]' : 'text-blue-200/20'
         }`} />
       </button>
       <AnimatePresence>
@@ -27,7 +27,7 @@ const FAQItem = ({ faq, isOpen, onClick }) => {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="p-6 text-sm text-slate-400 leading-relaxed font-medium">
+            <div className="p-6 text-sm text-blue-200/60 leading-relaxed font-normal">
               {faq.answer}
             </div>
           </motion.div>
@@ -48,7 +48,7 @@ const FAQSection = () => {
 
   return (
     <div className="space-y-10">
-      <h3 className="text-2xl font-black text-white mb-10 border-b border-white/5 pb-6">FAQs</h3>
+      <h3 className="section-index mb-10 border-b border-white/5 pb-6">FAQs</h3>
       <div className="space-y-4">
         {faqs.map((faq, i) => (
           <FAQItem 

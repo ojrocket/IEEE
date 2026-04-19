@@ -9,10 +9,10 @@
    ======================== */
 
 .animated-hero {
-  --color-deep-navy: #152C55;
+  --color-deep-navy: #0a0f1d;
   --color-brand-blue: #3C72B0;
   --color-cyan-accent: #40B2D6;
-  --color-light-bg: #F5F7FA;
+  --color-light-bg: #112240;
   --color-white: #FFFFFF;
   position: relative;
   width: 100%;
@@ -21,13 +21,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: linear-gradient(
-    175deg,
-    #f8fafc 0%,
-    #e0f2fe 35%,
-    #bae6fd 70%,
-    #7dd3fc 100%
-  );
+  background: #0a0f1d;
 }
 
 /* ---- Animated background effects ---- */
@@ -189,11 +183,12 @@
 }
 
 .hero-main-title {
+  font-family: 'Outfit', sans-serif;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 800;
+  font-weight: 300;
   line-height: 1.1;
   letter-spacing: -1.5px;
-  color: #1e3a8a;
+  color: #F8FAFC;
   margin: 0;
 }
 
@@ -201,9 +196,9 @@
   display: block;
   background: linear-gradient(
     135deg,
-    #1e3a8a 0%,
-    #334155 50%,
-    #0284c7 100%
+    #F8FAFC 0%,
+    #cbd5e1 50%,
+    #94a3b8 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -238,11 +233,12 @@
 
 /* ---- Subtitle ---- */
 .hero-subtitle {
+  font-family: 'Inter', sans-serif;
   max-width: 640px;
   text-align: center;
   font-size: 1.15rem;
   line-height: 1.8;
-  color: #475569;
+  color: rgba(200, 223, 245, 0.6);
   margin: 0;
   letter-spacing: 0.2px;
 }

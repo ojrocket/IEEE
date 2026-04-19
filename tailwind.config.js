@@ -8,12 +8,12 @@ export default {
     extend: {
       colors: {
         blue: {
-          50: '#edf4f9',
-          100: '#d1e3f0',
+          50: '#EAF3FB',
+          100: '#C8DFF5',
           200: '#a7c6e0',
           300: '#7da8d1',
           400: '#5a8dc0',
-          500: '#3c72b0',
+          500: '#3C72B0',
           600: '#2e5a8f',
           700: '#264875',
           800: '#203c62',
@@ -21,14 +21,15 @@ export default {
           950: '#12233b',
         },
         ieee: {
-          deep: '#152C55',
+          deep: '#0a0f1d',
           bright: '#3C72B0',
           cyan: '#40B2D6',
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
         display: ['Outfit', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
       }
     },
   },

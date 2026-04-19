@@ -8,7 +8,7 @@ const FlagshipCard = ({ event, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="group relative overflow-hidden rounded-[28px] bg-white border border-ieee-deep/12 hover:border-ieee-bright/30 transition-all duration-700"
+      className="group relative overflow-hidden rounded-[28px] glass-card border border-white/5 hover:border-[#40B2D6]/30 transition-all duration-700 font-body"
     >
       <div className={`h-48 relative overflow-hidden bg-gradient-to-br ${event.bg}`}>
         <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-700" />
@@ -20,16 +20,16 @@ const FlagshipCard = ({ event, index }) => {
       </div>
       
       <div className="p-10">
-        <h3 className="text-2xl font-semibold text-ieee-deep mb-3 tracking-tight group-hover:text-ieee-bright transition-colors">
+        <h3 className="text-2xl font-medium text-blue-50 mb-3 tracking-tight group-hover:text-[#40B2D6] transition-colors">
           {event.title}
         </h3>
         <div className="flex items-center gap-3 mb-8">
           <Trophy className={`w-5 h-5 ${event.iconColor}`} />
           <p className={`text-lg font-black ${event.iconColor} tabular-nums tracking-wide`}>
-            Prize Pool: {event.prize}
+            Prize Pool: <span className="text-blue-50">{event.prize}</span>
           </p>
         </div>
-        <button className="w-full py-4 bg-white border border-ieee-deep/15 rounded-2xl text-ieee-deep font-semibold text-xs uppercase tracking-widest hover:bg-ieee-bright hover:text-white transition-all">
+        <button className="ieee-btn-primary w-full py-4 text-xs tracking-widest uppercase">
           Register Now
         </button>
       </div>
@@ -46,18 +46,18 @@ const FlagshipEvents = () => {
   ];
 
   return (
-    <section className="py-24 bg-ieee-deep relative">
+    <section className="py-24 bg-[#0a0f1d] relative font-body">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 space-y-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-black text-white mb-4 uppercase tracking-[0.3em]"
+            className="section-index mx-auto"
           >
             Flagship Events
           </motion.h2>
-          <div className="w-16 h-1 bg-ieee-cyan mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-[#40B2D6] mx-auto rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

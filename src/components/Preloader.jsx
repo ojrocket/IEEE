@@ -29,7 +29,7 @@ export default function Preloader() {
                initial={{ opacity: 1 }}
                exit={{ opacity: 0 }}
                transition={{ duration: 0.8, ease: "easeOut" }}
-               className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-ieee-deep pointer-events-none"
+               className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#0a0f1d] pointer-events-none"
             >
                {/* The Core Container */}
                <div className="relative w-full max-w-sm px-8 overflow-hidden flex flex-col items-center">
@@ -66,7 +66,7 @@ export default function Preloader() {
                         initial={{ y: -20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-white/50 text-[10px] font-sans uppercase tracking-widest"
+                        className="text-blue-200/50 text-[10px] font-body uppercase tracking-widest"
                      >
                         Loading Environment
                      </motion.span>
@@ -75,7 +75,7 @@ export default function Preloader() {
                         initial={{ y: -20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-white/80 text-[10px] font-mono tracking-wider flex items-center"
+                        className="text-blue-50 text-[10px] font-mono tracking-wider flex items-center"
                      >
                         <span ref={numberRef}>0</span>%
                      </motion.div>

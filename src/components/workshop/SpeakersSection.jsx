@@ -8,22 +8,22 @@ const SpeakerCard = ({ speaker, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="speaker-card p-10 rounded-[32px] bg-white border border-ieee-deep/12 hover:border-ieee-bright/35 flex flex-col items-center text-center transition-all duration-500 group"
+      className="speaker-card p-10 rounded-[32px] glass-card border border-white/5 hover:border-[#40B2D6]/35 flex flex-col items-center text-center transition-all duration-500 group font-body"
     >
-      <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-ieee-deep/12 group-hover:border-ieee-bright transition-all duration-500 mb-8 p-1">
-        <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-ieee-bright overflow-hidden relative">
+      <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-[#40B2D6] transition-all duration-500 mb-8 p-1">
+        <div className="w-full h-full rounded-full bg-white/5 flex items-center justify-center text-[#40B2D6] overflow-hidden relative backdrop-blur-xl">
            <User className="w-12 h-12 group-hover:scale-110 transition-transform" />
            {/* In production, an img tag would go here */}
         </div>
       </div>
 
-      <h3 className="text-xl font-semibold text-ieee-deep mb-2 tracking-tight group-hover:text-ieee-bright transition-colors">
+      <h3 className="text-xl font-medium text-blue-50 mb-2 tracking-tight group-hover:text-[#40B2D6] transition-colors">
         {speaker.name}
       </h3>
-      <p className="text-xs font-semibold text-ieee-bright mb-6 uppercase tracking-[0.2em]">
+      <p className="text-[10px] font-medium text-[#40B2D6] mb-6 uppercase tracking-[0.2em]">
         {speaker.role}
       </p>
-      <p className="text-[#55637c] text-sm leading-relaxed mb-8 max-w-[240px] font-medium">
+      <p className="text-blue-200/60 text-sm leading-relaxed mb-8 max-w-[240px] font-light">
         {speaker.description}
       </p>
 
@@ -34,7 +34,7 @@ const SpeakerCard = ({ speaker, index }) => {
             <a 
               key={i} 
               href={social.url} 
-              className="text-ieee-deep/55 hover:text-ieee-bright hover:-translate-y-1 transition-all"
+              className="text-blue-200/40 hover:text-[#40B2D6] hover:-translate-y-1 transition-all"
             >
               <Icon className="w-5 h-5" />
             </a>
@@ -69,17 +69,17 @@ const SpeakersSection = () => {
 
   return (
     <section className="py-24 container mx-auto px-6">
-      <div className="text-center mb-20">
+      <div className="text-center mb-20 space-y-4">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl font-semibold uppercase tracking-[0.16em] text-ieee-deep mb-4"
+          className="section-index mx-auto"
         >
           Speakers
         </motion.h2>
-        <div className="w-16 h-1 bg-gradient-to-r from-ieee-bright to-ieee-cyan mx-auto rounded-full" />
-        <p className="mt-6 text-[#5a6882] font-semibold uppercase tracking-widest text-xs">Learn from industry leaders and expert academics</p>
+        <div className="w-16 h-1 bg-[#40B2D6] mx-auto rounded-full" />
+        <p className="mt-6 text-blue-200/40 font-medium uppercase tracking-widest text-[10px]">Learn from industry leaders and expert academics</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">

@@ -9,7 +9,7 @@
   padding: 1px;            /* This "padding" is the visible glow border thickness */
   cursor: none;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.08);   /* Light default border */
+  background: rgba(255, 255, 255, 0.05);   /* Darker default border */
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -32,7 +32,7 @@
   position: relative;
   z-index: 1;
   border-radius: 15px;      /* 1px less than outer to show the glow border */
-  background: #ffffff;   /* White card surface for light theme */
+  background: #0a0f1d;   /* Dark card surface */
   overflow: hidden;
   height: 100%;
 }
@@ -74,13 +74,13 @@
 .border-glow-card .glow-card-initial {
   font-size: 1.5rem;
   font-weight: 800;
-  color: #1e3a8a;
+  color: #FFFFFF;
 }
 
 .border-glow-card .glow-card-name {
   font-size: 1.5rem;
   font-weight: 800;
-  color: #1e3a8a;
+  color: #FFFFFF;
   margin: 0 0 8px 0;
   letter-spacing: -0.3px;
 }
@@ -96,7 +96,7 @@
 .border-glow-card .glow-card-desc {
   font-size: 0.92rem;
   line-height: 1.65;
-  color: #475569;
+  color: rgba(200, 223, 245, 0.6);
   margin-top: 20px;
   max-height: 0;
   overflow: hidden;

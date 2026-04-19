@@ -15,7 +15,7 @@ export default function AboutLayout() {
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
-      className="min-h-screen pt-32 px-8 md:px-16 bg-ieee-slate text-ieee-deep"
+      className="min-h-screen pt-32 px-8 md:px-16 bg-[#0a0f1d] text-blue-50"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 static md:relative">
          {/* Mobile Navigation */}
@@ -27,7 +27,7 @@ export default function AboutLayout() {
                   key={link.path}
                   to={link.path}
                   className={`text-lg font-display whitespace-nowrap transition-all ${
-                    isActive ? 'text-ieee-bright font-bold' : 'text-ieee-deep/60'
+                    isActive ? 'text-[#40B2D6] font-medium' : 'text-blue-200/60'
                   }`}
                 >
                   {link.name}
@@ -39,15 +39,15 @@ export default function AboutLayout() {
          {/* Sidebar Navigation */}
          <aside className="w-1/4 hidden md:block">
             <div className="sticky top-40 flex flex-col gap-6">
-              <h2 className="text-xs uppercase tracking-[0.2em] font-bold text-ieee-deep/50 mb-4">About Us</h2>
+              <span className="section-index mb-4">About Us</span>
               {aboutLinks.map((link) => {
                  const isActive = location.pathname === link.path;
                  return (
                    <Link 
                      key={link.path}
                      to={link.path}
-                     className={`text-2xl font-display transition-all ${
-                       isActive ? 'text-ieee-bright translate-x-2' : 'text-ieee-deep/60 hover:text-ieee-deep hover:translate-x-1'
+                     className={`text-2xl font-display font-light transition-all ${
+                       isActive ? 'text-[#40B2D6] translate-x-2' : 'text-blue-200/60 hover:text-blue-50 hover:translate-x-1'
                      }`}
                    >
                      {link.name}

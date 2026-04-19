@@ -11,9 +11,9 @@ const TrackCard = ({ track, index }) => {
       transition={{ delay: index * 0.1 }}
       className="relative group"
     >
-      <div className="hexagon-container bg-gradient-to-br from-ieee-deep to-[#0f305f] p-8 flex flex-col items-center justify-center text-center transition-all duration-500 group-hover:bg-ieee-bright/14 border border-ieee-bright/20 hover:border-ieee-cyan/50">
+      <div className="glass-card bg-[#0a0f1d] p-8 flex flex-col items-center justify-center text-center transition-all duration-500 hover:scale-105 border border-white/5 hover:border-[#40B2D6]/50">
         <Icon className={`w-12 h-12 mb-6 ${track.color} group-hover:scale-110 transition-transform`} />
-        <h3 className="text-white font-semibold text-xs md:text-sm uppercase tracking-widest leading-relaxed">
+        <h3 className="text-blue-50 font-medium text-xs md:text-sm uppercase tracking-widest leading-relaxed">
           {track.title.split(' ').map((word, i) => (
             <span key={i} className="block">{word}</span>
           ))}
@@ -34,13 +34,12 @@ const Tracks = () => {
   ];
 
   return (
-    <section className="py-24 bg-ieee-deep relative z-10">
+    <section className="py-24 bg-[#0a0f1d] relative z-10 font-body">
       <div className="container mx-auto max-w-6xl px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-semibold text-white tracking-[0.2em] uppercase mb-4">
-            Themes <span className="text-ieee-cyan">/ Tracks</span>
+        <div className="text-center mb-20 space-y-4">
+          <h2 className="section-index mx-auto">
+            Themes <span className="text-[#40B2D6]">/ Tracks</span>
           </h2>
-          <div className="w-32 h-1 bg-ieee-cyan mx-auto rounded-full" />
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">

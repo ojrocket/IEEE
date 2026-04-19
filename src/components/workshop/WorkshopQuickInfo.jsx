@@ -10,12 +10,12 @@ const InfoCard = ({ item, index }) => {
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
       whileHover={{ y: -8 }}
-      className="group relative p-8 rounded-3xl bg-ieee-bright/12 border border-ieee-cyan/20 hover:border-ieee-cyan/45 transition-all text-center flex flex-col items-center overflow-hidden"
+      className="group relative p-8 rounded-3xl glass-card border border-white/5 hover:border-[#40B2D6]/45 transition-all text-center flex flex-col items-center overflow-hidden font-body"
     >
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-ieee-cyan to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-      <Icon className="w-10 h-10 text-ieee-cyan mb-6 transition-all" />
-      <h4 className="text-white font-semibold text-lg tracking-tight">{item.title}</h4>
-      <p className="text-[10px] text-white/70 font-semibold uppercase tracking-[0.2em] mt-2 italic">{item.subtitle}</p>
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#40B2D6] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+      <Icon className="w-10 h-10 text-[#40B2D6] mb-6 transition-all" />
+      <h4 className="text-blue-50 font-medium text-lg tracking-tight">{item.title}</h4>
+      <p className="text-[10px] text-blue-200/40 font-medium uppercase tracking-[0.2em] mt-2 italic">{item.subtitle}</p>
     </motion.div>
   );
 };
@@ -29,7 +29,7 @@ const WorkshopQuickInfo = () => {
   ];
 
   return (
-    <section className="py-20 relative z-20">
+    <section className="py-20 bg-[#0a0f1d] relative z-20">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {infoItems.map((item, i) => (

@@ -17,12 +17,12 @@ const marqueeItems = [
 ];
 
 const bentoStats = [
-  { value: 520, suffix: '+', label: 'Active Members', icon: Users, cls: 'bento-wide', bg: 'bg-ieee-deep', text: 'text-white' },
-  { value: 65, suffix: '+', label: 'Events Hosted', icon: Calendar, cls: '', bg: 'bg-ieee-bright', text: 'text-white' },
-  { value: 6, suffix: '', label: 'Technical Chapters', icon: Cpu, cls: '', bg: 'bg-[#00C2FF]', text: 'text-ieee-deep' },
-  { value: 25, suffix: '+', label: 'Awards Won', icon: Award, cls: '', bg: 'bg-ieee-deep/5', text: 'text-ieee-deep' },
-  { value: 5, suffix: '', label: 'Years of Excellence', icon: Sparkles, cls: '', bg: 'bg-ieee-deep/5', text: 'text-ieee-deep' },
-  { value: 419, suffix: 'K+', label: 'Global IEEE Network', icon: Globe, cls: 'bento-wide', bg: 'bg-gradient-to-br from-ieee-bright to-[#00C2FF]', text: 'text-white' },
+  { value: 520, suffix: '+', label: 'Active Members', icon: Users, cls: 'bento-wide', bg: 'bg-white/5', text: 'text-blue-50' },
+  { value: 65, suffix: '+', label: 'Events Hosted', icon: Calendar, cls: '', bg: 'bg-[#3C72B0]/20', text: 'text-blue-50' },
+  { value: 6, suffix: '', label: 'Technical Chapters', icon: Cpu, cls: '', bg: 'bg-[#40B2D6]/20', text: 'text-blue-50' },
+  { value: 25, suffix: '+', label: 'Awards Won', icon: Award, cls: '', bg: 'bg-white/5', text: 'text-blue-50' },
+  { value: 5, suffix: '', label: 'Years of Excellence', icon: Sparkles, cls: '', bg: 'bg-white/5', text: 'text-blue-50' },
+  { value: 419, suffix: 'K+', label: 'Global IEEE Network', icon: Globe, cls: 'bento-wide', bg: 'bg-gradient-to-br from-[#3C72B0]/20 to-[#40B2D6]/20', text: 'text-blue-50' },
 ];
 
 const chapters = [
@@ -155,7 +155,7 @@ export default function Home() {
     <div ref={container}>
 
       {/* ══════════ HERO ══════════ */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-ieee-deep">
+      <section className="min-h-screen bg-[#0a0f1d] flex flex-col justify-center px-6 md:px-12 lg:px-20 relative overflow-hidden">
         {/* CSS-only background — dot grid + radial glow */}
         <div className="absolute inset-0 z-0 pointer-events-none"
           style={{
@@ -171,7 +171,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, transparent 40%, rgba(10,31,68,0.7) 100%)' }} />
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[0.95] tracking-tight text-white mb-10">
+          <h1 className="font-display text-[clamp(52px,8.5vw,100px)] font-light leading-[0.92] text-blue-50 tracking-tight mb-10">
             {['Empowering', 'Innovation.'].map((word, i) => (
               <span key={i} className="inline-block overflow-hidden mr-[0.25em] last:mr-0">
                 <span className="hero-word inline-block">{word}</span>
@@ -185,11 +185,11 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href="https://www.ieee.org/membership/join/index.html" target="_blank" rel="noopener noreferrer"
-              className="hero-cta-btn group inline-flex items-center justify-center gap-2 bg-white text-ieee-deep px-7 py-3.5 rounded-full font-sans uppercase tracking-[0.12em] text-xs font-bold hover:shadow-[0_8px_40px_rgba(255,255,255,0.2)] hover:-translate-y-0.5 transition-all duration-300">
+              className="hero-cta-btn group flex items-center justify-center gap-2 ieee-btn-primary">
               Join IEEE <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
             </a>
             <Link to="/chapters"
-              className="hero-cta-btn group inline-flex items-center justify-center gap-2 border border-white/15 text-white/70 px-7 py-3.5 rounded-full font-sans uppercase tracking-[0.12em] text-xs font-bold hover:border-white/40 hover:text-white hover:bg-white/5 transition-all duration-300">
+              className="hero-cta-btn group flex items-center justify-center gap-2 ieee-btn-outline">
               Explore Chapters <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
@@ -213,22 +213,22 @@ export default function Home() {
       </section>
 
       {/* ══════════ BENTO STATS ══════════ */}
-      <section ref={bentoRef} className="bento-section py-16 md:py-24 px-6 md:px-16 bg-[#FDFCF0]">
+      <section ref={bentoRef} className="bento-section py-16 md:py-24 px-6 md:px-16 bg-[#0a0f1d] border-t border-white/5">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10 md:mb-14">
-            <span className="text-[9px] font-sans uppercase tracking-[0.3em] text-ieee-bright font-bold block mb-2">Impact at a Glance</span>
-            <h2 className="text-2xl md:text-4xl font-display font-bold tracking-tight text-ieee-deep">By the Numbers.</h2>
+            <span className="section-index">Impact at a Glance</span>
+            <h2 className="font-display text-[clamp(32px,4.5vw,60px)] font-light text-blue-50 leading-tight">By the Numbers.</h2>
           </div>
           <div className="bento-grid">
             {bentoStats.map((stat, i) => {
               const Icon = stat.icon;
               return (
-                <div key={i} className={`bento-card ${stat.cls} ${stat.bg} ${stat.text} rounded-2xl p-5 md:p-7 flex flex-col justify-between min-h-[140px] md:min-h-[180px] group hover:shadow-xl transition-shadow duration-500`}>
+                <div key={i} className={`bento-card ${stat.cls} glass-card p-5 md:p-6 flex flex-col justify-between min-h-[140px] md:min-h-[180px] group transition-all duration-500 border border-white/5 hover:border-[#40B2D6]/30`}>
                   <div className="flex items-center justify-between">
-                    <Icon size={16} className="opacity-30 group-hover:opacity-60 transition-opacity duration-300" />
-                    <span className="text-[8px] font-sans uppercase tracking-[0.2em] opacity-35 font-bold">{stat.label}</span>
+                    <Icon size={16} className="text-[#40B2D6] opacity-30 group-hover:opacity-100 transition-opacity duration-300" />
+                    <span className="text-[13px] text-blue-200/40 font-medium font-body">{stat.label}</span>
                   </div>
-                  <span className="text-3xl md:text-5xl font-display font-bold tracking-tight mt-auto">
+                  <span className="font-display text-[clamp(40px,5vw,72px)] font-light text-blue-50 mt-auto">
                     <AnimatedCounter target={stat.value} suffix={stat.suffix} inView={bentoInView} />
                   </span>
                 </div>
@@ -244,35 +244,35 @@ export default function Home() {
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 800px 500px at 50% 50%, rgba(10,102,194,0.08) 0%, transparent 70%)' }} />
 
         <div className="relative z-10 max-w-5xl mx-auto">
-          <span className="text-[9px] font-sans uppercase tracking-[0.3em] text-[#00C2FF] font-bold block mb-6">Who We Are</span>
-          <blockquote className="about-quote text-xl md:text-3xl lg:text-4xl font-display font-bold text-white leading-[1.3] tracking-tight mb-14">
+          <span className="section-index mb-6">Who We Are</span>
+          <blockquote className="about-quote font-display text-[clamp(32px,4.5vw,60px)] font-light text-blue-50 leading-tight tracking-tight mb-14">
             <span className="text-[#00C2FF]/30">"</span>A vibrant community of passionate engineers dedicated to{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C2FF] to-ieee-bright">advancing technology for the benefit of humanity.</span>
             <span className="text-[#00C2FF]/30">"</span>
           </blockquote>
 
           <div className="about-cards flex flex-col sm:flex-row gap-4">
-            <div className="about-card flex-1 p-5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-              <h4 className="font-display font-bold text-white text-base mb-1.5">Mission</h4>
-              <p className="font-sans text-white/35 text-sm leading-relaxed">To foster technological innovation and excellence for the benefit of humanity.</p>
+            <div className="about-card flex-1 p-5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xl">
+              <h4 className="font-display font-medium text-blue-50 text-base mb-1.5">Mission</h4>
+              <p className="font-body text-blue-200/40 text-[13px] leading-relaxed">To foster technological innovation and excellence for the benefit of humanity.</p>
             </div>
-            <div className="about-card flex-1 p-5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-              <h4 className="font-display font-bold text-white text-base mb-1.5">Vision</h4>
-              <p className="font-sans text-white/35 text-sm leading-relaxed">To be the leading technical community shaping future engineers.</p>
+            <div className="about-card flex-1 p-5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xl">
+              <h4 className="font-display font-medium text-blue-50 text-base mb-1.5">Vision</h4>
+              <p className="font-body text-blue-200/40 text-[13px] leading-relaxed">To be the leading technical community shaping future engineers.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ══════════ CHAPTERS ══════════ */}
-      <section className="chapters-section py-16 md:py-24 px-6 md:px-16 bg-[#FDFCF0]">
+      <section className="chapters-section py-16 md:py-24 px-6 md:px-16 bg-[#0a0f1d] border-t border-white/5">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 md:mb-14">
             <div>
-              <span className="text-[9px] font-sans uppercase tracking-[0.3em] text-ieee-bright font-bold block mb-2">6 Specialized Communities</span>
-              <h2 className="text-2xl md:text-4xl font-display font-bold tracking-tight text-ieee-deep">Technical Chapters.</h2>
+              <span className="section-index mb-2">6 Specialized Communities</span>
+              <h2 className="font-display text-[clamp(32px,4.5vw,60px)] font-light text-blue-50 leading-tight">Technical Chapters.</h2>
             </div>
-            <Link to="/chapters" className="mt-3 md:mt-0 inline-flex items-center gap-2 text-ieee-deep/30 hover:text-ieee-bright text-[10px] font-sans uppercase tracking-[0.2em] font-bold transition-colors group">
+            <Link to="/chapters" className="mt-3 md:mt-0 inline-flex items-center gap-2 text-blue-200/40 hover:text-[#40B2D6] text-[10px] font-body uppercase tracking-[0.2em] font-medium transition-colors group">
               View All <ArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -280,18 +280,18 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {chapters.map((ch, i) => (
               <TiltCard key={i} className="chapter-card">
-                <Link to="/chapters" className="block p-5 md:p-6 rounded-2xl bg-white border border-ieee-deep/[0.04] hover:border-ieee-deep/10 hover:shadow-lg transition-all duration-500 group h-full">
+                <Link to="/chapters" className="block glass-card p-5 md:p-6 transition-all duration-500 group h-full">
                   <div className="w-8 h-0.5 rounded-full mb-5" style={{ backgroundColor: ch.accent }} />
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {ch.tags.map((t, ti) => (
-                      <span key={ti} className="text-[8px] font-sans uppercase tracking-[0.12em] text-ieee-deep/25 font-bold border border-ieee-deep/5 rounded-full px-2 py-0.5">{t}</span>
+                      <span key={ti} className="text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-[rgba(64,178,214,0.1)] border border-[var(--border-subtle)] text-[#40B2D6]">{t}</span>
                     ))}
                   </div>
-                  <h3 className="text-lg font-display font-bold text-ieee-deep group-hover:text-ieee-bright transition-colors duration-300 mb-2 leading-tight">{ch.name}</h3>
-                  <p className="font-sans text-ieee-deep/35 text-xs leading-relaxed mb-5">{ch.desc}</p>
-                  <div className="flex items-center justify-between pt-3 border-t border-ieee-deep/[0.04]">
-                    <span className="text-[10px] font-sans text-ieee-deep/25 font-bold">{ch.members} Members</span>
-                    <ArrowUpRight size={12} className="text-ieee-deep/10 group-hover:text-ieee-bright group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                  <h3 className="font-display text-[18px] md:text-[20px] text-blue-50 mb-2">{ch.name}</h3>
+                  <p className="text-[12px] font-body text-[#5a7fa8] leading-relaxed mb-5">{ch.desc}</p>
+                  <div className="flex items-center justify-between pt-3 border-t border-white/5">
+                    <span className="text-[12px] font-body text-blue-200/40">{ch.members} Members</span>
+                    <ArrowUpRight size={12} className="text-blue-200/10 group-hover:text-[#40B2D6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
                   </div>
                 </Link>
               </TiltCard>
@@ -312,31 +312,31 @@ export default function Home() {
 
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="events-header mb-10 md:mb-14">
-            <span className="text-[9px] font-sans uppercase tracking-[0.3em] text-[#00C2FF] font-bold block mb-2">Upcoming Events</span>
-            <h2 className="text-2xl md:text-4xl font-display font-bold tracking-tight text-white">What's Next.</h2>
+            <span className="section-index mb-2">Upcoming Events</span>
+            <h2 className="font-display text-[clamp(32px,4.5vw,60px)] font-light text-blue-50 leading-tight">What's Next.</h2>
           </div>
 
           {events.map((ev, i) => (
             <div key={i} className="event-row group border-t border-white/[0.06] py-6 md:py-8 cursor-pointer">
               <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-0">
                 <div className="md:w-24 flex-shrink-0">
-                  <span className="text-2xl md:text-3xl font-display font-bold text-white/8 group-hover:text-[#00C2FF]/25 transition-colors duration-500">{ev.date}</span>
+                  <span className="text-[12px] font-body text-blue-200/40 group-hover:text-[#40B2D6]/50 transition-colors duration-500">{ev.date}</span>
                 </div>
                 <div className="hidden md:block w-px h-12 bg-white/[0.06] mx-6 group-hover:bg-[#00C2FF]/20 transition-colors duration-500" />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-[8px] font-sans uppercase tracking-[0.15em] font-bold text-[#00C2FF]/50 border border-[#00C2FF]/15 rounded-full px-2 py-0.5">{ev.tag}</span>
-                    <div className="flex items-center gap-1 text-white/12">
+                    <span className="text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-[rgba(64,178,214,0.1)] border border-[var(--border-subtle)] text-[#40B2D6]">{ev.tag}</span>
+                    <div className="flex items-center gap-1 text-[12px] font-body text-blue-200/40">
                       <MapPin size={8} />
-                      <span className="text-[9px] font-sans">{ev.location}</span>
+                      <span>{ev.location}</span>
                     </div>
                   </div>
-                  <h3 className="text-lg md:text-2xl font-display font-bold text-white/60 group-hover:text-white transition-colors duration-300 mb-0.5">{ev.title}</h3>
-                  <p className="font-sans text-white/20 text-xs group-hover:text-white/35 transition-colors duration-500">{ev.desc}</p>
+                  <h3 className="font-display text-[18px] md:text-[20px] text-blue-50 group-hover:text-[#40B2D6] transition-colors duration-300 mb-0.5">{ev.title}</h3>
+                  <p className="text-[12px] font-body text-blue-200/40 group-hover:text-blue-200/20 transition-colors duration-500">{ev.desc}</p>
                 </div>
                 <div className="flex-shrink-0 md:pl-6">
-                  <div className="w-8 h-8 rounded-full border border-white/5 group-hover:border-[#00C2FF]/25 group-hover:bg-[#00C2FF]/5 flex items-center justify-center transition-all duration-300">
-                    <ArrowRight size={12} className="text-white/8 group-hover:text-[#00C2FF] group-hover:translate-x-0.5 transition-all duration-300" />
+                  <div className="w-8 h-8 rounded-full border border-white/5 group-hover:border-[#40B2D6]/25 group-hover:bg-[#40B2D6]/5 flex items-center justify-center transition-all duration-300">
+                    <ArrowRight size={12} className="text-white/10 group-hover:text-[#40B2D6] group-hover:translate-x-0.5 transition-all duration-300" />
                   </div>
                 </div>
               </div>
@@ -354,28 +354,28 @@ export default function Home() {
       </section>
 
       {/* ══════════ BLOG ══════════ */}
-      <section className="blog-section py-16 md:py-24 px-6 md:px-16 bg-[#FDFCF0]">
+      <section className="blog-section py-16 md:py-24 px-6 md:px-16 bg-[#0a0f1d] border-t border-white/5">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10 md:mb-14">
-            <span className="text-[9px] font-sans uppercase tracking-[0.3em] text-ieee-bright font-bold block mb-2">Latest Insights</span>
-            <h2 className="text-2xl md:text-4xl font-display font-bold tracking-tight text-ieee-deep">From the Blog.</h2>
+            <span className="section-index mb-2">Latest Insights</span>
+            <h2 className="font-display text-[clamp(32px,4.5vw,60px)] font-light text-blue-50 leading-tight">From the Blog.</h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
             <TiltCard className="blog-card lg:col-span-3">
-              <div className="group p-6 md:p-8 rounded-2xl bg-ieee-deep h-full flex flex-col justify-between min-h-[240px] cursor-pointer hover:shadow-2xl transition-shadow duration-500 relative overflow-hidden">
+              <div className="group glass-card p-5 md:p-6 h-full flex flex-col justify-between min-h-[240px] cursor-pointer hover:shadow-2xl transition-shadow duration-500 relative overflow-hidden">
                 {/* CSS gradient accent instead of canvas */}
                 <div className="absolute top-0 right-0 w-[18rem] h-[18rem] bg-ieee-bright/8 rounded-full blur-[80px] -translate-y-1/3 translate-x-1/4 pointer-events-none" />
                 <div className="relative z-10">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="text-[8px] font-sans uppercase tracking-[0.15em] text-[#00C2FF] font-bold border border-[#00C2FF]/25 rounded-full px-2.5 py-0.5">Featured</span>
-                    <span className="text-[8px] font-sans uppercase tracking-[0.15em] text-white/20 font-bold">{blogPosts[0].category}</span>
+                    <span className="text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-[rgba(64,178,214,0.1)] border border-[var(--border-subtle)] text-[#40B2D6]">Featured</span>
+                    <span className="text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-[rgba(64,178,214,0.1)] border border-[var(--border-subtle)] text-[#40B2D6]">{blogPosts[0].category}</span>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-display font-bold text-white/85 group-hover:text-white transition-colors duration-300 leading-tight max-w-md">{blogPosts[0].title}</h3>
+                  <h3 className="font-display text-[18px] md:text-[20px] text-blue-50 group-hover:text-white transition-colors duration-300 leading-tight max-w-md">{blogPosts[0].title}</h3>
                 </div>
                 <div className="relative z-10 flex items-center justify-between mt-6">
-                  <span className="font-sans text-white/25 text-xs">{blogPosts[0].author}</span>
-                  <div className="flex items-center gap-1.5 text-white/15"><Clock size={10} /><span className="text-[10px] font-sans">{blogPosts[0].time}</span></div>
+                  <span className="text-[12px] font-body text-blue-200/40">{blogPosts[0].author}</span>
+                  <div className="flex items-center gap-1.5 text-[12px] font-body text-blue-200/40"><Clock size={10} /><span>{blogPosts[0].time}</span></div>
                 </div>
               </div>
             </TiltCard>
@@ -383,14 +383,14 @@ export default function Home() {
             <div className="lg:col-span-2 flex flex-col gap-4">
               {blogPosts.slice(1).map((post, i) => (
                 <TiltCard key={i} className="blog-card flex-1">
-                  <div className="group p-5 rounded-2xl bg-white border border-ieee-deep/[0.04] hover:border-ieee-deep/10 hover:shadow-lg transition-all duration-500 h-full flex flex-col justify-between cursor-pointer">
+                  <div className="group glass-card p-5 md:p-6 transition-all duration-500 h-full flex flex-col justify-between cursor-pointer">
                     <div>
-                      <span className="text-[8px] font-sans uppercase tracking-[0.15em] text-ieee-deep/20 font-bold block mb-2">{post.category}</span>
-                      <h4 className="text-base font-display font-bold text-ieee-deep group-hover:text-ieee-bright transition-colors duration-300 leading-tight">{post.title}</h4>
+                      <span className="text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-[rgba(64,178,214,0.1)] border border-[var(--border-subtle)] text-[#40B2D6] block mb-2">{post.category}</span>
+                      <h4 className="font-display text-[18px] md:text-[20px] text-blue-50 mb-2">{post.title}</h4>
                     </div>
-                    <div className="flex items-center justify-between mt-3 pt-3 border-t border-ieee-deep/[0.04]">
-                      <span className="font-sans text-ieee-deep/25 text-[10px]">{post.author}</span>
-                      <span className="font-sans text-ieee-deep/15 text-[10px]">{post.time}</span>
+                    <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/5">
+                      <span className="text-[12px] font-body text-blue-200/40">{post.author}</span>
+                      <span className="text-[12px] font-body text-blue-200/40">{post.time}</span>
                     </div>
                   </div>
                 </TiltCard>
@@ -401,14 +401,14 @@ export default function Home() {
       </section>
 
       {/* ══════════ CTA ══════════ */}
-      <section className="py-10 md:py-16 px-4 md:px-10 bg-[#FDFCF0]">
+      <section className="py-10 md:py-16 px-4 md:px-10 bg-[#0a0f1d] border-t border-white/5">
         <div className="cta-final relative overflow-hidden rounded-[2rem] bg-ieee-deep py-16 md:py-24 px-6 md:px-14 shadow-[0_30px_80px_rgba(10,31,68,0.25)]">
           {/* CSS glow accents */}
           <div className="absolute top-0 left-1/4 w-[25rem] h-[25rem] bg-ieee-bright/10 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
           <div className="absolute bottom-0 right-1/4 w-[20rem] h-[20rem] bg-[#00C2FF]/8 rounded-full blur-[80px] translate-y-1/2 pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] mb-4 text-white tracking-tight">
+            <h2 className="font-display text-[clamp(32px,4.5vw,60px)] font-light text-blue-50 leading-tight mb-4 tracking-tight">
               Shape the future <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C2FF] to-ieee-bright">with us.</span>
             </h2>
             <p className="text-sm font-sans text-white/30 max-w-md mx-auto mb-8 leading-relaxed">
@@ -416,11 +416,11 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a href="https://www.ieee.org/membership/join/index.html" target="_blank" rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 bg-white text-ieee-deep px-8 py-4 rounded-full font-sans uppercase tracking-[0.12em] text-xs font-bold hover:shadow-[0_8px_40px_rgba(255,255,255,0.15)] hover:-translate-y-0.5 transition-all duration-300">
+                className="group flex items-center justify-center gap-2 ieee-btn-primary">
                 Join IEEE Today <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <Link to="/about"
-                className="inline-flex items-center justify-center gap-2 border border-white/10 text-white/50 px-8 py-4 rounded-full font-sans uppercase tracking-[0.12em] text-xs font-bold hover:bg-white/5 hover:border-white/25 hover:text-white/70 transition-all duration-300">
+                className="group flex items-center justify-center gap-2 ieee-btn-outline">
                 Learn More
               </Link>
             </div>

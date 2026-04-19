@@ -28,42 +28,42 @@ export default function Join() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-black"
+      className="bg-[#0a0f1d]"
     >
-      <section className="join-panel h-screen w-full flex items-center justify-center bg-ieee-deep text-white relative z-[1]">
+      <section className="join-panel h-screen w-full flex items-center justify-center bg-[#0a0f1d] text-blue-50 relative z-[1]">
         <div className="text-center px-8">
-          <h1 className="text-6xl md:text-[8rem] font-display font-medium tracking-tighter mb-8 leading-none">
-            Ready to <br /><span className="italic text-ieee-cyan">Upgrade?</span>
+          <h1 className="font-display text-[clamp(52px,8vw,120px)] font-light tracking-tight leading-none mb-8 text-blue-50">
+            Ready to <br /><span className="italic text-[#40B2D6]">Upgrade?</span>
           </h1>
-          <p className="text-xl md:text-2xl font-sans opacity-80 max-w-2xl mx-auto mb-12">
+          <p className="text-[18px] md:text-[22px] font-body text-blue-200/60 max-w-2xl mx-auto mb-12">
             Join the global network of engineers at SRM University AP. Scroll to begin.
           </p>
         </div>
       </section>
 
-      <section className="join-panel min-h-screen md:h-screen w-full flex items-center justify-center bg-ieee-bright text-white relative z-[2] rounded-t-[3rem] mt-[-3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)] py-16 md:py-0">
+      <section className="join-panel min-h-screen md:h-screen w-full flex items-center justify-center bg-[#0d152a] text-blue-50 relative z-[2] rounded-t-[3rem] mt-[-3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] py-16 md:py-0">
         <form className="max-w-xl w-full mx-auto px-8" onSubmit={(e) => e.preventDefault()}>
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">Initialize Membership.</h2>
+          <h2 className="font-display text-[32px] md:text-[42px] font-light text-blue-50 mb-12 text-center">Initialize Membership.</h2>
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-sans uppercase tracking-widest opacity-80 mb-2">SRM Email Address</label>
+              <label className="block text-[11px] font-body uppercase tracking-widest text-blue-200/40 mb-2">SRM Email Address</label>
               <input
                 type="email"
                 placeholder="name_surname@srmap.edu.in"
-                className="w-full bg-black/20 border border-white/20 rounded-xl px-6 py-5 focus:outline-none focus:border-white transition-colors text-white placeholder:text-white/40 text-lg"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-5 focus:outline-none focus:border-[#40B2D6]/50 transition-colors text-blue-50 placeholder:text-blue-200/20 text-lg"
               />
             </div>
             <div>
-              <label className="block text-sm font-sans uppercase tracking-widest opacity-80 mb-2">University Registration Number</label>
+              <label className="block text-[11px] font-body uppercase tracking-widest text-blue-200/40 mb-2">University Registration Number</label>
               <input
                 type="text"
                 placeholder="E.g. AP221100..."
-                className="w-full bg-black/20 border border-white/20 rounded-xl px-6 py-5 focus:outline-none focus:border-white transition-colors text-white placeholder:text-white/40 text-lg"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-5 focus:outline-none focus:border-[#40B2D6]/50 transition-colors text-blue-50 placeholder:text-blue-200/20 text-lg"
               />
             </div>
             <a
               href="https://www.ieee.org/"
-              className="w-full bg-ieee-deep text-ieee-cyan font-bold font-sans uppercase tracking-[0.2em] py-5 rounded-xl hover:bg-white hover:text-ieee-deep transition-all mt-4 flex items-center justify-center"
+              className="ieee-btn-primary w-full py-5 flex items-center justify-center mt-4"
             >
               Proceed to IEEE.org
             </a>

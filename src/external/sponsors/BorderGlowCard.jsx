@@ -37,8 +37,8 @@ const BorderGlowCard = ({ children, className = '' }) => {
         style={{
           background: `radial-gradient(
             250px circle at ${coords.x}px ${coords.y}px,
-            rgba(0, 194, 255, 0.35),
-            rgba(10, 102, 194, 0.15) 40%,
+            rgba(64, 178, 214, 0.35),
+            rgba(60, 114, 176, 0.15) 40%,
             transparent 70%
           )`,
           opacity: isHovered ? 1 : 0,

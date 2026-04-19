@@ -12,17 +12,17 @@ const WorkflowNode = ({ node, index }) => {
         transition={{ delay: index * 0.1 }}
         className="workflow-node w-full md:w-1/4 text-center cursor-default"
       >
-        <div className={`w-20 h-20 mx-auto rounded-3xl flex items-center justify-center border transition-all duration-500 ${node.color} bg-white/5 group-hover:bg-white/10 group-hover:scale-110 shadow-2xl`}>
+        <div className={`w-20 h-20 mx-auto rounded-3xl flex items-center justify-center border transition-all duration-500 ${node.color} bg-white/5 group-hover:bg-white/10 group-hover:scale-110 shadow-2xl backdrop-blur-xl border-white/10`}>
           <Icon className="w-8 h-8" />
         </div>
-        <h4 className="text-lg font-black text-white mt-6 mb-2 tracking-tight">{node.step}. {node.title}</h4>
-        <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest leading-relaxed max-w-[160px] mx-auto">
+        <h4 className="font-display text-lg font-light text-blue-50 mt-6 mb-2 tracking-tight">{node.step}. {node.title}</h4>
+        <p className="text-[10px] text-blue-200/40 font-medium uppercase tracking-widest leading-relaxed max-w-[160px] mx-auto">
           {node.description}
         </p>
       </motion.div>
       
       {index < 3 && (
-        <div className="hidden md:block text-slate-700 animate-pulse">
+        <div className="hidden md:block text-[#40B2D6] animate-pulse">
           <ArrowRight className="w-6 h-6" />
         </div>
       )}
@@ -39,18 +39,18 @@ const ResearchWorkflow = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#0f172a] border-t border-white/5">
+    <section className="py-24 bg-[#0a0f1d] border-t border-white/5 font-body">
       <div className="container mx-auto px-6 max-w-6xl">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 space-y-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-black text-white mb-4 uppercase tracking-tight"
+            className="section-index mx-auto"
           >
             Effective Research Workflow
           </motion.h2>
-          <div className="w-16 h-1 bg-ieee-cyan mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-[#40B2D6] mx-auto rounded-full" />
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 py-10">
