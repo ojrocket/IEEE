@@ -23,97 +23,16 @@ const Gallery = () => {
   const location = useLocation();
   const isAdmin = new URLSearchParams(location.search).get('admin') === 'true';
 
-  // Sample gallery data
+  // Sample gallery data (same as original)
   const sampleItems = [
-    {
-      id: 1,
-      title: 'IEEE Annual Conference 2024',
-      description: 'Keynote speakers presenting cutting-edge research in artificial intelligence and machine learning.',
-      image_url: 'https://picsum.photos/seed/conference2024/800/600',
-      category: 'events'
-    },
-    {
-      id: 2,
-      title: 'Workshop on Quantum Computing',
-      description: 'Hands-on session exploring quantum algorithms and their practical applications.',
-      image_url: 'https://picsum.photos/seed/quantum2024/800/600',
-      category: 'workshops'
-    },
-    {
-      id: 3,
-      title: 'Student Robotics Competition',
-      description: 'Teams competing in the annual IEEE robotics challenge with innovative autonomous systems.',
-      image_url: 'https://picsum.photos/seed/robotics2024/800/600',
-      category: 'competitions'
-    },
-    {
-      id: 4,
-      title: 'Technical Symposium',
-      description: 'Industry experts discussing latest trends in renewable energy and sustainable technology.',
-      image_url: 'https://picsum.photos/seed/symposium2024/800/600',
-      category: 'events'
-    },
-    {
-      id: 5,
-      title: 'Hackathon Winners',
-      description: 'Celebrating the innovative solutions developed during the 48-hour coding marathon.',
-      image_url: 'https://picsum.photos/seed/hackathon2024/800/600',
-      category: 'competitions'
-    },
-    {
-      id: 6,
-      title: 'AI/ML Research Showcase',
-      description: 'Posters and demonstrations of groundbreaking machine learning research projects.',
-      image_url: 'https://picsum.photos/seed/airesearch2024/800/600',
-      category: 'research'
-    },
-    {
-      id: 7,
-      title: 'Networking Event',
-      description: 'Students and professionals connecting at the IEEE career fair and networking session.',
-      image_url: 'https://picsum.photos/seed/networking2024/800/600',
-      category: 'events'
-    },
-    {
-      id: 8,
-      title: 'Power Systems Lab Tour',
-      description: 'Exploring advanced power grid simulation facilities and smart grid technology.',
-      image_url: 'https://picsum.photos/seed/powerlab2024/800/600',
-      category: 'labs'
-    },
-    {
-      id: 9,
-      title: 'Women in Engineering Panel',
-      description: 'Inspiring stories and career advice from women leaders in engineering and technology.',
-      image_url: 'https://picsum.photos/seed/wie2024/800/600',
-      category: 'events'
-    },
-    {
-      id: 10,
-      title: 'IoT Workshop',
-      description: 'Building connected devices and exploring the Internet of Things ecosystem.',
-      image_url: 'https://picsum.photos/seed/iot2024/800/600',
-      category: 'workshops'
-    },
-    {
-      id: 11,
-      title: 'Research Poster Session',
-      description: 'Graduate students presenting their research findings in various engineering disciplines.',
-      image_url: 'https://picsum.photos/seed/poster2024/800/600',
-      category: 'research'
-    },
-    {
-      id: 12,
-      title: 'Industry Collaboration Meet',
-      description: 'Partners from leading tech companies discussing collaboration opportunities.',
-      image_url: 'https://picsum.photos/seed/industry2024/800/600',
-      category: 'events'
-    }
+    { id: 1, title: 'IEEE Annual Conference 2024', description: 'Keynote speakers presenting cutting-edge research in AI/ML.', image_url: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1200', category: 'events' },
+    { id: 2, title: 'Workshop on Quantum Computing', description: 'Hands-on session exploring quantum algorithms.', image_url: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=1200', category: 'workshops' },
+    { id: 3, title: 'Student Robotics Competition', description: 'Innovative autonomous systems in action.', image_url: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200', category: 'competitions' },
+    { id: 4, title: 'Technical Symposium', description: 'Latest trends in renewable energy.', image_url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200', category: 'events' },
   ];
 
   const sampleFeaturedItems = sampleItems.slice(0, 4);
 
-  // Initialize with sample data
   useEffect(() => {
     setFeaturedItems(sampleFeaturedItems);
     setItems(sampleItems);
@@ -121,10 +40,7 @@ const Gallery = () => {
     setHasMore(false);
   }, []);
 
-  const loadMore = () => {
-    // No more items to load for sample data
-    setHasMore(false);
-  };
+  const loadMore = () => setHasMore(false);
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -133,36 +49,27 @@ const Gallery = () => {
 
   const handleNext = () => {
     const idx = items.findIndex(i => i.id === selectedItem.id);
-    if (idx < items.length - 1) {
-      setSelectedItem(items[idx + 1]);
-    }
+    if (idx < items.length - 1) setSelectedItem(items[idx + 1]);
   };
 
   const handlePrev = () => {
     const idx = items.findIndex(i => i.id === selectedItem.id);
-    if (idx > 0) {
-      setSelectedItem(items[idx - 1]);
-    }
+    if (idx > 0) setSelectedItem(items[idx - 1]);
   };
 
   const handleUploadSuccess = () => {
-    // Refresh with sample data
     setFeaturedItems(sampleFeaturedItems);
     setItems(sampleItems);
   };
 
-  // Filter items based on active filter
   const filteredItems = activeFilter === 'all' 
     ? items 
     : items.filter(item => item.category === activeFilter);
 
-  // Update filtered items count
-  useEffect(() => {
-    setTotalCount(filteredItems.length);
-  }, [activeFilter, filteredItems]);
+  useEffect(() => setTotalCount(filteredItems.length), [activeFilter, filteredItems]);
 
   return (
-    <main className="bg-[#0a0f1d] font-body min-h-screen">
+    <main className="bg-[#0D1117] font-body min-h-screen">
       <GalleryHero />
       <FilterBar activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
 
@@ -181,35 +88,30 @@ const Gallery = () => {
         totalCount={totalCount}
       />
 
-      {/* CTA Section (From Design) */}
-      <section className="py-24 container mx-auto px-6 max-w-6xl">
+      {/* CTA Section */}
+      <section className="py-32 container mx-auto px-6 max-w-7xl">
         <motion.div 
-          className="glass-card p-14 bg-gradient-to-br from-[#0a0f1d] to-[#0d152a] flex flex-col md:flex-row justify-between items-center gap-10 relative overflow-hidden group"
+          className="bg-[#12233b] rounded-[2.5rem] p-12 md:p-20 flex flex-col md:flex-row justify-between items-center gap-12 relative overflow-hidden group border border-white/[0.04]"
         >
-          <div className="absolute top-0 right-0 w-[20rem] h-[20rem] bg-ieee-bright/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-          <div className="relative z-10 w-full md:w-2/3">
-            <h2 className="text-editorial text-[clamp(44px,6vw,84px)] text-blue-50 mb-6 uppercase">
-              Capture the <span className="italic">moment.</span>
+          <div className="absolute top-0 right-0 w-[30rem] h-[30rem] bg-ieee-mist rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none opacity-30" />
+          
+          <div className="relative z-10 flex-1">
+            <span className="paren-index mb-6">ARCHIVE_CONTRIBUTION</span>
+            <h2 className="headline-display text-[clamp(44px,6vw,84px)] mb-8">
+              Capture the <span className="word-cyan italic">moment.</span>
             </h2>
-            <p className="text-body-loose text-sm max-w-lg mb-8 uppercase tracking-widest text-[#40B2D6]">
-              CONTRIBUTING TO THE IEEE ARCHIVE IS EASY. SUBMIT YOUR CAPTURES TO BE FEATURED.
+            <p className="text-[15px] font-body text-[#A8C4DE] max-w-lg leading-relaxed mb-6">
+              Contributing to the IEEE archive is easy. Submit your captures from events, workshops, or competitions to be featured in our global gallery.
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto relative z-10">
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="ieee-btn-primary px-10 py-4 flex items-center justify-center"
-            >
-              Submit Photos
-            </motion.button>
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="ieee-btn-outline px-10 py-4 flex items-center justify-center"
-            >
-              Volunteer Photographer
-            </motion.button>
+
+          <div className="flex flex-wrap gap-4 relative z-10">
+             <button className="bg-[#3C72B0] hover:bg-[#0ECAD4] text-[#E2EEF9] px-10 py-4 rounded-full text-[14px] font-body transition-all duration-300 shadow-xl">
+               Submit Photos
+             </button>
+             <button className="border border-white/10 text-[#A8C4DE] hover:border-[#40B2D6] px-10 py-4 rounded-full text-[14px] font-body transition-all duration-300">
+               Volunteer Roles
+             </button>
           </div>
         </motion.div>
       </section>

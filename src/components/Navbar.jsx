@@ -7,10 +7,7 @@ export default function Navbar() {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isEventsDropdownOpen, setIsEventsDropdownOpen] = useState(false);
-  const [isSocietiesDropdownOpen, setIsSocietiesDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
-
+  
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -20,219 +17,74 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'About', path: '/about' },
-    { name: 'Board', path: '/executive-board' },
-    { name: 'Sponsors', path: '/sponsors' },
-    { name: 'Events', path: '/events', hasDropdown: true },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Membership', path: '/join' },
-    { name: 'Blog', path: '/blog' },
+    { name: 'About', path: '/about', desc: 'OUR_STORY' },
+    { name: 'Board', path: '/executive-board', desc: 'LEADERSHIP' },
+    { name: 'Sponsors', path: '/sponsors', desc: 'PARTNERS' },
+    { name: 'Events', path: '/events', desc: 'ACTIVATIONS' },
+    { name: 'Gallery', path: '/gallery', desc: 'ARCHIVES' },
+    { name: 'Membership', path: '/join', desc: 'JOIN_US' },
+    { name: 'Blog', path: '/blog', desc: 'INSIGHTS' },
   ];
-
-  const eventsDropdownItems = [
-    { name: 'Hackathon', path: '/hackathon' },
-    { name: 'TechFest', path: '/techfest' },
-    { name: 'Workshop', path: '/workshop' },
-  ];
-
-  const societiesDropdownItems = [
-    { name: 'AI Society', path: '/societies/ai' },
-    { name: 'Computer Society', path: '/societies/computer' },
-    { name: 'Power & Energy', path: '/societies/power' },
-    { name: 'Robotics Society', path: '/societies/robotics' },
-  ];
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsEventsDropdownOpen(false);
-        setIsSocietiesDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  const getNavbarClasses = () => {
-    const baseClasses = 'sticky top-0 left-0 right-0 z-[1000] flex items-center justify-between px-6 md:px-12 transition-all duration-500';
-    const scrolledClasses = isScrolled || location.pathname !== '/' 
-      ? 'bg-ieee-deep/90 backdrop-blur-md border-b border-[var(--border-subtle)] shadow-none py-5' 
-      : 'bg-transparent backdrop-blur-none border-transparent py-6';
-    return `${baseClasses} ${scrolledClasses}`;
-  };
 
   return (
     <>
-      <style jsx>{`
-        .navbar-dropdown-menu {
-          position: absolute !important;
-          top: 110% !important;
-          left: 0 !important;
-          min-width: 200px !important;
-          background: #0a0f1d !important;
-          border: 1px solid rgba(64, 178, 214, 0.12) !important;
-          border-radius: 12px !important;
-          padding: 8px 0 !important;
-          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4) !important;
-          display: flex !important;
-          flex-direction: column !important;
-          gap: 4px !important;
-          z-index: 1000 !important;
-          backdrop-filter: blur(12px) !important;
-        }
-        
-        .navbar-dropdown-menu a {
-          display: block !important;
-          padding: 10px 18px !important;
-          font-size: 14px !important;
-          font-weight: 500 !important;
-          color: #EAF3FB !important;
-          text-transform: none !important;
-          margin: 0 6px !important;
-          border-radius: 6px !important;
-          transition: all 0.2s ease !important;
-          text-decoration: none !important;
-        }
-        
-        .navbar-dropdown-menu a:hover {
-          background: rgba(64, 178, 214, 0.08) !important;
-          color: #40B2D6 !important;
-          transform: translateX(4px) !important;
-        }
-        
-        .navbar-dropdown-menu a.active {
-          background: rgba(64, 178, 214, 0.12) !important;
-          color: #40B2D6 !important;
-        }
-        
-        .navbar-nav-text {
-          color: #EAF3FB !important;
-        }
-        
-        .navbar-nav-text:hover {
-          color: #40B2D6 !important;
-        }
-        
-        .navbar-nav-text.active {
-          color: #40B2D6 !important;
-        }
-      `}</style>
-      
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5, ease: [0.76, 0, 0.24, 1] }}
-        className={getNavbarClasses()}
+        transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed top-0 inset-x-0 z-50 h-16 flex items-center justify-between px-6 md:px-12 transition-all duration-400 ${
+          isScrolled || location.pathname !== '/'
+            ? 'bg-[rgba(13,17,23,0.85)] backdrop-blur-lg border-b border-[rgba(64,178,214,0.10)] shadow-none'
+            : 'bg-transparent border-transparent backdrop-blur-none'
+        }`}
       >
-        <div className="flex items-center gap-6">
-          <Link 
-            to="/" 
-            onClick={() => setIsMobileMenuOpen(false)} 
-            className="flex items-center gap-3 group hover:opacity-90 transition-all duration-300"
-          >
-            <img
-              src="/ieee-horizontal-logo.png"
-              alt="IEEE SRM AP Logo"
-              className="h-16 w-auto object-contain"
-            />
-          </Link>
-        </div>
+        <Link 
+          to="/" 
+          onClick={() => setIsMobileMenuOpen(false)} 
+          className="flex items-center gap-3 group"
+        >
+          <span className="font-display text-[14px] font-medium text-[#E2EEF9] tracking-wide uppercase">
+            IEEE <span className="text-[#40B2D6]">SRM AP</span>
+          </span>
+        </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center justify-center flex-1">
-          <div className="flex items-center gap-6 lg:gap-8 uppercase tracking-[0.05em]">
-            {navLinks.map((link) => {
-              const isEventsDropdown = link.path === '/events';
-              const isSocietiesDropdown = link.path === '/societies/ai';
-              const dropdownOpen = isEventsDropdown ? isEventsDropdownOpen : isSocietiesDropdown ? isSocietiesDropdownOpen : false;
-              const dropdownItems = isEventsDropdown ? eventsDropdownItems : isSocietiesDropdown ? societiesDropdownItems : [];
-              const setDropdownOpen = isEventsDropdown ? setIsEventsDropdownOpen : isSocietiesDropdown ? setIsSocietiesDropdownOpen : null;
-              
-              if (link.hasDropdown) {
-                return (
-                  <div key={link.path} className="relative" ref={dropdownRef}>
-                    <Link
-                      to={link.path}
-                      className="relative group py-3 px-2 flex items-center gap-1 text-[13px] text-blue-100 font-body hover:text-[#40B2D6] transition-colors duration-200"
-                      onMouseEnter={() => setDropdownOpen(true)}
-                      onMouseLeave={() => setDropdownOpen(false)}
-                    >
-                      <span className={`relative z-10 ${
-                        (isEventsDropdown && (location.pathname === link.path || location.pathname.startsWith('/hackathon') || location.pathname.startsWith('/techfest') || location.pathname.startsWith('/workshop'))) ||
-                        (isSocietiesDropdown && (location.pathname.startsWith('/societies/')))
-                          ? 'active' : ''
-                      }`}>
-                        {link.name}
-                      </span>
-                      {((isEventsDropdown && (location.pathname === link.path || location.pathname.startsWith('/hackathon') || location.pathname.startsWith('/techfest') || location.pathname.startsWith('/workshop'))) ||
-                        (isSocietiesDropdown && location.pathname.startsWith('/societies/'))) && (
-                        <motion.div
-                          layoutId="nav-indicator"
-                          transition={{ type: "spring", stiffness: 380, damping: 35 }}
-                          className="absolute bottom-0 left-0 right-0 inline-block h-[2px] bg-[#40B2D6] rounded-full"
-                        />
-                      )}
-                      <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`} />
-                    </Link>
-
-                    <AnimatePresence>
-                      {dropdownOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.95, y: -6 }}
-                          animate={{ opacity: 1, scale: 1, y: 0, transition: { duration: 0.18 } }}
-                          exit={{ opacity: 0, scale: 0.95, y: -6, transition: { duration: 0.12 } }}
-                          className="glass-card py-2 min-w-[160px] absolute top-full left-0 mt-1.5"
-                          onMouseEnter={() => setDropdownOpen(true)}
-                          onMouseLeave={() => setDropdownOpen(false)}
-                        >
-                          {dropdownItems.map((item) => (
-                            <Link
-                              key={item.path}
-                              to={item.path}
-                              onClick={() => setDropdownOpen(false)}
-                              className="block px-4 py-2.5 text-[13px] text-blue-100 hover:text-[#40B2D6] hover:bg-[rgba(64,178,214,0.08)] transition-colors border-l-2 border-transparent hover:border-[#40B2D6]"
-                            >
-                              {item.name}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              }
-
-              return (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className="relative group py-3 px-2 text-[13px] text-blue-100 font-body hover:text-[#40B2D6] transition-colors duration-200"
-                >
-                  <span className={`relative z-10 ${location.pathname === link.path ? 'active' : ''}`}>
-                    {link.name}
-                  </span>
-                  {location.pathname === link.path && (
-                    <motion.div
-                      layoutId="nav-indicator"
-                      transition={{ type: "spring", stiffness: 380, damping: 35 }}
-                      className="absolute bottom-0 left-0 right-0 inline-block h-[2px] bg-[#40B2D6] rounded-full"
-                    />
-                  )}
-                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#40B2D6] rounded-full transform scale-x-0 origin-right transition-transform group-hover:scale-x-100 group-hover:origin-left" />
-                </Link>
-              );
-            })}
+        <div className="hidden lg:flex items-center gap-10">
+          <div className="flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="dual-nav-link"
+              >
+                <span className={`nav-label-main text-[13px] font-body transition-colors ${
+                  location.pathname === link.path ? 'text-[#E2EEF9]' : 'text-[#A8C4DE] hover:text-[#E2EEF9]'
+                }`}>
+                  {link.name}
+                </span>
+                <span className="nav-label-desc uppercase">
+                  {link.desc}
+                </span>
+                
+                {location.pathname === link.path && (
+                  <motion.div
+                    layoutId="nav-indicator"
+                    className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-[#0ECAD4] rounded-full"
+                    transition={{ type: "spring", stiffness: 400, damping: 38 }}
+                  />
+                )}
+              </Link>
+            ))}
           </div>
         </div>
 
-        
+        {/* Mobile Toggle */}
         <button
-          className="lg:hidden relative z-[1001] p-3 text-blue-50 hover:text-ieee-cyan transition-all duration-300 hover:scale-105 active:scale-95"
+          className="lg:hidden relative z-[1001] text-[#E2EEF9] w-8 h-8 flex items-center justify-center p-0"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </motion.nav>
 
@@ -240,80 +92,57 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[999] bg-[#0a0f1d]/97 backdrop-blur-sm text-white flex flex-col items-center overflow-y-auto pt-32 pb-20"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-[#0D1117]/95 backdrop-blur-md flex flex-col justify-between px-7 py-12"
           >
-            <div className="flex flex-col gap-5 text-center">
-              {navLinks.map((link, i) => {
-                const isEventsDropdown = link.path === '/events';
-                const isSocietiesDropdown = link.path === '/societies/ai';
-                const dropdownItems = isEventsDropdown ? eventsDropdownItems : isSocietiesDropdown ? societiesDropdownItems : [];
-                
-                if (link.hasDropdown) {
-                  return (
-                    <motion.div
-                      key={link.path}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.05 + (i * 0.03), duration: 0.4 }}
-                    >
-                      <Link
-                        to={link.path}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className={`text-blue-50 font-display text-[clamp(32px,7vw,56px)] font-light hover:text-[#40B2D6] transition-colors block py-3 px-4 ${
-                          (isEventsDropdown && (location.pathname === link.path || location.pathname.startsWith('/hackathon') || location.pathname.startsWith('/techfest') || location.pathname.startsWith('/workshop'))) ||
-                          (isSocietiesDropdown && location.pathname.startsWith('/societies/'))
-                            ? 'text-[#40B2D6]' : ''
-                        }`}
-                      >
-                        {link.name}
-                      </Link>
-                      <div className="mt-2 space-y-2">
-                        {dropdownItems.map((item, itemIndex) => (
-                          <motion.div
-                            key={item.path}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.1 + (itemIndex * 0.05), duration: 0.3 }}
-                          >
-                            <Link
-                              to={item.path}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className={`text-blue-50 font-display text-[clamp(24px,5vw,40px)] font-light hover:text-[#40B2D6] transition-colors block py-2 px-4 ${location.pathname === item.path ? 'text-[#40B2D6]' : ''
-                                }`}
-                            >
-                              {item.name}
-                            </Link>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  );
-                }
-
-                return (
+            <div className="flex flex-col mt-20">
+              <motion.div 
+                className="flex flex-col"
+                variants={{
+                  container: { transition: { staggerChildren: 0.065, delayChildren: 0.08 } }
+                }}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                {navLinks.map((link) => (
                   <motion.div
                     key={link.path}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.05 + (i * 0.03), duration: 0.4 }}
+                    variants={{
+                      initial: { y: 70, opacity: 0 },
+                      animate: { y: 0, opacity: 1, transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] } },
+                      exit: { y: -30, opacity: 0, transition: { duration: 0.3, ease: [0.55, 0, 1, 0.45] } }
+                    }}
+                    className="mb-8"
                   >
                     <Link
                       to={link.path}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`text-blue-50 font-display text-[clamp(32px,7vw,56px)] font-light hover:text-[#40B2D6] transition-colors block py-3 px-4 ${location.pathname === link.path ? 'text-[#40B2D6]' : ''
-                        }`}
+                      className="font-display font-light text-[clamp(42px,8vw,64px)] leading-tight text-[#E2EEF9] hover:text-[#40B2D6] transition-colors duration-200 block"
                     >
                       {link.name}
                     </Link>
+                    <span className="block font-mono text-[11px] uppercase tracking-[0.12em] text-[#5a7fa8] mt-1">
+                      {link.desc}
+                    </span>
                   </motion.div>
-                );
-              })}
+                ))}
+              </motion.div>
+            </div>
 
-                          </div>
+            {/* Mobile Bottom Bar */}
+            <div className="flex flex-col gap-6 pt-6 border-t border-[rgba(64,178,214,0.10)]">
+              <div className="flex gap-8">
+                <a href="#" className="paren-wrap text-[12px] text-[#5a7fa8] hover:text-[#40B2D6] transition-colors uppercase tracking-widest font-mono">IG</a>
+                <a href="#" className="paren-wrap text-[12px] text-[#5a7fa8] hover:text-[#40B2D6] transition-colors uppercase tracking-widest font-mono">TW</a>
+                <a href="#" className="paren-wrap text-[12px] text-[#5a7fa8] hover:text-[#40B2D6] transition-colors uppercase tracking-widest font-mono">LI</a>
+              </div>
+              <span className="font-mono text-[11px] text-[#2d4a6b] uppercase tracking-[0.1em]">
+                IEEE SRM UNIVERSITY AP © 2024
+              </span>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

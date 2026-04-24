@@ -10,7 +10,7 @@ const Events = () => {
       description: 'Join us for an intense 48-hour coding marathon where innovation meets competition. Build groundbreaking solutions, collaborate with brilliant minds, and compete for amazing prizes.',
       path: '/hackathon',
       icon: Code,
-      image: 'https://picsum.photos/seed/hackathon/400/300',
+      image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200',
       features: ['48 Hours', 'Team Competition', 'Prize Pool', 'Mentorship']
     },
     {
@@ -19,7 +19,7 @@ const Events = () => {
       description: 'Experience the ultimate convergence of technology and creativity. Featuring cutting-edge workshops, exhibitions, and competitions showcasing the latest innovations.',
       path: '/techfest',
       icon: Trophy,
-      image: 'https://picsum.photos/seed/techfest/400/300',
+      image: 'https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?auto=format&fit=crop&q=80&w=1200',
       features: ['Multiple Events', 'Workshops', 'Exhibitions', 'Networking']
     },
     {
@@ -28,76 +28,40 @@ const Events = () => {
       description: 'Enhance your skills with hands-on learning sessions led by industry experts. From blockchain to AI, master the technologies shaping our future.',
       path: '/workshop',
       icon: Users,
-      image: 'https://picsum.photos/seed/workshop/400/300',
+      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200',
       features: ['Expert Led', 'Hands-on', 'Certificate', 'Small Groups']
     }
   ];
 
   return (
-    <div className="bg-[#0a0f1d] text-blue-50 min-h-screen">
+    <div className="bg-[#0D1117] text-[#E2EEF9] min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 px-6 overflow-hidden bg-[#0a0f1d]">
-        <div className="container mx-auto max-w-6xl relative z-10">
+      <section className="relative py-24 md:py-32 px-6 overflow-hidden">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
+          <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-ieee-mist rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+        </div>
+
+        <div className="container mx-auto max-w-6xl relative z-10 pt-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="paren-index mb-10"
-            >
-              IEEE_SRM_AP // ACTIVATION_LIST
-            </motion.div>
+            <div className="paren-index mb-8">IEEE_SRM_AP // ACTIVATION_LIST</div>
             
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="editorial-headline text-blue-50 mb-12"
-            >
-              Events<span className="text-[#40B2D6] italic">.archive</span>
-            </motion.h1>
+            <h1 className="headline-display mb-10">
+              Events<span className="word-cyan italic">.archive</span>
+            </h1>
             
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-body-loose text-[20px] max-w-3xl mx-auto mb-16"
-            >
-              Discover our diverse range of activations designed to empower the next generation of innovators.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Overview Section */}
-      <section className="py-20 px-6 bg-[#0a0f1d]">
-        <div className="container mx-auto max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-display text-[clamp(28px,4.5vw,48px)] font-light text-blue-50 tracking-tight mb-8">
-              Our Event Portfolio
-            </h2>
-            <div className="w-20 h-1 bg-[#40B2D6] mx-auto mb-10 rounded-full" />
-            <p className="text-[16px] md:text-[18px] font-body text-blue-200/60 max-w-4xl mx-auto leading-[1.8]">
-              From competitive hackathons to skill-building workshops, our events cater to every aspect of technological innovation and personal development.
-              Each event is carefully crafted to provide maximum value, learning opportunities, and networking possibilities.
+            <p className="text-[16px] md:text-[18px] font-body text-[#A8C4DE] max-w-2xl leading-relaxed mb-16">
+              Discover our diverse range of activations designed to empower the next generation of innovators at SRM AP.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Events Grid */}
-      <section className="py-20 px-6 bg-[#0a0f1d]">
+      <section className="py-20 px-6 bg-[#0D1117] border-t border-white/[0.04]">
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {eventsData.map((event, index) => {
@@ -109,50 +73,48 @@ const Events = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.8 }}
-                  className="indexed-card group transition-all duration-500 overflow-hidden"
+                  className="indexed-card group"
                 >
+                  <span className="card-num">0{index + 1}</span>
+                  
                   {/* Image */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-56 overflow-hidden rounded-t-xl">
                     <img
                       src={event.image}
                       alt={event.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover card-image"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1d]/80 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+                    <div className="card-overlay" />
+                    <div className="absolute bottom-6 left-6 z-10 flex flex-wrap gap-2">
+                       {event.features.slice(0, 2).map((f, i) => (
+                         <span key={i} className="badge-event">{f}</span>
+                       ))}
+                    </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-8">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-[#40B2D6]/10 rounded-full flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-[#40B2D6]" />
+                  <div className="p-8 bg-[#121820]/40 flex flex-col justify-between h-[340px]">
+                    <div>
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="p-2.5 bg-ieee-mist rounded-lg">
+                          <Icon size={18} className="text-[#40B2D6]" />
+                        </div>
+                        <h3 className="font-display text-[24px] font-medium text-[#E2EEF9]">
+                          {event.title}
+                        </h3>
                       </div>
-                      <h3 className="font-display text-[22px] font-medium text-blue-50">
-                        {event.title}
-                      </h3>
-                    </div>
 
-                    <p className="text-[14px] font-body text-blue-200/50 leading-relaxed mb-6 line-clamp-3">
-                      {event.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {event.features.map((feature, featureIndex) => (
-                        <span
-                          key={featureIndex}
-                          className="px-3 py-1 bg-white/5 border border-white/10 text-blue-200/60 text-[10px] uppercase font-body tracking-widest rounded-full"
-                        >
-                          {feature}
-                        </span>
-                      ))}
+                      <p className="text-[14px] font-body text-[#A8C4DE] leading-relaxed mb-8 line-clamp-3">
+                        {event.description}
+                      </p>
                     </div>
 
                     <Link
                       to={event.path}
-                      className="group flex items-center justify-center gap-2 ieee-btn-primary w-fit px-8"
+                      className="bg-[#3C72B0] hover:bg-[#0ECAD4] text-[#E2EEF9] px-8 py-3 rounded-full text-[14px] font-body transition-all duration-250 w-full inline-flex items-center justify-center gap-2"
                     >
-                      Explore
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      Explore Activation
+                      <ArrowRight size={16} />
                     </Link>
                   </div>
                 </motion.div>
@@ -162,39 +124,27 @@ const Events = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-24 md:py-32 px-6 bg-gradient-to-br from-[#0a0f1d] to-[#0d152a] text-blue-50 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[30rem] h-[30rem] bg-ieee-bright/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
-        <div className="container mx-auto max-w-4xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="font-display text-[clamp(28px,4.5vw,48px)] font-light mb-8 text-blue-50 tracking-tight">
-              Ready to Join?
-            </h2>
-            <div className="w-20 h-1 bg-[#40B2D6] mx-auto mb-10 rounded-full" />
-            <p className="text-[17px] md:text-[20px] font-body text-blue-200/60 max-w-2xl mx-auto leading-relaxed mb-12">
-              Whether you're a participant, volunteer, or sponsor, there's a place for you in our vibrant tech community.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/hackathon"
-                className="group flex items-center justify-center gap-2 ieee-btn-primary px-8 py-4"
-              >
-                Register for Events
-              </Link>
-              <Link
-                to="/join"
-                className="group flex items-center justify-center gap-2 ieee-btn-outline px-8 py-4"
-              >
-                Join IEEE
-              </Link>
-            </div>
-          </motion.div>
+      {/* Overview/CTA Row */}
+      <section className="py-32 px-6 bg-[#0D1117] border-t border-white/[0.04]">
+        <div className="container mx-auto max-w-7xl">
+           <div className="flat-row border-t border-white/[0.08]">
+             <div className="flat-row-key">MISSION_DRIVE</div>
+             <div className="flat-row-value">
+               <h3 className="headline-display text-4xl mb-6 truncate max-w-full">Empowering Global Innovation.</h3>
+               <p className="text-[#A8C4DE] max-w-2xl leading-relaxed mb-8">
+                 Whether you're a participant, volunteer, or sponsor, there's a place for you in our vibrant tech community.
+                 We host 65+ activations annually to foster excellence.
+               </p>
+               <div className="flex flex-wrap gap-4">
+                 <Link to="/join" className="bg-[#3C72B0] hover:bg-[#0ECAD4] text-[#E2EEF9] px-8 py-3 rounded-full text-[14px] font-body transition-all">
+                   Join IEEE
+                 </Link>
+                 <Link to="/about" className="border border-[rgba(64,178,214,0.2)] text-[#A8C4DE] hover:border-[#40B2D6] px-8 py-3 rounded-full text-[14px] font-body transition-all">
+                   Learn More
+                 </Link>
+               </div>
+             </div>
+           </div>
         </div>
       </section>
     </div>

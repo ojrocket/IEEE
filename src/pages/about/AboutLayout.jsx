@@ -5,9 +5,9 @@ export default function AboutLayout() {
   const location = useLocation();
   
   const aboutLinks = [
-    { name: 'Overview', path: '/about' },
-    { name: 'Governance', path: '/about/governance' },
-    { name: 'Leadership', path: '/about/leadership' },
+    { name: 'Overview', path: '/about', index: '01' },
+    { name: 'Governance', path: '/about/governance', index: '02' },
+    { name: 'Leadership', path: '/about/leadership', index: '03' },
   ];
 
   return (
@@ -15,19 +15,19 @@ export default function AboutLayout() {
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
-      className="min-h-screen pt-32 px-8 md:px-16 bg-[#0a0f1d] text-blue-50"
+      className="min-h-screen pt-40 px-6 md:px-14 lg:px-20 bg-[#0D1117] text-[#E2EEF9]"
     >
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 static md:relative">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-20">
          {/* Mobile Navigation */}
-         <div className="flex md:hidden gap-6 mb-12 overflow-x-auto pb-4 hide-scrollbar border-b border-ieee-deep/10">
+         <div className="flex md:hidden gap-8 mb-16 overflow-x-auto pb-4 hide-scrollbar border-b border-white/[0.04]">
            {aboutLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (
                 <Link 
                   key={link.path}
                   to={link.path}
-                  className={`text-lg font-display whitespace-nowrap transition-all ${
-                    isActive ? 'text-[#40B2D6] font-medium' : 'text-blue-200/60'
+                  className={`text-[13px] font-mono uppercase tracking-widest whitespace-nowrap transition-all ${
+                    isActive ? 'text-[#0ECAD4]' : 'text-[#5a7fa8]'
                   }`}
                 >
                   {link.name}
@@ -37,28 +37,34 @@ export default function AboutLayout() {
          </div>
 
          <aside className="w-1/4 hidden md:block">
-            <div className="sticky top-40 flex flex-col gap-8">
-              <span className="paren-index mb-4 uppercase">ABT_DIRECTIVE_B4</span>
-              {aboutLinks.map((link) => {
-                 const isActive = location.pathname === link.path;
-                 return (
-                   <Link 
-                     key={link.path}
-                     to={link.path}
-                     className={`text-editorial text-4xl transition-all uppercase ${
-                       isActive ? 'text-[#40B2D6] italic' : 'text-blue-200/40 hover:text-blue-50'
-                     }`}
-                   >
-                     {link.name}
-                   </Link>
-                 )
-              })}
+            <div className="sticky top-40 flex flex-col gap-10">
+              <span className="paren-index block mb-4 uppercase">ABT_DIRECTIVE_B4</span>
+              <div className="flex flex-col gap-6">
+                {aboutLinks.map((link) => {
+                   const isActive = location.pathname === link.path;
+                   return (
+                     <Link 
+                       key={link.path}
+                       to={link.path}
+                       className="group flex items-center gap-4"
+                     >
+                       <span className={`font-mono text-[10px] transition-colors ${isActive ? 'text-[#0ECAD4]' : 'text-[#2d4a6b]'}`}>
+                         {link.index}
+                       </span>
+                       <span className={`headline-display text-4xl transition-all uppercase ${
+                         isActive ? 'text-[#E2EEF9] italic' : 'text-[#2d4a6b] hover:text-[#5a7fa8]'
+                       }`}>
+                         {link.name}
+                       </span>
+                     </Link>
+                   )
+                })}
+              </div>
             </div>
          </aside>
 
          {/* Content Area */}
          <main className="flex-1 pb-32">
-            {/* Animated Router Outlet */}
             <Outlet />
          </main>
       </div>

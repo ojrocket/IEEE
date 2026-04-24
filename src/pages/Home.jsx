@@ -1,10 +1,12 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, ArrowUpRight, Users, Calendar, Award, Cpu, Sparkles, Globe, Clock, MapPin, ChevronDown } from 'lucide-react';
 import useIsMobile from '../hooks/useIsMobile';
+import ScrollVideo from '../components/ScrollVideo';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -155,57 +157,131 @@ export default function Home() {
     <div ref={container}>
 
       {/* ══════════ HERO ══════════ */}
-      <section className="min-h-screen bg-[#0a0f1d] flex flex-col justify-center px-6 md:px-12 lg:px-20 relative overflow-hidden">
+      <section className="min-h-[100dvh] flex flex-col justify-center overflow-hidden px-6 md:px-14 lg:px-20 relative bg-[#0D1117]">
+        {/* Scroll-driven video background */}
+        <ScrollVideo
+          src="/videos/hero-scroll.mp4"
+          className="absolute inset-0 z-0 w-full h-full"
+          scrollStart={0}
+        />
+        {/* Dark overlay so text stays readable over the video */}
+        <div className="absolute inset-0 z-[1] bg-[#0D1117]/70 pointer-events-none" />
         {/* CSS-only background — dot grid + radial glow */}
-        <div className="absolute inset-0 z-0 pointer-events-none"
+        <div className="absolute inset-0 z-[2] pointer-events-none opacity-20"
           style={{
-            backgroundImage: 'radial-gradient(circle, rgba(0,194,255,0.08) 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
+            backgroundImage: 'radial-gradient(circle, rgba(14,202,212,0.15) 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
           }}
         />
-        <div className="absolute inset-0 z-0 pointer-events-none"
+        <div className="absolute inset-0 z-[2] pointer-events-none"
           style={{
-            background: 'radial-gradient(ellipse 600px 400px at 70% 30%, rgba(10,102,194,0.15) 0%, transparent 70%), radial-gradient(ellipse 500px 350px at 25% 70%, rgba(0,194,255,0.08) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse 800px 500px at 70% 30%, rgba(60,114,176,0.12) 0%, transparent 70%), radial-gradient(ellipse 600px 400px at 20% 80%, rgba(14,202,212,0.08) 0%, transparent 70%)',
           }}
         />
-        <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, transparent 40%, rgba(10,31,68,0.7) 100%)' }} />
 
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <h1 className="editorial-headline text-blue-50 mb-10">
-            <span className="editorial-word-row">
-              <span className="hero-word">Empowering</span>
-            </span>
-            <span className="editorial-word-row">
-              <span className="hero-word italic">Innovation.</span>
-            </span>
-            <span className="editorial-word-row justify-end">
-              <span className="hero-word text-transparent bg-clip-text bg-gradient-to-r from-[#00C2FF] to-ieee-bright lowercase">Future_Now.</span>
-            </span>
+        <div className="relative z-10 max-w-[1280px] mx-auto w-full">
+          <div className="mb-4">
+            <span className="paren-index">00 // GLOBAL_ACCESS</span>
+          </div>
+
+          <h1 className="mb-10">
+            <div className="editorial-line">
+              <motion.span 
+                initial={{ y: "110%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+                className="editorial-line-inner headline-display"
+              >
+                Empowering
+              </motion.span>
+            </div>
+            <div className="editorial-line">
+              <motion.span 
+                initial={{ y: "110%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1], delay: 0.22 }}
+                className="editorial-line-inner headline-display italic word-gold"
+              >
+                Innovation.
+              </motion.span>
+            </div>
+            <div className="editorial-line">
+              <motion.span 
+                initial={{ y: "110%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1], delay: 0.34 }}
+                className="editorial-line-inner headline-display word-cyan lowercase"
+              >
+                Future_Now.
+              </motion.span>
+            </div>
           </h1>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-[14px] md:text-[15px] font-body text-[#A8C4DE] max-w-[400px] leading-relaxed mt-6 mb-10"
+          >
+            Advancing technology for the benefit of humanity at SRM University AP Amaravati.
+          </motion.p>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="flex flex-col sm:flex-row gap-4"
+          >
             <a href="https://www.ieee.org/membership/join/index.html" target="_blank" rel="noopener noreferrer"
-              className="hero-cta-btn group flex items-center justify-center gap-2 ieee-btn-primary">
-              Join IEEE <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+              className="bg-[#3C72B0] hover:bg-[#0ECAD4] text-[#E2EEF9] px-7 py-3 rounded-full text-[14px] font-body transition-all duration-250 hover:scale-[1.03] active:scale-[0.97] tracking-wide inline-flex items-center justify-center gap-2">
+              Join IEEE <ArrowRight size={14} />
             </a>
             <Link to="/chapters"
-              className="hero-cta-btn group flex items-center justify-center gap-2 ieee-btn-outline">
-              Explore Chapters <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              className="border border-[rgba(64,178,214,0.28)] text-[#A8C4DE] hover:border-[#40B2D6] hover:text-[#0ECAD4] px-7 py-3 rounded-full text-[14px] font-body transition-all duration-250 inline-flex items-center justify-center gap-2">
+              Explore Chapters <ArrowUpRight size={14} />
             </Link>
-          </div>
+          </motion.div>
+
+          {/* Stats Bar Component as requested */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.9 }}
+            className="mt-20 flex flex-wrap gap-8 md:gap-16"
+          >
+            <div className="stat-block">
+              <span className="stat-number">520+</span>
+              <span className="stat-label">Active Members</span>
+            </div>
+            <div className="stat-block">
+              <span className="stat-number gold">65+</span>
+              <span className="stat-label">Events Hosted</span>
+            </div>
+            <div className="stat-block">
+              <span className="stat-number violet">6</span>
+              <span className="stat-label">Tech Chapters</span>
+            </div>
+          </motion.div>
         </div>
 
-        <div className="hero-scroll-cue absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10">
-          <span className="text-[8px] font-sans uppercase tracking-[0.4em] text-white/15">Scroll</span>
-          <ChevronDown size={12} className="text-white/15 animate-bounce" />
-        </div>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.2 }}
+          className="absolute bottom-10 right-10 hidden lg:flex flex-col items-center gap-4"
+        >
+          <span className="font-mono text-[11px] text-[#5a7fa8] uppercase tracking-[0.16em] [writing-mode:vertical-lr]">
+            Scroll to Explore
+          </span>
+          <div className="w-[1px] h-12 bg-gradient-to-b from-[#40B2D6] to-transparent" />
+        </motion.div>
       </section>
 
       {/* ══════════ MARQUEE ══════════ */}
-      <section className="marquee-section overflow-hidden py-4 bg-ieee-deep border-y border-white/5 -mt-px">
+      <section className="marquee-section py-6 bg-[#0D1117] border-y border-white/[0.04] overflow-hidden -mt-px">
         <div className="marquee-track">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className={`flex-shrink-0 px-4 md:px-5 text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] font-bold whitespace-nowrap ${item === '✦' ? 'text-[#00C2FF]/50' : 'text-white/25'}`}>
+            <span key={i} className={`flex-shrink-0 px-6 text-[11px] font-mono uppercase tracking-[0.2em] whitespace-nowrap transition-colors duration-500 ${item === '✦' ? 'text-[#0ECAD4]' : 'text-[#2d4a6b] hover:text-[#A8C4DE]'}`}>
               {item}
             </span>
           ))}
@@ -213,22 +289,24 @@ export default function Home() {
       </section>
 
       {/* ══════════ BENTO STATS ══════════ */}
-      <section ref={bentoRef} className="bento-section py-16 md:py-24 px-6 md:px-16 bg-[#0a0f1d] border-t border-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-10 md:mb-14">
+      <section ref={bentoRef} className="py-24 md:py-32 px-6 md:px-16 bg-[#0D1117] border-t border-white/[0.04]">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-14 md:mb-20">
             <span className="paren-index mb-4">01 // IMPACT_METRICS</span>
-            <h2 className="text-editorial text-[clamp(48px,8vw,90px)] text-blue-50 uppercase">By the Numbers.</h2>
+            <h2 className="headline-display text-[clamp(44px,7vw,90px)] uppercase">By the Numbers.</h2>
           </div>
-          <div className="bento-grid">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-1 bg-white/[0.04] border border-white/[0.04]">
             {bentoStats.map((stat, i) => {
               const Icon = stat.icon;
               return (
-                <div key={i} className={`bento-card ${stat.cls} p-6 flex flex-col justify-between min-h-[140px] md:min-h-[180px] group transition-all duration-500 border-r border-b border-white/5 hover:bg-white/[0.02]`}>
+                <div key={i} className={`bg-[#0D1117] ${stat.cls === 'bento-wide' ? 'md:col-span-6' : 'md:col-span-3'} p-8 h-64 flex flex-col justify-between group transition-all duration-500 hover:bg-white/[0.02]`}>
                   <div className="flex items-center justify-between">
-                    <Icon size={14} className="text-[#40B2D6] opacity-30 group-hover:opacity-100 transition-opacity duration-300" />
-                    <span className="text-mono-label">{stat.label}</span>
+                    <div className="p-2 bg-ieee-mist rounded-lg">
+                      <Icon size={16} className="text-[#40B2D6]" />
+                    </div>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-[#5a7fa8]">{stat.label}</span>
                   </div>
-                  <span className="font-display text-[clamp(44px,6vw,84px)] font-light text-blue-50 mt-auto leading-none">
+                  <span className="font-display text-[clamp(48px,5vw,84px)] font-light text-[#E2EEF9] leading-none tabular-nums">
                     <AnimatedCounter target={stat.value} suffix={stat.suffix} inView={bentoInView} />
                   </span>
                 </div>
@@ -239,159 +317,136 @@ export default function Home() {
       </section>
 
       {/* ══════════ ABOUT ══════════ */}
-      <section className="about-section py-20 md:py-32 px-6 md:px-16 bg-ieee-deep relative overflow-hidden">
-        {/* CSS-only subtle background */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 800px 500px at 50% 50%, rgba(10,102,194,0.08) 0%, transparent 70%)' }} />
-
+      <section className="py-24 md:py-32 px-6 md:px-14 lg:px-20 bg-[#0D1117] relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-ieee-mist rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        
         <div className="relative z-10 max-w-5xl">
           <span className="paren-index mb-8">02 // CORE_MISSION</span>
-          <blockquote className="about-quote text-editorial text-[clamp(44px,7vw,110px)] text-blue-50 leading-[0.9] tracking-tight mb-20">
-            A vibrant community of <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C2FF] to-ieee-bright">passionate engineers</span> dedicated to advancing technology for humanity.
+          <blockquote className="headline-display text-[clamp(36px,6vw,90px)] leading-[1.0] tracking-tight mb-20">
+            A vibrant community of <span className="word-cyan">passionate engineers</span> dedicated to advancing technology for humanity.
           </blockquote>
 
-          <div className="about-cards flex flex-col sm:flex-row gap-4">
-            <div className="about-card flex-1 p-8 border-r border-white/5 bg-white/[0.02]">
-              <h4 className="text-mono-label mb-2">Mission</h4>
-              <p className="text-body-loose text-sm">To foster technological innovation and excellence for the benefit of humanity.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="stat-block">
+              <h4 className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#5a7fa8] mb-4 block">Mission</h4>
+              <p className="text-[15px] font-body text-[#A8C4DE] leading-relaxed">To foster technological innovation and excellence for the benefit of humanity at SRM University AP.</p>
             </div>
-            <div className="about-card flex-1 p-8 border-r border-white/5 bg-white/[0.02]">
-              <h4 className="text-mono-label mb-2">Vision</h4>
-              <p className="text-body-loose text-sm">To be the leading technical community shaping future engineers.</p>
+            <div className="stat-block">
+              <h4 className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#5a7fa8] mb-4 block">Vision</h4>
+              <p className="text-[15px] font-body text-[#A8C4DE] leading-relaxed">To be the leading technical community shaping future engineers for global challenges.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ══════════ CHAPTERS ══════════ */}
-      <section className="chapters-section py-16 md:py-24 px-6 md:px-16 bg-[#0a0f1d] border-t border-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 border-b border-white/10 pb-8">
+      <section className="py-24 md:py-32 px-6 md:px-14 lg:px-20 bg-[#0D1117] border-t border-white/[0.04]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 pb-8 border-b border-white/[0.06]">
             <div>
               <span className="paren-index mb-4">03 // TECHNICAL_SOCIETIES</span>
-              <h2 className="text-editorial text-[clamp(48px,8vw,90px)] text-blue-50 uppercase">Chapters.</h2>
+              <h2 className="headline-display text-[clamp(44px,7vw,90px)] uppercase">Chapters.</h2>
             </div>
-            <Link to="/chapters" className="mt-3 md:mt-0 inline-flex items-center gap-2 text-blue-200/40 hover:text-[#40B2D6] text-[10px] font-body uppercase tracking-[0.2em] font-medium transition-colors group">
-              View All <ArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
+            <Link to="/chapters" className="mt-8 md:mt-0 flex items-center gap-2 text-[#5a7fa8] hover:text-[#40B2D6] font-mono text-[11px] uppercase tracking-[0.18em] transition-colors group">
+              View All <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {chapters.map((ch, i) => (
-              <TiltCard key={i} className="chapter-card">
-                <Link to="/chapters" className="block glass-card p-5 md:p-6 transition-all duration-500 group h-full">
-                  <div className="w-8 h-0.5 rounded-full mb-5" style={{ backgroundColor: ch.accent }} />
-                  <div className="flex flex-wrap gap-1.5 mb-3">
+              <div key={i} className="indexed-card glass-card p-8 h-full flex flex-col justify-between">
+                <span className="card-num">{i + 1 < 10 ? `0${i + 1}` : i + 1}</span>
+                <div className="mb-12">
+                  <div className="w-10 h-[1.5px] bg-[#40B2D6] mb-6" style={{ backgroundColor: ch.accent }} />
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {ch.tags.map((t, ti) => (
-                      <span key={ti} className="text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-[rgba(64,178,214,0.1)] border border-[var(--border-subtle)] text-[#40B2D6]">{t}</span>
+                      <span key={ti} className="badge-event">{t}</span>
                     ))}
                   </div>
-                  <h3 className="font-display text-[18px] md:text-[20px] text-blue-50 mb-2">{ch.name}</h3>
-                  <p className="text-[12px] font-body text-[#5a7fa8] leading-relaxed mb-5">{ch.desc}</p>
-                  <div className="flex items-center justify-between pt-3 border-t border-white/5">
-                    <span className="text-[12px] font-body text-blue-200/40">{ch.members} Members</span>
-                    <ArrowUpRight size={12} className="text-blue-200/10 group-hover:text-[#40B2D6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
-                  </div>
-                </Link>
-              </TiltCard>
+                  <h3 className="font-display text-[22px] font-medium text-[#E2EEF9] mb-3">{ch.name}</h3>
+                  <p className="text-[14px] font-body text-[#A8C4DE] leading-relaxed">{ch.desc}</p>
+                </div>
+                <div className="flex items-center justify-between pt-6 border-t border-white/[0.04]">
+                  <span className="font-mono text-[10px] text-[#5a7fa8] uppercase tracking-widest">{ch.members} Members</span>
+                  <ArrowUpRight size={14} className="text-[#5a7fa8]" />
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* ══════════ EVENTS ══════════ */}
-      <section className="events-section py-16 md:py-24 px-6 md:px-16 bg-ieee-deep relative overflow-hidden">
-        {/* CSS-only dot grid background */}
-        <div className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(0,194,255,0.04) 1px, transparent 1px)',
-            backgroundSize: '32px 32px',
-          }}
-        />
-
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <div className="events-header mb-16">
+      <section className="py-24 md:py-32 px-6 md:px-14 lg:px-20 bg-[#0D1117] border-t border-white/[0.04]">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-20">
             <span className="paren-index mb-4">04 // UPCOMING_ACTIVATIONS</span>
-            <h2 className="text-editorial text-[clamp(48px,8vw,90px)] text-blue-50 uppercase">What's Next.</h2>
+            <h2 className="headline-display text-[clamp(44px,7vw,90px)] uppercase">What's Next.</h2>
           </div>
 
-          {events.map((ev, i) => (
-            <div key={i} className="event-row group border-t border-white/[0.06] py-6 md:py-8 cursor-pointer">
-              <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-0">
-                <div className="md:w-32 flex-shrink-0">
-                  <span className="text-mono-label">{ev.date}</span>
+          <div className="border-t border-white/[0.08]">
+            {events.map((ev, i) => (
+              <div key={i} className="flat-row group cursor-pointer hover:bg-white/[0.01] px-4 transition-colors">
+                <div className="flat-row-key flex flex-col gap-1">
+                  <span>{ev.date}</span>
+                  <span className="text-[9px] opacity-40">{ev.location}</span>
                 </div>
-                <div className="hidden md:block w-px h-12 bg-white/[0.06] mx-6 group-hover:bg-[#00C2FF]/20 transition-colors duration-500" />
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-[rgba(64,178,214,0.1)] border border-[var(--border-subtle)] text-[#40B2D6]">{ev.tag}</span>
-                    <div className="flex items-center gap-1 text-[12px] font-body text-blue-200/40">
-                      <MapPin size={8} />
-                      <span>{ev.location}</span>
-                    </div>
+                <div className="flat-row-value">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className={`badge-event ${ev.tag === 'Festival' ? 'violet' : ev.tag === 'Competition' ? 'gold' : ''}`}>
+                      {ev.tag}
+                    </span>
                   </div>
-                  <h3 className="text-editorial text-2xl text-blue-50 group-hover:text-[#40B2D6] transition-colors duration-300 mb-1">{ev.title}</h3>
-                  <p className="text-body-loose text-xs">{ev.desc}</p>
-                </div>
-                <div className="flex-shrink-0 md:pl-6">
-                  <div className="w-8 h-8 rounded-full border border-white/5 group-hover:border-[#40B2D6]/25 group-hover:bg-[#40B2D6]/5 flex items-center justify-center transition-all duration-300">
-                    <ArrowRight size={12} className="text-white/10 group-hover:text-[#40B2D6] group-hover:translate-x-0.5 transition-all duration-300" />
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="font-display text-[20px] md:text-[24px] text-[#E2EEF9] mb-1 group-hover:text-ieee-electric transition-colors">{ev.title}</h3>
+                      <p className="text-[14px] text-[#A8C4DE] max-w-xl">{ev.desc}</p>
+                    </div>
+                    <ArrowRight size={18} className="text-[#2d4a6b] group-hover:text-ieee-electric group-hover:translate-x-1 transition-all" />
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-          <div className="border-t border-white/[0.06]" />
-
-          <div className="mt-8 flex flex-wrap gap-1.5">
-            <span className="text-[8px] font-sans uppercase tracking-[0.2em] text-white/12 font-bold self-center mr-1.5">Past:</span>
-            {['Web Dev Bootcamp · Nov', 'Robotics Competition · Oct', 'AI Symposium · Sep'].map((e, i) => (
-              <span key={i} className="text-[9px] font-sans text-white/15 border border-white/[0.04] rounded-full px-2.5 py-0.5">{e}</span>
             ))}
           </div>
         </div>
       </section>
 
       {/* ══════════ BLOG ══════════ */}
-      <section className="blog-section py-16 md:py-24 px-6 md:px-16 bg-[#0a0f1d] border-t border-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16">
+      <section className="py-24 md:py-32 px-6 md:px-14 lg:px-20 bg-[#0D1117] border-t border-white/[0.04]">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-20">
             <span className="paren-index mb-4">05 // LATEST_INSIGHTS</span>
-            <h2 className="text-editorial text-[clamp(48px,8vw,90px)] text-blue-50 uppercase">From the Blog.</h2>
+            <h2 className="headline-display text-[clamp(44px,7vw,90px)] uppercase">From the Blog.</h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
-            <TiltCard className="blog-card lg:col-span-3">
-              <div className="group glass-card p-5 md:p-6 h-full flex flex-col justify-between min-h-[240px] cursor-pointer hover:shadow-2xl transition-shadow duration-500 relative overflow-hidden">
-                {/* CSS gradient accent instead of canvas */}
-                <div className="absolute top-0 right-0 w-[18rem] h-[18rem] bg-ieee-bright/8 rounded-full blur-[80px] -translate-y-1/3 translate-x-1/4 pointer-events-none" />
-                <div className="relative z-10">
-                  <div className="flex items-center gap-2 mb-6">
-                    <span className="text-mono-label border border-white/10 px-3 py-1">Featured</span>
-                    <span className="text-mono-label border border-white/10 px-3 py-1">{blogPosts[0].category}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div className="lg:col-span-8">
+              <div className="indexed-card group relative h-[500px] overflow-hidden rounded-2xl">
+                <div className="card-num">01</div>
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600" 
+                     className="w-full h-full object-cover card-image" alt="Featured Post" />
+                <div className="card-overlay" />
+                <div className="card-label">
+                  <span className="badge-event gold mb-4 block w-fit">{blogPosts[0].category}</span>
+                  <h3 className="headline-display text-4xl mb-4 italic">{blogPosts[0].title}</h3>
+                  <div className="flex items-center gap-6 text-[12px] font-mono text-[#A8C4DE]">
+                    <span>BY {blogPosts[0].author.toUpperCase()}</span>
+                    <span>{blogPosts[0].time.toUpperCase()} READ</span>
                   </div>
-                  <h3 className="text-editorial text-[clamp(28px,4vw,48px)] text-blue-50 group-hover:text-white transition-colors duration-300 max-w-md uppercase italic">{blogPosts[0].title}</h3>
-                </div>
-                <div className="relative z-10 flex items-center justify-between mt-6">
-                  <span className="text-[12px] font-body text-blue-200/40">{blogPosts[0].author}</span>
-                  <div className="flex items-center gap-1.5 text-[12px] font-body text-blue-200/40"><Clock size={10} /><span>{blogPosts[0].time}</span></div>
                 </div>
               </div>
-            </TiltCard>
+            </div>
 
-            <div className="lg:col-span-2 flex flex-col gap-4">
+            <div className="lg:col-span-4 flex flex-col gap-6">
               {blogPosts.slice(1).map((post, i) => (
-                <TiltCard key={i} className="blog-card flex-1">
-                  <div className="group glass-card p-5 md:p-6 transition-all duration-500 h-full flex flex-col justify-between cursor-pointer">
-                    <div>
-                      <span className="text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-[rgba(64,178,214,0.1)] border border-[var(--border-subtle)] text-[#40B2D6] block mb-2">{post.category}</span>
-                      <h4 className="font-display text-[18px] md:text-[20px] text-blue-50 mb-2">{post.title}</h4>
-                    </div>
-                    <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/5">
-                      <span className="text-[12px] font-body text-blue-200/40">{post.author}</span>
-                      <span className="text-[12px] font-body text-blue-200/40">{post.time}</span>
-                    </div>
+                <div key={i} className="indexed-card glass-card p-8 h-full group">
+                  <span className="card-num">0{i + 2}</span>
+                  <div>
+                    <span className="badge-event block w-fit mb-4">{post.category}</span>
+                    <h4 className="font-display text-[20px] text-[#E2EEF9] mb-4 leading-tight group-hover:text-ieee-electric transition-colors">{post.title}</h4>
+                    <span className="font-mono text-[10px] text-[#5a7fa8] uppercase tracking-widest">{post.time} READ</span>
                   </div>
-                </TiltCard>
+                </div>
               ))}
             </div>
           </div>
@@ -399,26 +454,27 @@ export default function Home() {
       </section>
 
       {/* ══════════ CTA ══════════ */}
-      <section className="py-10 md:py-16 px-4 md:px-10 bg-[#0a0f1d] border-t border-white/5">
-        <div className="cta-final relative overflow-hidden rounded-[2rem] bg-ieee-deep py-16 md:py-24 px-6 md:px-14 shadow-[0_30px_80px_rgba(10,31,68,0.25)]">
-          {/* CSS glow accents */}
-          <div className="absolute top-0 left-1/4 w-[25rem] h-[25rem] bg-ieee-bright/10 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
-          <div className="absolute bottom-0 right-1/4 w-[20rem] h-[20rem] bg-[#00C2FF]/8 rounded-full blur-[80px] translate-y-1/2 pointer-events-none" />
+      <section className="py-24 md:py-32 px-6 md:px-14 lg:px-20 bg-[#0D1117] border-t border-white/[0.04]">
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-[#12233b] py-24 md:py-32 px-10 text-center">
+          <div className="absolute inset-0 z-0 opacity-10"
+            style={{
+              backgroundImage: 'radial-gradient(circle, rgba(14,202,212,0.3) 1px, transparent 1px)',
+              backgroundSize: '32px 32px',
+            }}
+          />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-[#3C72B0]/10 to-transparent pointer-events-none" />
 
-          <div className="relative z-10 max-w-3xl mx-auto text-center">
-            <h2 className="text-editorial text-[clamp(44px,7vw,110px)] text-blue-50 mb-6 uppercase">
-              Shape the <span className="italic">future</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C2FF] to-ieee-bright">with us.</span>
+          <div className="relative z-10 max-w-4xl mx-auto">
+            <h2 className="headline-display text-[clamp(44px,7vw,110px)] mb-10 uppercase">
+              Shape the <span className="italic">future</span> <span className="word-cyan">with us.</span>
             </h2>
-            <p className="text-sm font-sans text-white/30 max-w-md mx-auto mb-8 leading-relaxed">
-              Join 520+ members across 6 technical chapters.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a href="https://www.ieee.org/membership/join/index.html" target="_blank" rel="noopener noreferrer"
-                className="group flex items-center justify-center gap-2 ieee-btn-primary">
-                Join IEEE Today <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                className="bg-[#3C72B0] hover:bg-[#0ECAD4] text-[#E2EEF9] px-10 py-4 rounded-full text-[15px] font-body transition-all duration-250 hover:scale-[1.03] active:scale-[0.97] tracking-wide inline-flex items-center gap-3">
+                Join IEEE Today <ArrowRight size={16} />
               </a>
               <Link to="/about"
-                className="group flex items-center justify-center gap-2 ieee-btn-outline">
+                className="border border-white/10 text-[#A8C4DE] hover:border-[#40B2D6] hover:text-[#0ECAD4] px-10 py-4 rounded-full text-[15px] font-body transition-all duration-250 inline-flex items-center gap-3">
                 Learn More
               </Link>
             </div>

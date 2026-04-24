@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'react';
-import gsap from 'gsap';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Preloader() {
@@ -7,19 +6,24 @@ export default function Preloader() {
    const numberRef = useRef(null);
 
    useEffect(() => {
-      // Elegant count-up
-      gsap.to(numberRef.current, {
-         innerHTML: 100,
-         duration: 2.2,
-         snap: { innerHTML: 1 },
-         ease: "power1.inOut",
-      });
+      document.body.classList.add('is-loading');
+      let count = 0;
+      const interval = setInterval(() => {
+         count++;
+         if (numberRef.current) numberRef.current.textContent = count;
+         if (count >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+               setIsLoading(false);
+               document.body.classList.remove('is-loading');
+            }, 300);
+         }
+      }, 12);
 
-      const timer = setTimeout(() => {
-         setIsLoading(false);
-      }, 2600);
-
-      return () => clearTimeout(timer);
+      return () => {
+         clearInterval(interval);
+         document.body.classList.remove('is-loading');
+      };
    }, []);
 
    return (
@@ -27,20 +31,28 @@ export default function Preloader() {
          {isLoading && (
             <motion.div
                initial={{ opacity: 1 }}
-               exit={{ opacity: 0, scale: 1.05 }}
-               transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-               className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#0a0f1d] pointer-events-none"
+               exit={{
+                  opacity: 0,
+                  transition: {
+                     duration: 0.4,
+                     ease: "easeInOut"
+                  }
+               }}
+               className="fixed inset-0 z-[100] bg-[#0a0f1d] flex items-center justify-center"
             >
-               <div className="relative w-full px-12 md:px-24 flex flex-col items-start">
+               {/* Optional Logo element - adding placeholder as requested */}
+               <div className="w-7 h-7 opacity-30 mb-6 object-contain bg-ieee-cyan rounded-full animate-pulse" />
+
+               <div className="relative w-full px-12 md:px-24 flex flex-col items-center">
                   
                   {/* Top Label */}
                   <motion.div 
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="text-mono-label mb-2"
+                    className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#2d4a6b] mt-3"
                   >
-                    ( 00 ) BOOTING_IEEE_PORTAL
+                    Experience Loading
                   </motion.div>
 
                   {/* Massive Counter */}
@@ -48,37 +60,31 @@ export default function Preloader() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8 }}
-                    className="font-display text-[clamp(80px,20vw,240px)] font-extralight text-blue-50 leading-none tracking-tighter flex items-baseline gap-4"
+                    className="font-sans text-[28px] font-light tracking-[0.3em] text-[#5a7fa8] tabular-nums flex items-baseline"
                   >
                     <span ref={numberRef}>0</span>
-                    <span className="text-[0.4em] text-ieee-cyan">%</span>
+                    <span className="font-sans text-[16px] font-light text-[#5a7fa8] ml-1">%</span>
                   </motion.div>
 
-                  {/* Sub-label */}
-                  <div className="flex w-full justify-between items-end mt-4">
-                    <motion.span 
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.8 }}
-                      className="text-mono-label max-w-[200px]"
-                    >
-                      EST. 2019 — SRM UNIVERSITY AP AMARAVATI CAMPUS
-                    </motion.span>
+                  {/* Progress Bar */}
+                  <div className="hidden">
                     <motion.div 
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 2.2, ease: "easeInOut" }}
-                      className="flex-1 h-px bg-white/10 mx-8 origin-left"
+                      initial={{ width: 0 }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 1.2, ease: "linear" }}
+                      className="h-full bg-[#40B2D6]"
                     />
-                    <motion.span 
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.4 }}
-                      className="text-mono-label"
-                    >
-                      v4.2.0_STABLE
-                    </motion.span>
                   </div>
+
+                  {/* Footer Label */}
+                  <motion.span 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.8 }}
+                    className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#2d4a6b] mt-3"
+                  >
+                    EST. 2019 — SRM UNIVERSITY AP
+                  </motion.span>
 
                </div>
             </motion.div>

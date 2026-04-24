@@ -24,12 +24,20 @@ export default {
           deep: '#0a0f1d',
           bright: '#3C72B0',
           cyan: '#40B2D6',
+          'void':     '#0D1117',   // deepest bg — darker than ieee-deep
+          'depth':    '#1C3A5E',   // mid-layer surface
+          'gold':     '#E8A838',   // achievement, CTA accent — warm contrast
+          'electric': '#0ECAD4',   // brighter cyan for key interactive moments  
+          'violet':   '#7B61FF',   // society/tech accent — cool purple
+          'ice':      '#E2EEF9',   // cool near-white for text (NOT warm white)
+          'mist':     'rgba(64,178,214,0.08)',  // ultra-subtle tint fills
         }
       },
       fontFamily: {
         body: ['Inter', 'sans-serif'],
         display: ['Outfit', 'sans-serif'],
         sans: ['Inter', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       }
     },
   },

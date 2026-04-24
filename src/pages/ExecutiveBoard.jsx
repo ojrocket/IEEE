@@ -107,18 +107,18 @@ const selectionCriteria = ['Leadership', 'Communication Skills', 'Commitment', '
 function MemberCard({ member, size = 'default' }) {
   const isLarge = size === 'large';
   return (
-    <div className="indexed-card group relative overflow-hidden cursor-default transition-all duration-500">
-      <div className={`relative overflow-hidden ${isLarge ? 'aspect-[3/4]' : 'aspect-square'}`}>
-        <img src={member.img} alt={member.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1d] via-[#0a0f1d]/40 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
+    <div className="indexed-card group relative overflow-hidden cursor-default transition-all duration-500 rounded-xl">
+      <div className={`relative overflow-hidden ${isLarge ? 'aspect-[3/4.5]' : 'aspect-square'}`}>
+        <img src={member.img} alt={member.name} className="w-full h-full object-cover card-image" loading="lazy" />
+        <div className="card-overlay" />
         <a href={member.linkedin} target="_blank" rel="noopener noreferrer"
-          className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 hover:bg-[#0A66C2] hover:border-[#0A66C2]"
+          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 hover:bg-[#0A66C2] hover:border-transparent"
           onClick={e => e.stopPropagation()}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
         </a>
-        <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
-          <h3 className={`text-editorial font-medium text-blue-50 leading-none mb-2 ${isLarge ? 'text-[32px]' : 'text-[22px]'}`}>{member.name}</h3>
-          <p className="text-mono-label text-ieee-cyan">{member.role}</p>
+        <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+          <h3 className={`headline-display font-medium text-[#E2EEF9] leading-[1.1] mb-2 ${isLarge ? 'text-[28px]' : 'text-[20px]'}`}>{member.name}</h3>
+          <p className="font-mono text-[10px] uppercase tracking-widest text-[#0ECAD4]">{member.role}</p>
         </div>
       </div>
     </div>
@@ -138,48 +138,39 @@ export default function ExecutiveBoard() {
         y: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: 'power3.out',
         scrollTrigger: { trigger: '.leadership-grid', start: 'top 85%' }
       });
-      gsap.utils.toArray('.dept-section').forEach((section) => {
-        const cards = section.querySelectorAll('.member-card');
-        if (cards.length > 0) {
-          gsap.fromTo(cards, { y: 50, opacity: 0 }, {
-            y: 0, opacity: 1, duration: isMobile ? 0.4 : 0.6, stagger: 0.08, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: isMobile ? 'top 95%' : 'top 80%' }
-          });
-        }
-      });
     });
     return () => mm.revert();
   }, { scope: container, dependencies: [isMobile] });
 
   return (
-    <div ref={container} className="bg-[#0a0f1d] min-h-screen text-blue-50 touch-pan-y">
+    <div ref={container} className="bg-[#0D1117] min-h-screen text-[#E2EEF9]">
 
       {/* ── HERO ── */}
-      <section className="pt-44 md:pt-52 pb-20 md:pb-28 px-8 md:px-16">
+      <section className="pt-48 pb-20 px-8 md:px-16 lg:px-24">
         <div className="board-hero max-w-7xl mx-auto">
-          <span className="paren-index mb-6">ADMIN_STRUCTURE_V4</span>
-          <h1 className="editorial-headline text-blue-50 mb-10">
-            Executive<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C2FF] to-ieee-bright italic">Board.</span>
+          <span className="paren-index mb-8">ADMIN_STRUCTURE_V4</span>
+          <h1 className="headline-display mb-10">
+            Executive<br /><span className="word-cyan italic">Board.</span>
           </h1>
-          <p className="text-body-loose text-[20px] max-w-3xl">
+          <p className="text-[17px] md:text-[20px] font-body text-[#A8C4DE] max-w-3xl leading-relaxed mb-12">
             Architects of Innovation. Meet the visionary minds steering IEEE SRM AP towards a future of technical excellence and global impact.
           </p>
-          <div className="flex flex-wrap gap-4 mt-8">
-            <a href="#leadership-grid" className="group flex items-center justify-center gap-2 ieee-btn-primary">
-              View Executive Board <ArrowRight size={14} />
+          <div className="flex flex-wrap gap-4">
+            <a href="#leadership-grid" className="bg-[#3C72B0] hover:bg-[#0ECAD4] text-[#E2EEF9] px-8 py-3 rounded-full text-[14px] font-body transition-all duration-250">
+              Board Directory
             </a>
-            <a href="https://www.ieee.org/membership/join/index.html" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center gap-2 ieee-btn-outline">
-              Join the Team
+            <a href="https://www.ieee.org" target="_blank" rel="noopener noreferrer" className="border border-white/10 text-[#A8C4DE] hover:border-[#40B2D6] px-8 py-3 rounded-full text-[14px] font-body transition-all duration-250">
+              Join Leadership
             </a>
           </div>
         </div>
       </section>
 
       {/* ── CORE LEADERSHIP ── */}
-      <section id="leadership-grid" className="px-8 md:px-16 pb-24 md:pb-32">
+      <section id="leadership-grid" className="px-8 md:px-16 lg:px-24 pb-32">
         <div className="max-w-7xl mx-auto">
-          <span className="paren-index mb-10">CORE_LEADERSHIP_COHORT</span>
-          <div className="leadership-grid grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <span className="paren-index mb-10 text-ieee-electric">CORE_LEADERSHIP_COHORT</span>
+          <div className="leadership-grid grid grid-cols-2 lg:grid-cols-4 gap-6">
             {leadership.map((member, i) => (
               <div key={i} className="leadership-card">
                 <MemberCard member={member} size="large" />
@@ -190,86 +181,74 @@ export default function ExecutiveBoard() {
       </section>
 
       {/* ── EXCOM ROLES ── */}
-      <section className="px-8 md:px-16 pb-24 md:pb-32">
+      <section className="px-8 md:px-16 lg:px-24 pb-32 border-t border-white/[0.04] pt-32">
         <div className="max-w-7xl mx-auto">
-          <span className="section-index mb-4">EXCOM</span>
-          <h2 className="font-display text-[clamp(32px,4.5vw,60px)] font-light text-blue-50 mb-12 tracking-tight">Executive Committee</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {excomRoles.map((role, i) => (
-              <div key={i} className="p-6 md:p-8 glass-card">
-                <h3 className="font-display text-[20px] font-medium text-blue-50 mb-2">{role.title}</h3>
-                <p className="text-[13px] font-body text-blue-200/50 mb-6 leading-relaxed italic">{role.tagline}</p>
-                <ul className="space-y-2">
-                  {role.responsibilities.map((r, j) => (
-                    <li key={j} className="flex items-start gap-2 text-[13px] font-body text-blue-200/60">
-                      <CheckCircle size={14} className="text-[#40B2D6] mt-0.5 flex-shrink-0" />
-                      {r}
-                    </li>
+          <div className="flat-row border-t border-white/[0.08]">
+             <div className="flat-row-key">GOVERNANCE</div>
+             <div className="flat-row-value">
+                <h2 className="headline-display text-5xl mb-12 uppercase">EXCOM Roles</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {excomRoles.map((role, i) => (
+                    <div key={i} className="p-8 bg-[#121820]/40 border border-white/[0.04] rounded-2xl group hover:border-[#40B2D6]/20 transition-all">
+                      <h3 className="font-display text-[22px] font-medium text-[#E2EEF9] mb-4 group-hover:text-ieee-electric transition-colors">{role.title}</h3>
+                      <p className="text-[13px] font-body text-[#A8C4DE] mb-6 leading-relaxed italic opacity-70">{role.tagline}</p>
+                      <ul className="space-y-3">
+                        {role.responsibilities.slice(0, 3).map((r, j) => (
+                          <li key={j} className="flex items-start gap-3 text-[13px] font-body text-[#5a7fa8]">
+                            <span className="text-ieee-electric mt-1">→</span> {r}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
-              </div>
-            ))}
+                </div>
+             </div>
           </div>
         </div>
       </section>
 
       {/* ── DEPARTMENTS ── */}
-      {departments.map((dept, di) => (
-        <section key={di} className="dept-section px-8 md:px-16 pb-20 md:pb-28">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex items-center gap-4 mb-3">
-              <span className="text-xl">{dept.emoji}</span>
-              <span className="section-index">{dept.name}</span>
-            </div>
-            <p className="text-[13px] font-body text-blue-200/40 mb-4 italic">{dept.subtitle}</p>
-
-            <div className="flex flex-wrap gap-2 mb-8">
-              {dept.objectives.map((obj, oi) => (
-                <span key={oi} className="text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#40B2D6]">{obj}</span>
-              ))}
-            </div>
-
-            {/* Members Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              {dept.members.map((member, mi) => (
-                <MemberCard key={mi} member={member} />
-              ))}
-            </div>
-          </div>
-        </section>
-      ))}
+      <section className="px-8 md:px-16 lg:px-24 pb-32 border-t border-white/[0.04] pt-32">
+         <div className="max-w-7xl mx-auto">
+           <span className="paren-index mb-16">DEPARTMENTAL_WINGS</span>
+           {departments.map((dept, di) => (
+             <div key={di} className="mb-24 last:mb-0">
+                <div className="flex justify-between items-end mb-10 border-b border-white/[0.04] pb-6">
+                   <div>
+                     <h2 className="headline-display text-4xl">{dept.name}</h2>
+                     <p className="text-[13px] font-mono text-[#5a7fa8] mt-2 uppercase tracking-widest">{dept.subtitle}</p>
+                   </div>
+                   <span className="text-3xl opacity-40">{dept.emoji}</span>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                   {dept.members.map((member, mi) => (
+                     <MemberCard key={mi} member={member} />
+                   ))}
+                </div>
+             </div>
+           ))}
+         </div>
+      </section>
 
       {/* ── PATH TO LEADERSHIP ── */}
-      <section className="px-8 md:px-16 pb-24 md:pb-32 bg-white/5">
-        <div className="max-w-7xl mx-auto pt-20">
-          <span className="section-index mb-4">Join Our Team</span>
-          <h2 className="font-display text-[clamp(32px,4.5vw,60px)] font-light text-blue-50 mb-12 tracking-tight">Path to Leadership</h2>
+      <section className="px-8 md:px-16 lg:px-24 py-32 bg-white/[0.01] border-t border-white/[0.04]">
+        <div className="max-w-7xl mx-auto">
+          <span className="paren-index mb-10">JOIN_THE_COMMAND</span>
+          <h2 className="headline-display text-5xl mb-12 uppercase">Path to Leadership</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-1 bg-white/[0.04] border border-white/[0.04]">
             {pathToLeadership.map((step, i) => (
-              <div key={i} className="group p-6 glass-card relative overflow-hidden">
-                <span className="font-display text-[60px] font-light text-blue-50/5 absolute top-2 right-2">{step.step}</span>
-                <div className="relative z-10">
-                  <h4 className="font-display text-[18px] font-medium text-blue-50 mb-2">{step.title}</h4>
-                  <p className="text-[13px] font-body text-blue-200/50 leading-relaxed">{step.desc}</p>
+              <div key={i} className="bg-[#0D1117] p-8 relative group">
+                <span className="font-mono text-[10px] text-[#2d4a6b] absolute top-8 left-8">{step.step}</span>
+                <div className="mt-8">
+                  <h4 className="font-display text-[18px] font-medium text-[#E2EEF9] mb-4 group-hover:text-ieee-electric transition-colors">{step.title}</h4>
+                  <p className="text-[13px] font-body text-[#A8C4DE] leading-relaxed opacity-60">{step.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Selection Criteria */}
-          <div>
-            <h3 className="font-display text-[20px] font-medium text-blue-50 mb-4">Selection Criteria</h3>
-            <div className="flex flex-wrap gap-3">
-              {selectionCriteria.map((c, i) => (
-                <span key={i} className="text-[11px] uppercase tracking-widest px-4 py-2 rounded-full border border-white/10 text-[#40B2D6] font-medium">{c}</span>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
-
-      <div className="h-16" />
     </div>
   );
 }
