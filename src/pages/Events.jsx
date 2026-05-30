@@ -34,11 +34,11 @@ const Events = () => {
   ];
 
   return (
-    <div className="bg-[#0D1117] text-[#E2EEF9] min-h-screen">
+    <div className="bg-[var(--bg-darkest)] text-[var(--text-ice)] min-h-screen">
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 px-6 overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
-          <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-ieee-mist rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-[var(--primary)] rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
         </div>
 
         <div className="container mx-auto max-w-6xl relative z-10 pt-16">
@@ -47,13 +47,13 @@ const Events = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="paren-index mb-8">IEEE_SRM_AP // ACTIVATION_LIST</div>
+            <div className="section-label mb-8">Events</div>
             
             <h1 className="headline-display mb-10">
-              Events<span className="word-cyan italic">.archive</span>
+              Our<span className="word-cyan italic"> Events</span>
             </h1>
             
-            <p className="text-[16px] md:text-[18px] font-body text-[#A8C4DE] max-w-2xl leading-relaxed mb-16">
+            <p className="text-[18px] md:text-[22px] font-bold text-[var(--text-secondary-c)] max-w-[600px] leading-snug mb-16 border-l-4 border-[var(--primary)] pl-6">
               Discover our diverse range of activations designed to empower the next generation of innovators at SRM AP.
             </p>
           </motion.div>
@@ -61,9 +61,9 @@ const Events = () => {
       </section>
 
       {/* Events Grid */}
-      <section className="py-20 px-6 bg-[#0D1117] border-t border-white/[0.04]">
+      <section className="py-20 px-6 bg-[var(--bg-dark)] border-t border-[var(--border-mid)]">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="technical-grid">
             {eventsData.map((event, index) => {
               const Icon = event.icon;
               return (
@@ -78,7 +78,7 @@ const Events = () => {
                   <span className="card-num">0{index + 1}</span>
                   
                   {/* Image */}
-                  <div className="relative h-56 overflow-hidden rounded-t-xl">
+                  <div className="relative h-64 overflow-hidden">
                     <img
                       src={event.image}
                       alt={event.title}
@@ -93,28 +93,28 @@ const Events = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="p-8 bg-[#121820]/40 flex flex-col justify-between h-[340px]">
+                  <div className="p-8 bg-[var(--bg-card)] flex flex-col justify-between h-[360px] border-t border-[var(--border-mid)]">
                     <div>
-                      <div className="flex items-center gap-3 mb-6">
-                        <div className="p-2.5 bg-ieee-mist rounded-lg">
-                          <Icon size={18} className="text-[#40B2D6]" />
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="p-3 bg-[var(--bg-darkest)] border border-[var(--border-mid)]">
+                          <Icon size={20} className="text-[var(--primary)]" />
                         </div>
-                        <h3 className="font-display text-[24px] font-medium text-[#E2EEF9]">
+                        <h3 className="font-display text-[26px] font-black text-[var(--text-ice)]">
                           {event.title}
                         </h3>
                       </div>
 
-                      <p className="text-[14px] font-body text-[#A8C4DE] leading-relaxed mb-8 line-clamp-3">
+                      <p className="text-[16px] font-medium text-[var(--text-secondary-c)] leading-relaxed mb-8">
                         {event.description}
                       </p>
                     </div>
 
                     <Link
                       to={event.path}
-                      className="bg-[#3C72B0] hover:bg-[#0ECAD4] text-[#E2EEF9] px-8 py-3 rounded-full text-[14px] font-body transition-all duration-250 w-full inline-flex items-center justify-center gap-2"
+                      className="bg-[var(--primary)] hover:bg-[var(--accent-gold)] text-[var(--bg-darkest)] px-8 py-4 text-[14px] font-bold transition-all uppercase tracking-widest w-full inline-flex items-center justify-center gap-3"
                     >
                       Explore Activation
-                      <ArrowRight size={16} />
+                      <ArrowRight size={18} />
                     </Link>
                   </div>
                 </motion.div>
@@ -125,21 +125,21 @@ const Events = () => {
       </section>
 
       {/* Overview/CTA Row */}
-      <section className="py-32 px-6 bg-[#0D1117] border-t border-white/[0.04]">
+      <section className="py-32 px-6 bg-[var(--bg-darkest)] border-t border-[var(--border-mid)]">
         <div className="container mx-auto max-w-7xl">
-           <div className="flat-row border-t border-white/[0.08]">
-             <div className="flat-row-key">MISSION_DRIVE</div>
+           <div className="flat-row">
+             <div className="flat-row-key">Mission</div>
              <div className="flat-row-value">
-               <h3 className="headline-display text-4xl mb-6 truncate max-w-full">Empowering Global Innovation.</h3>
-               <p className="text-[#A8C4DE] max-w-2xl leading-relaxed mb-8">
+               <h3 className="headline-display text-[clamp(32px,4vw,64px)] mb-8 truncate max-w-full">Empowering Global Innovation.</h3>
+               <p className="text-[18px] text-[var(--text-secondary-c)] font-medium max-w-2xl leading-relaxed mb-10">
                  Whether you're a participant, volunteer, or sponsor, there's a place for you in our vibrant tech community.
                  We host 65+ activations annually to foster excellence.
                </p>
-               <div className="flex flex-wrap gap-4">
-                 <Link to="/join" className="bg-[#3C72B0] hover:bg-[#0ECAD4] text-[#E2EEF9] px-8 py-3 rounded-full text-[14px] font-body transition-all">
+               <div className="flex flex-col sm:flex-row gap-6">
+                 <Link to="/join" className="bg-[var(--primary)] text-[var(--bg-darkest)] hover:bg-[var(--accent-gold)] px-10 py-4 text-[14px] font-bold transition-all uppercase tracking-widest text-center">
                    Join IEEE
                  </Link>
-                 <Link to="/about" className="border border-[rgba(64,178,214,0.2)] text-[#A8C4DE] hover:border-[#40B2D6] px-8 py-3 rounded-full text-[14px] font-body transition-all">
+                 <Link to="/about" className="border-2 border-[var(--border-mid)] text-[var(--text-ice)] hover:border-[var(--primary)] px-10 py-4 text-[14px] font-bold transition-all uppercase tracking-widest text-center">
                    Learn More
                  </Link>
                </div>

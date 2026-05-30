@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Bookmark, ChevronDown, ArrowLeft, User, Clock, Calendar } from 'lucide-react';
+import { Search, Bookmark, ChevronDown, ArrowLeft } from 'lucide-react';
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -114,39 +114,35 @@ const Blog = () => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.5
-      }
+      transition: { duration: 0.5 }
     }
   };
 
   return (
-    <div className="min-h-screen text-blue-50 overflow-x-hidden bg-[#0a0f1d] relative z-10 font-body">
+    <div className="min-h-screen text-[var(--text-ice)] overflow-x-hidden bg-[var(--bg-darkest)] relative z-10">
       {/* Hero Section */}
       <motion.section 
-        className="relative min-h-[70vh] flex items-center pt-24 pb-12 overflow-hidden"
+        className="relative min-h-[70vh] flex items-center pt-24 pb-12 overflow-hidden border-b border-[var(--border-mid)] bg-[var(--bg-dark)]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
         <div className="container mx-auto px-6 relative z-10">
           <motion.div 
-            className="max-w-4xl space-y-8"
+            className="max-w-5xl space-y-8"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             <motion.div className="space-y-4" variants={itemVariants}>
-              <h2 className="paren-index uppercase">
-                2025 // IEEE_SRM_AP // EDITORIAL_COLLECTION
-              </h2>
-              <h1 className="editorial-headline text-blue-50 mb-12">
+              <div className="section-label mb-8">Editorial</div>
+              <h1 className="headline-display mb-12">
                 Voices of <br />
-                <span className="text-[#40B2D6] italic">Technology.</span>
+                <span className="text-[var(--primary)] italic">Technology.</span>
               </h1>
             </motion.div>
             <motion.p 
-              className="text-[18px] md:text-[22px] text-blue-200/60 max-w-2xl leading-relaxed font-light"
+              className="text-[18px] md:text-[22px] text-[var(--text-secondary-c)] max-w-2xl leading-snug font-bold border-l-4 border-[var(--primary)] pl-6"
               variants={itemVariants}
             >
               Exploring the frontiers of technology through technical perspectives from IEEE SRM AP's brightest minds.
@@ -157,11 +153,11 @@ const Blog = () => {
             >
               <button 
                 onClick={() => document.getElementById('featured-section').scrollIntoView({ behavior: 'smooth' })}
-                className="ieee-btn-primary px-10 py-5"
+                className="bg-[var(--primary)] text-[var(--bg-darkest)] hover:bg-[var(--accent-gold)] px-10 py-5 text-[14px] font-bold uppercase tracking-widest transition-all"
               >
                 Browse Articles
               </button>
-              <button className="ieee-btn-outline px-10 py-5">
+              <button className="border-2 border-[var(--border-mid)] text-[var(--text-ice)] hover:border-[var(--primary)] px-10 py-5 text-[14px] font-bold uppercase tracking-widest transition-all">
                 Submit Article
               </button>
             </motion.div>
@@ -169,8 +165,8 @@ const Blog = () => {
         </div>
         
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-30">
-          <a href="#featured-section" className="text-blue-200 hover:text-[#40B2D6] transition-colors">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-60">
+          <a href="#featured-section" className="text-[var(--text-muted-c)] hover:text-[var(--primary)] transition-colors">
             <ChevronDown className="w-8 h-8" />
           </a>
         </div>
@@ -180,43 +176,43 @@ const Blog = () => {
       {featuredPost && (
         <motion.section 
           id="featured-section" 
-          className="py-20 relative z-20"
+          className="py-20 relative z-20 bg-[var(--bg-darkest)]"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
           <div className="container mx-auto px-6">
-            <div className="relative group rounded-[3rem] overflow-hidden min-h-[600px] flex items-end border border-white/10 glass-card">
+            <div className="relative group overflow-hidden min-h-[600px] flex items-end border border-[var(--border-mid)] bg-[var(--bg-card)]">
               <div className="absolute inset-0">
                 <img 
                   src={featuredPost.image} 
                   alt={featuredPost.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]" 
+                  className="w-full h-full object-cover grayscale transition-transform duration-[2000ms] group-hover:scale-105 group-hover:grayscale-0" 
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1d] via-[#0a0f1d]/80 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-darkest)] via-[var(--bg-darkest)]/80 to-transparent"></div>
               
               <div className="relative p-10 md:p-20 max-w-4xl space-y-6">
-                <span className="paren-index text-[#40B2D6] px-0 mb-4 bg-transparent border-none">
-                  RESEARCH_ACTIVATION_01
+                <span className="badge-event violet mb-4 block w-fit">
+                  Featured Article
                 </span>
-                <h2 className="text-editorial text-[clamp(40px,5vw,72px)] text-blue-50 group-hover:text-[#40B2D6] transition-colors uppercase italic leading-none mb-4">
+                <h2 className="font-display font-black text-[clamp(40px,5vw,72px)] text-[var(--text-ice)] group-hover:text-[var(--primary)] transition-colors uppercase leading-[1.0] mb-6">
                   {featuredPost.title}
                 </h2>
-                <p className="text-body-loose text-lg max-w-2xl">
+                <p className="text-[18px] text-[var(--text-secondary-c)] font-medium max-w-2xl leading-relaxed mb-8">
                   {featuredPost.excerpt}
                 </p>
-                <div className="flex flex-wrap items-center justify-between gap-8 pt-8 border-t border-white/10">
+                <div className="flex flex-wrap items-center justify-between gap-8 pt-8 border-t border-[var(--border-mid)]">
                   <div className="flex items-center gap-4 text-left">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center font-bold text-white text-xl border border-white/20">
+                    <div className="w-14 h-14 bg-[var(--bg-darkest)] border border-[var(--border-primary)] flex items-center justify-center font-black text-[var(--primary)] text-2xl">
                       {featuredPost.author.charAt(0)}
                     </div>
                     <div>
-                      <h4 className="font-medium text-blue-50 text-lg">{featuredPost.author}</h4>
-                      <div className="flex items-center gap-3 text-[10px] text-blue-200/40 font-body uppercase tracking-widest">
+                      <h4 className="font-bold text-[var(--text-ice)] text-[16px]">{featuredPost.author}</h4>
+                      <div style={{ fontFamily: 'Chivo Mono' }} className="flex items-center gap-3 text-[12px] font-bold text-[var(--text-muted-c)] uppercase tracking-widest mt-1">
                         <span>{featuredPost.date}</span>
-                        <span className="w-1 h-1 rounded-full bg-[#40B2D6]/50"></span>
+                        <span className="w-1 h-1 rounded-full bg-[var(--primary)]"></span>
                         <span>{featuredPost.readTime}</span>
                       </div>
                     </div>
@@ -226,7 +222,7 @@ const Blog = () => {
                       setSelectedPost(featuredPost);
                       setShowArticleDetail(true);
                     }}
-                    className="ieee-btn-primary px-10 py-5"
+                    className="bg-[var(--primary)] text-[var(--bg-darkest)] px-8 py-4 text-[14px] font-bold uppercase tracking-widest hover:bg-[var(--accent-gold)] transition-all"
                   >
                     Read Full Article
                   </button>
@@ -238,7 +234,7 @@ const Blog = () => {
       )}
 
       {/* Category Navigation */}
-      <nav className="sticky top-16 z-40 bg-[#0a0f1d]/80 backdrop-blur-2xl border-y border-white/5">
+      <nav className="sticky top-16 z-40 bg-[var(--bg-darkest)] border-y border-[var(--border-mid)]">
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between py-2 overflow-x-auto">
             <div className="flex items-center gap-8">
@@ -246,8 +242,9 @@ const Blog = () => {
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`py-6 whitespace-nowrap text-[11px] font-body font-medium tracking-[0.2em] uppercase transition-all hover:text-[#40B2D6] ${
-                    selectedCategory === category.id ? 'text-[#40B2D6]' : 'text-blue-200/40'
+                  style={{ fontFamily: 'Chivo Mono' }}
+                  className={`py-6 whitespace-nowrap text-[12px] font-bold tracking-widest uppercase transition-all hover:text-[var(--primary)] ${
+                    selectedCategory === category.id ? 'text-[var(--primary)] border-b-2 border-[var(--primary)]' : 'text-[var(--text-muted-c)] border-b-2 border-transparent'
                   }`}
                 >
                   {category.name}
@@ -259,31 +256,31 @@ const Blog = () => {
       </nav>
 
       {/* Main Feed */}
-      <div className="container mx-auto px-6 pt-20">
+      <div className="container mx-auto px-6 pt-20 pb-32">
         {/* Smart Filter Bar */}
-        <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2.5rem] mb-20">
+        <div className="bg-[var(--bg-card)] border border-[var(--border-mid)] p-6 mb-20">
           <div className="flex flex-col lg:flex-row items-center gap-8">
-            <div className="relative flex-1 group">
-              <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-blue-200/40 group-focus-within:text-[#40B2D6] transition-colors w-5 h-5" />
+            <div className="relative flex-1 group w-full">
+              <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-[var(--text-muted-c)] group-focus-within:text-[var(--primary)] transition-colors w-6 h-6" />
               <input 
                 type="text" 
-                placeholder="Search technical articles, research papers..."
+                placeholder="Search technical articles..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-16 pr-6 py-5 bg-white/5 border border-white/10 rounded-2xl focus:ring-1 focus:ring-[#40B2D6]/50 outline-none transition-all placeholder:text-blue-200/20 font-body text-blue-50"
+                className="w-full pl-16 pr-6 py-5 bg-[var(--bg-darkest)] border border-[var(--border-mid)] focus:border-[var(--primary)] outline-none transition-all placeholder:text-[var(--text-muted-c)] font-bold text-[16px] text-[var(--text-ice)]"
               />
             </div>
             <div className="flex flex-wrap items-center gap-4">
-              <div className="flex items-center bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
-                <span className="pl-6 pr-2 text-[10px] font-body text-blue-200/40 uppercase tracking-widest">Sort:</span>
+              <div className="flex items-center bg-[var(--bg-darkest)] border border-[var(--border-mid)] overflow-hidden">
+                <span style={{ fontFamily: 'Chivo Mono' }} className="pl-6 pr-2 text-[12px] font-bold text-[var(--text-muted-c)] uppercase tracking-widest">Sort:</span>
                 <select 
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="bg-transparent px-4 py-5 text-sm font-medium text-blue-50 outline-none cursor-pointer hover:text-[#40B2D6] transition-colors"
+                  className="bg-transparent px-4 py-5 text-[14px] font-bold text-[var(--text-ice)] outline-none cursor-pointer hover:text-[var(--primary)] transition-colors uppercase"
                 >
-                  <option value="latest" className="bg-[#0a0f1d]">Latest</option>
-                  <option value="popular" className="bg-[#0a0f1d]">Popular</option>
-                  <option value="trending" className="bg-[#0a0f1d]">Trending</option>
+                  <option value="latest" className="bg-[var(--bg-card)]">Latest</option>
+                  <option value="popular" className="bg-[var(--bg-card)]">Popular</option>
+                  <option value="trending" className="bg-[var(--bg-card)]">Trending</option>
                 </select>
               </div>
             </div>
@@ -292,7 +289,7 @@ const Blog = () => {
 
         {/* Article Grid */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-10"
+          className="technical-grid"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -300,38 +297,37 @@ const Blog = () => {
           {filteredPosts.filter(post => !post.featured).slice(0, visiblePosts).map((post, index) => (
             <motion.article
               key={post.id}
-              className="group indexed-card bg-[#0e1e3a] overflow-hidden transition-all duration-500"
+              className="group solid-card p-0 flex flex-col"
               variants={itemVariants}
-              whileHover={{ y: -8 }}
             >
-              <div className="relative aspect-[16/10] overflow-hidden">
+              <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--border-mid)]">
                 <img 
                   src={post.image} 
                   alt={post.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0e1e3a] via-transparent to-transparent opacity-80"></div>
-                <span className="absolute top-6 left-6 paren-index px-3 py-1 bg-black/40 border border-white/10 backdrop-blur-xl text-[#40B2D6]">
+                <span className="absolute top-6 left-6 font-mono text-[11px] font-bold uppercase tracking-widest px-3 py-1 bg-[var(--bg-darkest)] border border-[var(--border-primary)] text-[var(--primary)]">
                   {categories.find(cat => cat.id === post.category)?.name}
                 </span>
-                <button className="absolute top-6 right-6 w-10 h-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-blue-200/60 hover:text-[#40B2D6] transition-all active:scale-90">
-                  <Bookmark className="w-4 h-4" />
+                <button className="absolute top-6 right-6 w-10 h-10 bg-[var(--bg-darkest)] border border-[var(--border-mid)] flex items-center justify-center text-[var(--text-muted-c)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-all">
+                  <Bookmark className="w-5 h-5" />
                 </button>
               </div>
               
-              <div className="p-8 space-y-6">
+              <div className="p-8 space-y-6 flex-1 flex flex-col justify-between">
                 <div className="space-y-4">
-                  <h3 className="text-editorial text-2xl text-blue-50 group-hover:text-[#40B2D6] transition-colors uppercase italic mb-4">
+                  <h3 className="font-display font-black text-[24px] text-[var(--text-ice)] group-hover:text-[var(--primary)] transition-colors uppercase leading-tight mb-4">
                     {post.title}
                   </h3>
-                  <p className="text-body-loose text-xs line-clamp-3 leading-relaxed">
+                  <p className="text-[16px] font-medium text-[var(--text-secondary-c)] line-clamp-3 leading-relaxed">
                     {post.excerpt}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 pt-2">
                     {post.tags.map((tag, tagIndex) => (
                       <span 
                         key={tagIndex}
-                        className="px-3 py-1 bg-white/5 border border-white/10 text-blue-200/40 text-[10px] uppercase font-body tracking-[0.2em] rounded-full hover:border-[#40B2D6]/30 hover:text-[#40B2D6] transition-colors"
+                        style={{ fontFamily: 'Chivo Mono' }}
+                        className="px-3 py-1 bg-[var(--bg-darkest)] border border-[var(--border-mid)] text-[var(--text-muted-c)] text-[11px] font-bold uppercase tracking-widest hover:border-[var(--primary)] hover:text-[var(--primary)] transition-colors"
                       >
                         {tag}
                       </span>
@@ -339,16 +335,16 @@ const Blog = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-center justify-between pt-6 border-t border-white/10">
+                <div className="flex items-center justify-between pt-6 border-t border-[var(--border-mid)]">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center font-bold text-white text-sm">
+                    <div className="w-10 h-10 bg-[var(--bg-darkest)] border border-[var(--border-mid)] flex items-center justify-center font-black text-[var(--primary)] text-lg">
                       {post.author.charAt(0)}
                     </div>
                     <div>
-                      <h4 className="font-medium text-blue-50 text-sm">{post.author}</h4>
-                      <div className="flex items-center gap-2 text-[10px] text-blue-200/40 font-body uppercase tracking-widest">
+                      <h4 className="font-bold text-[var(--text-ice)] text-[14px]">{post.author}</h4>
+                      <div style={{ fontFamily: 'Chivo Mono' }} className="flex items-center gap-2 text-[11px] font-bold text-[var(--text-muted-c)] uppercase tracking-widest mt-1">
                         <span>{post.date}</span>
-                        <span className="w-1 h-1 rounded-full bg-[#40B2D6]/50"></span>
+                        <span className="w-1 h-1 rounded-full bg-[var(--primary)]"></span>
                         <span>{post.readTime}</span>
                       </div>
                     </div>
@@ -358,7 +354,7 @@ const Blog = () => {
                       setSelectedPost(post);
                       setShowArticleDetail(true);
                     }}
-                    className="ieee-btn-outline px-4 py-2 !text-[10px]"
+                    className="text-[var(--primary)] hover:text-[var(--accent-gold)] uppercase tracking-widest font-bold text-[12px]"
                   >
                     Read More
                   </button>
@@ -373,7 +369,7 @@ const Blog = () => {
           <div className="flex justify-center mt-16">
             <button 
               onClick={() => setVisiblePosts(prev => prev + postsPerPage)}
-              className="ieee-btn-primary px-12 py-5"
+              className="bg-[var(--primary)] text-[var(--bg-darkest)] hover:bg-[var(--accent-gold)] px-12 py-5 text-[14px] font-bold uppercase tracking-widest transition-all"
             >
               Load More Articles
             </button>
@@ -384,63 +380,58 @@ const Blog = () => {
       {/* Article Detail Modal */}
       {showArticleDetail && selectedPost && (
         <>
-          {/* Prevent body scroll */}
           <style jsx global>{`
-            body {
-              overflow: hidden;
-            }
+            body { overflow: hidden; }
           `}</style>
           
           <motion.div 
-            className="fixed inset-0 bg-[#0a0f1d]/80 backdrop-blur-md z-50 flex items-center justify-center p-6"
+            className="fixed inset-0 bg-[var(--bg-darkest)]/90 backdrop-blur-md z-50 flex items-center justify-center p-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setShowArticleDetail(false)}
           >
             <motion.div 
-              className="blog-modal-content bg-[#0a0f1d] border border-white/10 rounded-[3rem] max-w-4xl w-full max-h-[80vh] overflow-hidden shadow-2xl flex flex-col"
-              initial={{ scale: 0.9, opacity: 0 }}
+              className="bg-[var(--bg-card)] border border-[var(--border-mid)] w-full max-w-5xl max-h-[90vh] overflow-hidden flex flex-col"
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative flex-shrink-0">
+              <div className="relative flex-shrink-0 h-64 md:h-80 border-b border-[var(--border-mid)]">
                 <img 
                   src={selectedPost.image} 
                   alt={selectedPost.title} 
-                  className="w-full h-80 object-cover rounded-t-[3rem]"
+                  className="w-full h-full object-cover grayscale"
                 />
                 <button 
                   onClick={() => setShowArticleDetail(false)}
-                  className="absolute top-6 right-6 w-12 h-12 bg-white/5 border border-white/10 backdrop-blur-xl rounded-full flex items-center justify-center text-white hover:text-[#40B2D6] transition-all"
+                  className="absolute top-6 right-6 w-12 h-12 bg-[var(--bg-darkest)] border border-[var(--border-primary)] flex items-center justify-center text-[var(--primary)] hover:bg-[var(--primary)] hover:text-[var(--bg-darkest)] transition-all"
                 >
-                  <ArrowLeft className="w-5 h-5" />
+                  <ArrowLeft className="w-6 h-6" />
                 </button>
               </div>
               
               <div 
-                className="blog-modal-scrollable flex-1 overflow-y-auto p-10 space-y-8"
-                onWheel={(e) => {
-                  e.stopPropagation();
-                }}
+                className="flex-1 overflow-y-auto p-10 md:p-16 space-y-10"
+                onWheel={(e) => e.stopPropagation()}
               >
-                <div className="space-y-4">
-                  <span className="section-index text-[#40B2D6]">
+                <div className="space-y-6">
+                  <span className="badge-event violet">
                     {categories.find(cat => cat.id === selectedPost.category)?.name}
                   </span>
-                  <h1 className="font-display text-4xl md:text-6xl font-medium leading-tight text-blue-50">
+                  <h1 className="font-display text-[clamp(32px,5vw,64px)] font-black leading-[1.0] text-[var(--text-ice)] uppercase">
                     {selectedPost.title}
                   </h1>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center font-bold text-white">
+                  <div className="flex items-center gap-6 pt-4">
+                    <div className="w-14 h-14 bg-[var(--bg-darkest)] border border-[var(--border-primary)] flex items-center justify-center font-black text-[var(--primary)] text-2xl">
                       {selectedPost.author.charAt(0)}
                     </div>
                     <div>
-                      <h4 className="font-medium text-blue-50">{selectedPost.author}</h4>
-                      <div className="flex items-center gap-3 text-[11px] text-blue-200/40 font-body uppercase tracking-widest">
+                      <h4 className="font-bold text-[var(--text-ice)] text-[16px]">{selectedPost.author}</h4>
+                      <div style={{ fontFamily: 'Chivo Mono' }} className="flex items-center gap-3 text-[12px] font-bold text-[var(--text-muted-c)] uppercase tracking-widest mt-1">
                         <span>{selectedPost.date}</span>
-                        <span className="w-1 h-1 rounded-full bg-[#40B2D6]/50"></span>
+                        <span className="w-1 h-1 rounded-full bg-[var(--primary)]"></span>
                         <span>{selectedPost.readTime}</span>
                       </div>
                     </div>
@@ -451,60 +442,37 @@ const Blog = () => {
                   {selectedPost.tags.map((tag, tagIndex) => (
                     <span 
                       key={tagIndex}
-                      className="px-4 py-2 bg-white/5 border border-white/10 text-blue-200/60 text-xs font-medium rounded-full"
+                      style={{ fontFamily: 'Chivo Mono' }}
+                      className="px-4 py-2 bg-[var(--bg-darkest)] border border-[var(--border-mid)] text-[var(--text-muted-c)] text-[12px] font-bold uppercase tracking-widest"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
                 
-                <div className="prose prose-invert prose-lg max-w-none">
-                  <p className="text-lg text-blue-200/60 leading-relaxed">
-                    {selectedPost.excerpt}
-                  </p>
-                  <p className="text-lg text-blue-200/60 leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                  <p className="text-lg text-blue-200/60 leading-relaxed">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                  </p>
-                  <h2 className="text-2xl font-medium text-blue-50 mt-8 mb-4">Key Takeaways</h2>
-                  <ul className="list-disc pl-6 space-y-2 text-blue-200/60">
+                <div className="prose prose-invert prose-lg max-w-none text-[18px] text-[var(--text-secondary-c)] font-medium leading-relaxed">
+                  <p>{selectedPost.excerpt}</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <h2 className="text-[28px] font-black text-[var(--text-ice)] mt-12 mb-6 uppercase">Key Takeaways</h2>
+                  <ul className="list-square pl-6 space-y-3 marker:text-[var(--primary)]">
                     <li>Understanding the fundamental concepts and principles</li>
                     <li>Practical applications in real-world scenarios</li>
                     <li>Future implications and potential developments</li>
-                    <li>Industry best practices and recommendations</li>
                   </ul>
-                  <p className="text-lg text-blue-200/60 leading-relaxed">
-                    This comprehensive analysis provides valuable insights into the current state and future prospects of this rapidly evolving field. As technology continues to advance at an unprecedented pace, staying informed about these developments becomes increasingly crucial for professionals and enthusiasts alike.
-                  </p>
-                  <p className="text-lg text-blue-200/60 leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                  <p className="text-lg text-blue-200/60 leading-relaxed">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                  </p>
-                  <h2 className="text-2xl font-medium text-blue-50 mt-8 mb-4">Additional Content</h2>
-                  <p className="text-lg text-blue-200/60 leading-relaxed">
-                    This is additional content to test scrolling functionality. When you have long articles like this, the modal should allow smooth scrolling within the content area while keeping the header image and close button fixed at the top.
-                  </p>
-                  <p className="text-lg text-blue-200/60 leading-relaxed">
-                    The scrolling should be smooth and the scrollbar should be styled to match the overall design aesthetic of the blog page.
-                  </p>
                 </div>
                 
-                <div className="flex items-center justify-between pt-8 border-t border-white/10 flex-shrink-0">
-                  <div className="flex gap-4">
-                    <button className="ieee-btn-primary px-6 py-3">
+                <div className="flex flex-col sm:flex-row items-center justify-between pt-10 border-t border-[var(--border-mid)] gap-6">
+                  <div className="flex gap-4 w-full sm:w-auto">
+                    <button className="bg-[var(--primary)] text-[var(--bg-darkest)] hover:bg-[var(--accent-gold)] px-8 py-4 text-[14px] font-bold uppercase tracking-widest transition-all w-full sm:w-auto">
                       Share Article
                     </button>
-                    <button className="ieee-btn-outline px-6 py-3">
+                    <button className="border-2 border-[var(--border-mid)] text-[var(--text-ice)] hover:border-[var(--primary)] px-8 py-4 text-[14px] font-bold uppercase tracking-widest transition-all w-full sm:w-auto">
                       Save for Later
                     </button>
                   </div>
                   <button 
                     onClick={() => setShowArticleDetail(false)}
-                    className="ieee-btn-outline px-6 py-3 border-none bg-white/5"
+                    className="text-[var(--text-muted-c)] hover:text-[var(--primary)] font-bold uppercase tracking-widest text-[14px] transition-colors"
                   >
                     Close
                   </button>

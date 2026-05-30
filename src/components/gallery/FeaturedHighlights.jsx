@@ -28,7 +28,7 @@ const FeaturedHighlights = ({ featuredItems }) => {
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1d] via-[#0a0f1d]/40 to-transparent flex flex-col justify-end p-12">
-            <span className="section-index text-[#40B2D6] px-0 mb-4">HIGHLIGHT 2024</span>
+            <span className="section-index text-[#40B2D6] px-0 mb-4">Featured</span>
             <h3 className="font-display text-[32px] font-medium text-blue-50 mb-4 tracking-tight">{mainItem.title}</h3>
             <p className="text-[14px] font-body text-blue-200/60 max-w-md mb-8 leading-relaxed line-clamp-2">
               {mainItem.description}

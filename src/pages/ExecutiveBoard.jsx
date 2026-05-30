@@ -107,18 +107,18 @@ const selectionCriteria = ['Leadership', 'Communication Skills', 'Commitment', '
 function MemberCard({ member, size = 'default' }) {
   const isLarge = size === 'large';
   return (
-    <div className="indexed-card group relative overflow-hidden cursor-default transition-all duration-500 rounded-xl">
+    <div className="group relative overflow-hidden cursor-default transition-all duration-500 border border-[var(--border-mid)] bg-[var(--bg-dark)]">
       <div className={`relative overflow-hidden ${isLarge ? 'aspect-[3/4.5]' : 'aspect-square'}`}>
-        <img src={member.img} alt={member.name} className="w-full h-full object-cover card-image" loading="lazy" />
-        <div className="card-overlay" />
+        <img src={member.img} alt={member.name} className="w-full h-full object-cover filter grayscale transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0" loading="lazy" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-darkest)] via-transparent to-transparent opacity-90" />
         <a href={member.linkedin} target="_blank" rel="noopener noreferrer"
-          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 hover:bg-[#0A66C2] hover:border-transparent"
+          className="absolute top-4 right-4 w-10 h-10 bg-[var(--bg-darkest)] border border-[var(--border-mid)] flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 hover:border-[var(--primary)] text-[var(--text-muted-c)] hover:text-[var(--primary)]"
           onClick={e => e.stopPropagation()}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
         </a>
-        <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-          <h3 className={`headline-display font-medium text-[#E2EEF9] leading-[1.1] mb-2 ${isLarge ? 'text-[28px]' : 'text-[20px]'}`}>{member.name}</h3>
-          <p className="font-mono text-[10px] uppercase tracking-widest text-[#0ECAD4]">{member.role}</p>
+        <div className="absolute bottom-0 left-0 right-0 p-6 z-10 border-t border-[var(--border-mid)] bg-[var(--bg-darkest)]/80 backdrop-blur-sm">
+          <h3 className={`font-display font-black text-[var(--text-ice)] leading-tight mb-2 uppercase ${isLarge ? 'text-[24px]' : 'text-[18px]'}`}>{member.name}</h3>
+          <p style={{ fontFamily: 'Chivo Mono' }} className="text-[11px] font-bold uppercase tracking-widest text-[var(--primary)]">{member.role}</p>
         </div>
       </div>
     </div>
@@ -143,23 +143,23 @@ export default function ExecutiveBoard() {
   }, { scope: container, dependencies: [isMobile] });
 
   return (
-    <div ref={container} className="bg-[#0D1117] min-h-screen text-[#E2EEF9]">
+    <div ref={container} className="bg-[var(--bg-darkest)] min-h-screen text-[var(--text-ice)]">
 
       {/* ── HERO ── */}
       <section className="pt-48 pb-20 px-8 md:px-16 lg:px-24">
-        <div className="board-hero max-w-7xl mx-auto">
-          <span className="paren-index mb-8">ADMIN_STRUCTURE_V4</span>
+        <div className="board-hero max-w-7xl mx-auto border-l-4 border-[var(--primary)] pl-8">
+          <span className="section-label mb-8">Executive Committee</span>
           <h1 className="headline-display mb-10">
-            Executive<br /><span className="word-cyan italic">Board.</span>
+            Executive<br /><span className="text-[var(--primary)] italic">Board.</span>
           </h1>
-          <p className="text-[17px] md:text-[20px] font-body text-[#A8C4DE] max-w-3xl leading-relaxed mb-12">
+          <p className="text-[18px] md:text-[22px] font-bold text-[var(--text-secondary-c)] max-w-3xl leading-snug mb-12">
             Architects of Innovation. Meet the visionary minds steering IEEE SRM AP towards a future of technical excellence and global impact.
           </p>
-          <div className="flex flex-wrap gap-4">
-            <a href="#leadership-grid" className="bg-[#3C72B0] hover:bg-[#0ECAD4] text-[#E2EEF9] px-8 py-3 rounded-full text-[14px] font-body transition-all duration-250">
+          <div className="flex flex-col sm:flex-row gap-6">
+            <a href="#leadership-grid" className="bg-[var(--primary)] hover:bg-[var(--accent-gold)] text-[var(--bg-darkest)] px-10 py-5 text-[14px] font-bold uppercase tracking-widest transition-all text-center">
               Board Directory
             </a>
-            <a href="https://www.ieee.org" target="_blank" rel="noopener noreferrer" className="border border-white/10 text-[#A8C4DE] hover:border-[#40B2D6] px-8 py-3 rounded-full text-[14px] font-body transition-all duration-250">
+            <a href="https://www.ieee.org" target="_blank" rel="noopener noreferrer" className="border-2 border-[var(--border-mid)] text-[var(--text-ice)] hover:border-[var(--primary)] px-10 py-5 text-[14px] font-bold uppercase tracking-widest transition-all text-center">
               Join Leadership
             </a>
           </div>
@@ -169,8 +169,8 @@ export default function ExecutiveBoard() {
       {/* ── CORE LEADERSHIP ── */}
       <section id="leadership-grid" className="px-8 md:px-16 lg:px-24 pb-32">
         <div className="max-w-7xl mx-auto">
-          <span className="paren-index mb-10 text-ieee-electric">CORE_LEADERSHIP_COHORT</span>
-          <div className="leadership-grid grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <span className="section-label mb-10 text-[var(--primary)]">Core Team</span>
+          <div className="leadership-grid technical-grid">
             {leadership.map((member, i) => (
               <div key={i} className="leadership-card">
                 <MemberCard member={member} size="large" />
@@ -181,21 +181,21 @@ export default function ExecutiveBoard() {
       </section>
 
       {/* ── EXCOM ROLES ── */}
-      <section className="px-8 md:px-16 lg:px-24 pb-32 border-t border-white/[0.04] pt-32">
+      <section className="px-8 md:px-16 lg:px-24 pb-32 border-t border-[var(--border-mid)] pt-32 bg-[var(--bg-dark)]">
         <div className="max-w-7xl mx-auto">
-          <div className="flat-row border-t border-white/[0.08]">
-             <div className="flat-row-key">GOVERNANCE</div>
+          <div className="flat-row">
+             <div className="flat-row-key">Governance</div>
              <div className="flat-row-value">
-                <h2 className="headline-display text-5xl mb-12 uppercase">EXCOM Roles</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <h2 className="headline-display text-[clamp(44px,6vw,72px)] mb-12 uppercase">EXCOM Roles</h2>
+                <div className="technical-grid">
                   {excomRoles.map((role, i) => (
-                    <div key={i} className="p-8 bg-[#121820]/40 border border-white/[0.04] rounded-2xl group hover:border-[#40B2D6]/20 transition-all">
-                      <h3 className="font-display text-[22px] font-medium text-[#E2EEF9] mb-4 group-hover:text-ieee-electric transition-colors">{role.title}</h3>
-                      <p className="text-[13px] font-body text-[#A8C4DE] mb-6 leading-relaxed italic opacity-70">{role.tagline}</p>
-                      <ul className="space-y-3">
+                    <div key={i} className="p-10 bg-[var(--bg-card)] border border-[var(--border-mid)] hover:border-[var(--primary)] transition-all">
+                      <h3 className="font-display text-[28px] font-black text-[var(--text-ice)] mb-4 uppercase">{role.title}</h3>
+                      <p className="text-[16px] font-medium text-[var(--text-secondary-c)] mb-8 leading-relaxed italic border-l-2 border-[var(--border-mid)] pl-4">{role.tagline}</p>
+                      <ul className="space-y-4">
                         {role.responsibilities.slice(0, 3).map((r, j) => (
-                          <li key={j} className="flex items-start gap-3 text-[13px] font-body text-[#5a7fa8]">
-                            <span className="text-ieee-electric mt-1">→</span> {r}
+                          <li key={j} className="flex items-start gap-3 text-[14px] font-bold text-[var(--text-muted-c)] uppercase tracking-wide">
+                            <span className="text-[var(--primary)] mt-1">→</span> {r}
                           </li>
                         ))}
                       </ul>
@@ -208,19 +208,19 @@ export default function ExecutiveBoard() {
       </section>
 
       {/* ── DEPARTMENTS ── */}
-      <section className="px-8 md:px-16 lg:px-24 pb-32 border-t border-white/[0.04] pt-32">
+      <section className="px-8 md:px-16 lg:px-24 pb-32 border-t border-[var(--border-mid)] pt-32 bg-[var(--bg-darkest)]">
          <div className="max-w-7xl mx-auto">
-           <span className="paren-index mb-16">DEPARTMENTAL_WINGS</span>
+           <span className="section-label mb-16">Departments</span>
            {departments.map((dept, di) => (
              <div key={di} className="mb-24 last:mb-0">
-                <div className="flex justify-between items-end mb-10 border-b border-white/[0.04] pb-6">
+                <div className="flex justify-between items-end mb-10 border-b border-[var(--border-mid)] pb-6">
                    <div>
-                     <h2 className="headline-display text-4xl">{dept.name}</h2>
-                     <p className="text-[13px] font-mono text-[#5a7fa8] mt-2 uppercase tracking-widest">{dept.subtitle}</p>
+                     <h2 className="headline-display text-[clamp(36px,5vw,60px)] uppercase">{dept.name}</h2>
+                     <p style={{ fontFamily: 'Chivo Mono' }} className="text-[13px] font-bold text-[var(--primary)] mt-3 uppercase tracking-widest">{dept.subtitle}</p>
                    </div>
-                   <span className="text-3xl opacity-40">{dept.emoji}</span>
+                   <span className="text-4xl opacity-40 grayscale">{dept.emoji}</span>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <div className="technical-grid">
                    {dept.members.map((member, mi) => (
                      <MemberCard key={mi} member={member} />
                    ))}
@@ -231,18 +231,18 @@ export default function ExecutiveBoard() {
       </section>
 
       {/* ── PATH TO LEADERSHIP ── */}
-      <section className="px-8 md:px-16 lg:px-24 py-32 bg-white/[0.01] border-t border-white/[0.04]">
+      <section className="px-8 md:px-16 lg:px-24 py-32 bg-[var(--bg-dark)] border-t border-[var(--border-mid)]">
         <div className="max-w-7xl mx-auto">
-          <span className="paren-index mb-10">JOIN_THE_COMMAND</span>
-          <h2 className="headline-display text-5xl mb-12 uppercase">Path to Leadership</h2>
+          <span className="section-label mb-10">Get Involved</span>
+          <h2 className="headline-display text-[clamp(44px,6vw,72px)] mb-12 uppercase">Path to Leadership</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-1 bg-white/[0.04] border border-white/[0.04]">
+          <div className="technical-grid">
             {pathToLeadership.map((step, i) => (
-              <div key={i} className="bg-[#0D1117] p-8 relative group">
-                <span className="font-mono text-[10px] text-[#2d4a6b] absolute top-8 left-8">{step.step}</span>
-                <div className="mt-8">
-                  <h4 className="font-display text-[18px] font-medium text-[#E2EEF9] mb-4 group-hover:text-ieee-electric transition-colors">{step.title}</h4>
-                  <p className="text-[13px] font-body text-[#A8C4DE] leading-relaxed opacity-60">{step.desc}</p>
+              <div key={i} className="bg-[var(--bg-card)] p-10 relative group border border-[var(--border-mid)] hover:bg-[var(--bg-surface)]">
+                <span style={{ fontFamily: 'Chivo Mono' }} className="text-[12px] font-bold text-[var(--primary)] border border-[var(--primary)] px-2 py-1 absolute top-8 left-8">{step.step}</span>
+                <div className="mt-16">
+                  <h4 className="font-display text-[22px] font-black text-[var(--text-ice)] mb-4 uppercase group-hover:text-[var(--primary)] transition-colors">{step.title}</h4>
+                  <p className="text-[16px] font-medium text-[var(--text-secondary-c)] leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}

@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Skills
+.skills
+.github/skills
+.gemini
+.impeccable

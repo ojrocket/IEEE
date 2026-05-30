@@ -64,9 +64,9 @@ export default function Governance() {
       transition={{ duration: 0.6 }}
       className="max-w-4xl"
     >
-      <span className="paren-index mb-6">ORG_PROTOCOL_B1</span>
+      <span className="section-label mb-6">Governance</span>
       <h1 className="editorial-headline text-blue-50 mb-10">
-        Governance<span className="text-[#40B2D6] lowercase italic">.core</span>
+        Governance<span className="text-[#40B2D6] lowercase italic"> Framework</span>
       </h1>
       <p className="text-body-loose text-lg max-w-2xl mb-20">
         Transparency, structured growth, and accountability form the pillars of our branch. Our governance framework ensures we remain steadfast to IEEE bylaws while adapting to the needs of a modern engineering community.
@@ -80,7 +80,7 @@ export default function Governance() {
           {orgHierarchy.map((level, i) => (
             <div key={i} className="flat-section-row group cursor-default">
               <div className="flex items-center gap-6">
-                <span className="paren-index uppercase">Lvl_{String(i + 1).padStart(2, '0')}</span>
+                <span className="font-mono text-[11px] text-[#5a7fa8] uppercase tracking-widest">{String(i + 1).padStart(2, '0')}</span>
                 <span className="text-editorial text-2xl text-blue-50 uppercase">{level}</span>
               </div>
             </div>

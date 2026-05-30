@@ -69,7 +69,7 @@ const Gallery = () => {
   useEffect(() => setTotalCount(filteredItems.length), [activeFilter, filteredItems]);
 
   return (
-    <main className="bg-[#0D1117] font-body min-h-screen">
+    <main className="bg-[var(--bg-darkest)] font-body min-h-screen">
       <GalleryHero />
       <FilterBar activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
 
@@ -91,25 +91,30 @@ const Gallery = () => {
       {/* CTA Section */}
       <section className="py-32 container mx-auto px-6 max-w-7xl">
         <motion.div 
-          className="bg-[#12233b] rounded-[2.5rem] p-12 md:p-20 flex flex-col md:flex-row justify-between items-center gap-12 relative overflow-hidden group border border-white/[0.04]"
+          className="bg-[var(--bg-card)] p-12 md:p-20 flex flex-col md:flex-row justify-between items-center gap-12 relative overflow-hidden group border-[8px] border-[var(--border-mid)]"
         >
-          <div className="absolute top-0 right-0 w-[30rem] h-[30rem] bg-ieee-mist rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none opacity-30" />
+          <div className="absolute inset-0 z-[1] pointer-events-none opacity-20"
+            style={{
+              backgroundImage: 'radial-gradient(circle, var(--text-muted-c) 1px, transparent 1px)',
+              backgroundSize: '24px 24px',
+            }}
+          />
           
           <div className="relative z-10 flex-1">
-            <span className="paren-index mb-6">ARCHIVE_CONTRIBUTION</span>
+            <span className="section-label mb-6">Contribute</span>
             <h2 className="headline-display text-[clamp(44px,6vw,84px)] mb-8">
-              Capture the <span className="word-cyan italic">moment.</span>
+              Capture the <span className="text-[var(--primary)] italic">moment.</span>
             </h2>
-            <p className="text-[15px] font-body text-[#A8C4DE] max-w-lg leading-relaxed mb-6">
+            <p className="text-[18px] font-medium text-[var(--text-secondary-c)] max-w-lg leading-relaxed mb-6">
               Contributing to the IEEE archive is easy. Submit your captures from events, workshops, or competitions to be featured in our global gallery.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4 relative z-10">
-             <button className="bg-[#3C72B0] hover:bg-[#0ECAD4] text-[#E2EEF9] px-10 py-4 rounded-full text-[14px] font-body transition-all duration-300 shadow-xl">
+          <div className="flex flex-col gap-6 relative z-10 w-full md:w-auto">
+             <button className="bg-[var(--primary)] text-[var(--bg-darkest)] hover:bg-[var(--accent-gold)] px-10 py-5 text-[14px] font-bold uppercase tracking-widest transition-all">
                Submit Photos
              </button>
-             <button className="border border-white/10 text-[#A8C4DE] hover:border-[#40B2D6] px-10 py-4 rounded-full text-[14px] font-body transition-all duration-300">
+             <button className="border-2 border-[var(--border-mid)] text-[var(--text-ice)] hover:border-[var(--primary)] px-10 py-5 text-[14px] font-bold uppercase tracking-widest transition-all">
                Volunteer Roles
              </button>
           </div>

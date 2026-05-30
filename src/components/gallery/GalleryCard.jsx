@@ -36,7 +36,7 @@ const GalleryCard = ({ item, onClick, index }) => {
           loading="lazy"
         />
         <div className="absolute top-4 left-4 z-10">
-          <span className="paren-index backdrop-blur-sm bg-black/20 px-2 py-1">IMG_{String(index + 1).padStart(3, '0')}</span>
+          <span className="font-mono text-[10px] text-white/60 tracking-widest backdrop-blur-sm bg-black/20 px-2 py-1 rounded">{String(index + 1).padStart(2, '0')}</span>
         </div>
       </div>
       

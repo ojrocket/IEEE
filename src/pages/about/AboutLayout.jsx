@@ -38,7 +38,7 @@ export default function AboutLayout() {
 
          <aside className="w-1/4 hidden md:block">
             <div className="sticky top-40 flex flex-col gap-10">
-              <span className="paren-index block mb-4 uppercase">ABT_DIRECTIVE_B4</span>
+              <span className="section-label block mb-4">About</span>
               <div className="flex flex-col gap-6">
                 {aboutLinks.map((link) => {
                    const isActive = location.pathname === link.path;

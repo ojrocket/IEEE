@@ -8,9 +8,9 @@ const GalleryHero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="paren-index mb-8"
+          className="section-label mb-8"
         >
-          IEEE_SRM_AP // CHRONICLE_VAULT
+          Gallery
         </motion.div>
         
         <h1 className="headline-display mb-10">

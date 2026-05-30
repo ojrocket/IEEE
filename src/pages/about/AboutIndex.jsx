@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Target, Eye, Lightbulb, Users, Shield, Heart, Globe, Award } from 'lucide-react';
+import { ArrowRight, Target, Eye, Lightbulb, Users, Shield, Heart, Globe, Award, ArrowUpRight } from 'lucide-react';
 
 // ── Data (from user spec) ─────────────────────────────────
 const heroStats = [
@@ -54,40 +54,40 @@ export default function AboutIndex() {
     >
       {/* ── HERO INTRO ── */}
       <div className="mb-24">
-        <span className="paren-index mb-8">ESTABLISHED_1884</span>
+        <span className="section-label mb-8">Est. 1884</span>
         <h1 className="headline-display text-[clamp(44px,7vw,84px)] mb-10">
-          Global Engineering <span className="word-cyan italic">Leadership.</span>
+          Global Engineering <span className="text-[var(--primary)] italic">Leadership.</span>
         </h1>
-        <p className="text-[16px] md:text-[18px] font-body text-[#A8C4DE] leading-relaxed max-w-3xl mb-12">
+        <p className="text-[18px] md:text-[22px] font-bold text-[var(--text-secondary-c)] leading-snug max-w-3xl mb-12 border-l-4 border-[var(--primary)] pl-6">
           IEEE is the world's largest technical professional organization dedicated to advancing technology for the benefit of humanity. Since our founding by Thomas Edison and Alexander Graham Bell, we've remained at the forefront of global innovation.
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-1 bg-white/[0.04] border border-white/[0.04]">
+        <div className="technical-grid">
           {heroStats.map((s, i) => (
-            <div key={i} className="bg-[#0D1117] p-6 text-center">
-              <span className="font-display text-[28px] text-[#A8C4DE] block mb-1">{s.value}</span>
-              <span className="font-mono text-[9px] text-[#5a7fa8] uppercase tracking-widest">{s.label}</span>
+            <div key={i} className="bg-[var(--bg-card)] p-8 text-left border border-[var(--border-mid)] hover:border-[var(--primary)] transition-all">
+              <span className="font-display font-black text-[32px] text-[var(--text-ice)] block mb-2">{s.value}</span>
+              <span style={{ fontFamily: 'Chivo Mono' }} className="text-[12px] font-bold text-[var(--primary)] uppercase tracking-widest">{s.label}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── MISSION & VISION (FLAT ROW) ── */}
-      <div className="space-y-0 mb-24 border-t border-white/[0.08]">
-        <div className="flat-row group">
-          <div className="flat-row-key">MISSION_DRIVE</div>
+      <div className="space-y-0 mb-24 border-t border-[var(--border-mid)] pt-12">
+        <div className="flat-row group border-b border-[var(--border-mid)] pb-12 mb-12">
+          <div className="flat-row-key">Mission</div>
           <div className="flat-row-value">
-            <h3 className="headline-display text-3xl mb-4">Advance Technology.</h3>
-            <p className="text-[14px] text-[#A8C4DE] leading-relaxed">
+            <h3 className="font-display text-[32px] font-black uppercase mb-6 text-[var(--text-ice)]">Advance Technology.</h3>
+            <p className="text-[16px] font-medium text-[var(--text-secondary-c)] leading-relaxed">
               To foster technological innovation and excellence for the benefit of humanity. We strive to be the most essential technical community globally.
             </p>
           </div>
         </div>
         <div className="flat-row group">
-          <div className="flat-row-key">VISION_HORIZON</div>
+          <div className="flat-row-key">Vision</div>
           <div className="flat-row-value">
-            <h3 className="headline-display text-3xl mb-4">Universal Impact.</h3>
-            <p className="text-[14px] text-[#A8C4DE] leading-relaxed">
+            <h3 className="font-display text-[32px] font-black uppercase mb-6 text-[var(--text-ice)]">Universal Impact.</h3>
+            <p className="text-[16px] font-medium text-[var(--text-secondary-c)] leading-relaxed">
               To be universally recognized for the contributions of technical professionals in creating technologies that benefit the world.
             </p>
           </div>
@@ -96,19 +96,19 @@ export default function AboutIndex() {
 
       {/* ── CORE VALUES ── */}
       <div className="mb-24">
-        <span className="paren-index mb-8">OUR_FOUNDATIONS</span>
-        <h2 className="headline-display text-5xl mb-12 uppercase">Core Values</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <span className="section-label mb-8 text-[var(--primary)]">What We Stand For</span>
+        <h2 className="headline-display text-[clamp(36px,5vw,60px)] mb-12 uppercase text-[var(--text-ice)]">Core Values</h2>
+        <div className="technical-grid">
           {values.map((v, i) => {
             const Icon = v.icon;
             return (
-              <div key={i} className="indexed-card glass-card p-8 flex gap-6">
-                <div className="w-10 h-10 bg-ieee-mist rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Icon size={18} className="text-[#40B2D6]" />
+              <div key={i} className="bg-[var(--bg-card)] p-8 flex flex-col gap-6 border border-[var(--border-mid)] hover:border-[var(--primary)] transition-all">
+                <div className="w-12 h-12 bg-[var(--bg-darkest)] border border-[var(--border-mid)] flex items-center justify-center flex-shrink-0">
+                  <Icon size={24} className="text-[var(--primary)]" />
                 </div>
                 <div>
-                  <h4 className="font-display font-medium text-[#E2EEF9] text-lg mb-2">{v.title}</h4>
-                  <p className="text-[13px] text-[#A8C4DE] leading-relaxed">{v.desc}</p>
+                  <h4 className="font-display font-black text-[var(--text-ice)] text-[22px] mb-3 uppercase">{v.title}</h4>
+                  <p className="text-[15px] font-medium text-[var(--text-secondary-c)] leading-relaxed">{v.desc}</p>
                 </div>
               </div>
             );
@@ -118,14 +118,14 @@ export default function AboutIndex() {
 
       {/* ── LEGACY (FLAT ROW LIST) ── */}
       <div className="mb-24">
-        <span className="paren-index mb-8">HISTORIC_TIMELINE</span>
-        <h2 className="headline-display text-5xl mb-12 uppercase">Our Journey</h2>
-        <div className="border-t border-white/[0.08]">
+        <span className="section-label mb-8">Timeline</span>
+        <h2 className="headline-display text-[clamp(36px,5vw,60px)] mb-12 uppercase text-[var(--text-ice)]">Our Journey</h2>
+        <div className="border-t border-[var(--border-mid)]">
           {timeline.map((m, i) => (
-            <div key={i} className="flat-row items-center">
-              <div className="flat-row-key text-ieee-electric font-bold">{m.year}</div>
-              <div className="flat-row-value py-6">
-                <p className="text-[15px] text-[#A8C4DE] leading-relaxed italic pr-12">{m.event}</p>
+            <div key={i} className="flat-row items-center border-b border-[var(--border-mid)] py-8 group hover:bg-[var(--bg-dark)] px-4 transition-colors">
+              <div className="flat-row-key text-[var(--primary)] font-bold text-[18px]">{m.year}</div>
+              <div className="flat-row-value">
+                <p className="text-[16px] font-medium text-[var(--text-ice)] leading-relaxed pr-12 group-hover:text-[var(--primary)] transition-colors">{m.event}</p>
               </div>
             </div>
           ))}
@@ -134,18 +134,18 @@ export default function AboutIndex() {
 
       {/* ── TECHNICAL SOCIETIES (FLAT ROWS) ── */}
       <div className="mb-24">
-        <span className="paren-index mb-8">GLOBAL_COMMUNITIES</span>
-        <h2 className="headline-display text-5xl mb-12 uppercase">Societies</h2>
-        <div className="border-t border-white/[0.08]">
+        <span className="section-label mb-8">Communities</span>
+        <h2 className="headline-display text-[clamp(36px,5vw,60px)] mb-12 uppercase text-[var(--text-ice)]">Societies</h2>
+        <div className="border-t border-[var(--border-mid)]">
           {societies.slice(0, 5).map((s, i) => (
-            <div key={i} className="flat-row group hover:bg-white/[0.01] transition-colors">
-              <div className="flat-row-key opacity-40">ITEM_0{i + 1}</div>
-              <div className="flat-row-value py-5 flex justify-between items-center group">
+            <div key={i} className="flat-row group hover:bg-[var(--bg-dark)] px-4 transition-colors border-b border-[var(--border-mid)] py-8">
+              <div className="flat-row-key opacity-40 text-[14px]">0{i + 1}</div>
+              <div className="flat-row-value flex justify-between items-center group">
                 <div>
-                  <h4 className="font-display text-xl text-[#E2EEF9] truncate group-hover:text-ieee-electric transition-colors">{s.name}</h4>
-                  <p className="text-[12px] text-[#5a7fa8] mt-1">{s.desc}</p>
+                  <h4 className="font-display font-black text-[22px] text-[var(--text-ice)] truncate group-hover:text-[var(--primary)] transition-colors uppercase mb-2">{s.name}</h4>
+                  <p className="text-[14px] font-medium text-[var(--text-secondary-c)] mt-1">{s.desc}</p>
                 </div>
-                <ArrowUpRight size={16} className="text-[#2d4a6b] opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ArrowUpRight size={24} className="text-[var(--text-muted-c)] opacity-0 group-hover:opacity-100 group-hover:text-[var(--primary)] transition-all" />
               </div>
             </div>
           ))}
@@ -153,19 +153,24 @@ export default function AboutIndex() {
       </div>
 
       {/* ── CTA ── */}
-      <div className="p-10 md:p-14 bg-[#12233b] rounded-[2rem] relative overflow-hidden group">
-        <div className="absolute top-0 right-0 w-[25rem] h-[25rem] bg-ieee-mist rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="p-10 md:p-16 bg-[var(--primary)] border-[8px] border-[var(--bg-card)] relative overflow-hidden group">
+        <div className="absolute inset-0 z-[1] pointer-events-none opacity-20"
+          style={{
+            backgroundImage: 'radial-gradient(circle, var(--bg-darkest) 2px, transparent 2px)',
+            backgroundSize: '24px 24px',
+          }}
+        />
         <div className="relative z-10">
-          <h3 className="headline-display text-4xl mb-6">Want to be part of the future?</h3>
-          <p className="text-[15px] text-[#A8C4DE] mb-10 max-w-xl leading-relaxed">
+          <h3 className="headline-display text-[40px] md:text-[56px] mb-8 text-[var(--bg-darkest)] uppercase">Want to be part of the future?</h3>
+          <p className="text-[18px] font-medium text-[var(--bg-darkest)] mb-12 max-w-xl leading-relaxed">
             Whether you're a first-year exploring your interests or a final-year looking to lead — there's a place for you here at SRM AP.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row gap-6">
             <a href="https://www.ieee.org/membership/join/index.html" target="_blank" rel="noopener noreferrer"
-              className="bg-[#3C72B0] hover:bg-[#0ECAD4] text-[#E2EEF9] px-8 py-3 rounded-full text-[14px] font-body transition-all duration-250">
+              className="bg-[var(--bg-darkest)] text-[var(--text-ice)] hover:bg-white hover:text-[var(--bg-darkest)] px-10 py-5 text-[14px] font-bold uppercase tracking-widest transition-all text-center">
               Join IEEE
             </a>
-            <Link to="/join" className="border border-white/10 text-[#A8C4DE] hover:border-[#40B2D6] px-8 py-3 rounded-full text-[14px] font-body transition-all duration-250">
+            <Link to="/join" className="border-2 border-[var(--bg-darkest)] text-[var(--bg-darkest)] hover:bg-[var(--bg-darkest)] hover:text-[var(--text-ice)] px-10 py-5 text-[14px] font-bold uppercase tracking-widest transition-all text-center">
               Membership Details
             </Link>
           </div>
