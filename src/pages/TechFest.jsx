@@ -6,27 +6,26 @@ import { motion } from 'framer-motion';
 
 const TechFest = () => {
   return (
-    <div className="bg-[#0a0f1d] text-blue-50 font-body">
+    <div className="bg-[var(--bg-darkest)] text-[var(--text-ice)] font-body">
       <TechFestHero />
       
-      {/* About Section (Inline for fidelity) */}
-      <section className="py-24 border-t border-white/5 bg-[#0a0f1d]">
+      {/* About Section */}
+      <section className="py-24 border-t border-[var(--border-mid)] bg-[var(--bg-darkest)]">
         <div className="container mx-auto px-6 max-w-4xl text-center">
-          <motion.h2 
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="section-index mx-auto"
+            className="section-label mx-auto mb-8 w-fit"
           >
             About TechFest 2026
-          </motion.h2>
-          <div className="w-20 h-1 bg-[#40B2D6] mx-auto mb-10 rounded-full" />
+          </motion.div>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-blue-200/60 font-medium leading-[1.8] mb-12"
+            className="text-lg text-[var(--text-secondary-c)] font-medium leading-[1.8] mb-12"
           >
             Organized by IEEE SRM AP Student Branch, TechFest 2026 is the ultimate convergence of brilliant minds and cutting-edge technology. Experience 48 hours of intense coding, groundbreaking hardware showcases, and visionary talks designed to push boundaries and spark innovation.
           </motion.p>
@@ -45,8 +44,8 @@ const TechFest = () => {
                 transition={{ delay: i * 0.1 + 0.3 }}
                 className="text-center"
               >
-                <div className="text-4xl font-display font-light text-blue-50 mb-2 tracking-tight">{stat.val}</div>
-                <div className="text-[#40B2D6] text-[10px] font-medium uppercase tracking-widest">{stat.label}</div>
+                <div className="headline-display text-4xl mb-2 uppercase">{stat.val}</div>
+                <div className="text-[var(--primary)] text-[10px] font-mono uppercase tracking-widest">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -58,13 +57,13 @@ const TechFest = () => {
       <FlagshipEvents />
 
       {/* Registration Banner */}
-      <section className="py-28 bg-[#0a0f1d] border-y border-white/5 relative overflow-hidden">
+      <section className="py-28 bg-[var(--bg-dark)] border-t border-[var(--border-mid)] relative overflow-hidden">
         <div className="container mx-auto px-6 text-center relative z-10">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-4xl md:text-6xl font-light text-blue-50 mb-8 tracking-tight"
+            className="headline-display text-4xl md:text-6xl mb-8 uppercase"
           >
             Ready to Join TechFest 2026?
           </motion.h2>
@@ -73,16 +72,16 @@ const TechFest = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-blue-200/60 mb-12 max-w-3xl mx-auto font-light"
+            className="text-xl text-[var(--text-secondary-c)] mb-12 max-w-3xl mx-auto font-medium"
           >
             Be part of the biggest technical extravaganza. Register now and secure your spot in this celebration of innovation and excellence.
           </motion.p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <button className="ieee-btn-primary px-12 py-4 uppercase tracking-widest text-sm">
+            <button className="bg-[var(--primary)] hover:bg-[var(--accent-gold)] text-[var(--bg-darkest)] px-12 py-5 text-[14px] font-bold uppercase tracking-widest transition-all w-full sm:w-auto text-center">
               Register Now
             </button>
-            <button className="ieee-btn-outline px-12 py-4 uppercase tracking-widest text-sm">
+            <button className="border-2 border-[var(--border-mid)] text-[var(--text-ice)] hover:border-[var(--primary)] px-12 py-5 text-[14px] font-bold uppercase tracking-widest transition-all w-full sm:w-auto text-center">
               Download Brochure
             </button>
           </div>

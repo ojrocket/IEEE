@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { FileText, Scale, BookOpen, Shield } from 'lucide-react';
 
-// ── Data (from user spec) ─────────────────────────────────
 const orgHierarchy = [
   'IEEE Hyderabad Section',
   'Faculty Advisors',
@@ -55,7 +54,6 @@ const branchId = {
   oversight: 'Faculty Advisors',
 };
 
-// ── Main Export ──────────────────────────────────────────
 export default function Governance() {
   return (
     <motion.div
@@ -65,23 +63,23 @@ export default function Governance() {
       className="max-w-4xl"
     >
       <span className="section-label mb-6">Governance</span>
-      <h1 className="editorial-headline text-blue-50 mb-10">
-        Governance<span className="text-[#40B2D6] lowercase italic"> Framework</span>
+      <h1 className="headline-display mb-10 uppercase">
+        Governance<span className="text-[var(--primary)] lowercase italic"> Framework</span>
       </h1>
-      <p className="text-body-loose text-lg max-w-2xl mb-20">
+      <p className="text-[18px] text-[var(--text-secondary-c)] font-medium leading-relaxed max-w-2xl mb-20">
         Transparency, structured growth, and accountability form the pillars of our branch. Our governance framework ensures we remain steadfast to IEEE bylaws while adapting to the needs of a modern engineering community.
       </p>
 
       {/* ── ORGANIZATIONAL HIERARCHY ── */}
-      <div className="mb-16">
-        <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#40B2D6] font-bold block mb-4">Structure</span>
-        <h2 className="text-2xl md:text-3xl font-display font-light text-blue-50 mb-8 tracking-tight">Organizational Hierarchy</h2>
+      <div className="mb-20">
+        <span className="text-xs font-mono uppercase tracking-[0.3em] text-[var(--primary)] font-bold block mb-4">Structure</span>
+        <h2 className="headline-display text-[32px] mb-8 uppercase">Organizational Hierarchy</h2>
         <div className="space-y-1">
           {orgHierarchy.map((level, i) => (
-            <div key={i} className="flat-section-row group cursor-default">
+            <div key={i} className="border-t border-[var(--border-mid)] py-4 hover:bg-[var(--bg-card)] px-4 transition-colors">
               <div className="flex items-center gap-6">
-                <span className="font-mono text-[11px] text-[#5a7fa8] uppercase tracking-widest">{String(i + 1).padStart(2, '0')}</span>
-                <span className="text-editorial text-2xl text-blue-50 uppercase">{level}</span>
+                <span className="font-mono text-[11px] text-[var(--text-muted-c)] uppercase tracking-widest">{String(i + 1).padStart(2, '0')}</span>
+                <span className="font-display font-black text-2xl text-[var(--text-ice)] uppercase">{level}</span>
               </div>
             </div>
           ))}
@@ -89,10 +87,10 @@ export default function Governance() {
       </div>
 
       {/* ── KEY DOCUMENTS ── */}
-      <div className="mb-16">
-        <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#40B2D6] font-bold block mb-4">Documents</span>
-        <h2 className="text-2xl md:text-3xl font-display font-light text-blue-50 mb-8 tracking-tight">Key Documents</h2>
-        <div className="space-y-2">
+      <div className="mb-20">
+        <span className="text-xs font-mono uppercase tracking-[0.3em] text-[var(--primary)] font-bold block mb-4">Documents</span>
+        <h2 className="headline-display text-[32px] mb-8 uppercase">Key Documents</h2>
+        <div className="space-y-4">
           {keyDocuments.map((doc, i) => {
             const Icon = doc.icon;
             return (
@@ -101,16 +99,14 @@ export default function Governance() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.08 + 0.3 }}
-                className="flat-section-row group cursor-pointer"
+                className="solid-card p-6 flex gap-6 items-center"
               >
-                <div className="flex gap-8 items-center">
-                  <div className="w-16 h-16 border border-white/5 flex items-center justify-center flex-shrink-0 group-hover:border-[#40B2D6]/40 transition-colors duration-300">
-                    <Icon size={24} className="text-blue-200/30 group-hover:text-[#40B2D6] transition-colors duration-300" />
-                  </div>
-                  <div>
-                    <h3 className="text-editorial text-3xl text-blue-50 mb-2 uppercase italic">{doc.title}</h3>
-                    <p className="text-body-loose text-sm max-w-xl">{doc.desc}</p>
-                  </div>
+                <div className="w-14 h-14 bg-[var(--bg-darkest)] border border-[var(--border-mid)] flex items-center justify-center flex-shrink-0 group-hover:border-[var(--primary)] transition-colors duration-300">
+                  <Icon size={24} className="text-[var(--text-muted-c)] group-hover:text-[var(--primary)] transition-colors duration-300" />
+                </div>
+                <div>
+                  <h3 className="font-display font-black text-xl text-[var(--text-ice)] mb-2 uppercase italic">{doc.title}</h3>
+                  <p className="text-[14px] text-[var(--text-secondary-c)] leading-relaxed max-w-xl">{doc.desc}</p>
                 </div>
               </motion.div>
             );
@@ -119,70 +115,70 @@ export default function Governance() {
       </div>
 
       {/* ── FINANCIAL GOVERNANCE ── */}
-      <div className="mb-16">
-        <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#40B2D6] font-bold block mb-4">Finance</span>
-        <h2 className="text-2xl md:text-3xl font-display font-light text-blue-50 mb-8 tracking-tight">Financial Governance</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className="mb-20">
+        <span className="text-xs font-mono uppercase tracking-[0.3em] text-[var(--primary)] font-bold block mb-4">Finance</span>
+        <h2 className="headline-display text-[32px] mb-8 uppercase">Financial Governance</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {financialRules.map((rule, i) => (
-            <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-white/5 bg-white/5 glass-card">
-              <span className="text-[#40B2D6] mt-0.5">✓</span>
-              <span className="text-sm font-sans text-blue-200/70">{rule}</span>
+            <div key={i} className="flex items-start gap-3 p-5 rounded-[4px] border border-[var(--border-mid)] bg-[var(--bg-card)]">
+              <span className="text-[var(--primary)] mt-0.5">✓</span>
+              <span className="text-[14px] font-medium text-[var(--text-secondary-c)]">{rule}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── DECISION MAKING ── */}
-      <div className="mb-16">
-        <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#40B2D6] font-bold block mb-4">Process</span>
-        <h2 className="text-2xl md:text-3xl font-display font-light text-blue-50 mb-8 tracking-tight">Decision-Making Process</h2>
+      <div className="mb-20">
+        <span className="text-xs font-mono uppercase tracking-[0.3em] text-[var(--primary)] font-bold block mb-4">Process</span>
+        <h2 className="headline-display text-[32px] mb-8 uppercase">Decision-Making Process</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {decisionMaking.map((d, i) => (
-            <div key={i} className="p-4 rounded-xl border border-white/5 glass-card">
-              <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#40B2D6] font-bold block mb-1">{d.label}</span>
-              <span className="text-sm font-sans text-blue-200/70">{d.value}</span>
+            <div key={i} className="p-5 rounded-[4px] border border-[var(--border-mid)] bg-[var(--bg-card)]">
+              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--primary)] font-bold block mb-2">{d.label}</span>
+              <span className="text-[14px] font-medium text-[var(--text-secondary-c)]">{d.value}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── EXECUTIVE ROLES ── */}
-      <div className="mb-16">
-        <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#40B2D6] font-bold block mb-4">Roles</span>
-        <h2 className="text-2xl md:text-3xl font-display font-light text-blue-50 mb-8 tracking-tight">Executive Roles Summary</h2>
-        <div className="overflow-hidden rounded-xl border border-white/5 glass-card">
+      <div className="mb-20">
+        <span className="text-xs font-mono uppercase tracking-[0.3em] text-[var(--primary)] font-bold block mb-4">Roles</span>
+        <h2 className="headline-display text-[32px] mb-8 uppercase">Executive Roles Summary</h2>
+        <div className="overflow-hidden rounded-[4px] border border-[var(--border-mid)] bg-[var(--bg-card)]">
           {executiveRoles.map((r, i) => (
-            <div key={i} className={`flex flex-col sm:flex-row sm:items-center gap-2 p-4 ${i !== executiveRoles.length - 1 ? 'border-b border-white/5' : ''}`}>
-              <span className="text-sm font-display font-medium text-blue-50 sm:w-40 flex-shrink-0">{r.role}</span>
-              <span className="text-sm font-sans text-blue-200/50">{r.responsibility}</span>
+            <div key={i} className={`flex flex-col sm:flex-row sm:items-center gap-2 p-5 ${i !== executiveRoles.length - 1 ? 'border-b border-[var(--border-mid)]' : ''}`}>
+              <span className="text-[14px] font-display font-black text-[var(--text-ice)] sm:w-40 flex-shrink-0 uppercase">{r.role}</span>
+              <span className="text-[14px] font-medium text-[var(--text-secondary-c)]">{r.responsibility}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── CODE OF ETHICS ── */}
-      <div className="mb-16">
-        <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#40B2D6] font-bold block mb-4">Ethics</span>
-        <h2 className="text-2xl md:text-3xl font-display font-light text-blue-50 mb-8 tracking-tight">IEEE Code of Ethics</h2>
-        <div className="space-y-3">
+      <div className="mb-20">
+        <span className="text-xs font-mono uppercase tracking-[0.3em] text-[var(--primary)] font-bold block mb-4">Ethics</span>
+        <h2 className="headline-display text-[32px] mb-8 uppercase">IEEE Code of Ethics</h2>
+        <div className="space-y-4">
           {codeOfEthics.map((item, i) => (
-            <div key={i} className="flex items-start gap-4 p-4 rounded-xl border border-white/5 glass-card">
-              <span className="text-sm font-mono text-[#40B2D6] font-bold flex-shrink-0">{String(i + 1).padStart(2, '0')}</span>
-              <p className="text-sm font-sans text-blue-200/70 leading-relaxed font-light">{item}</p>
+            <div key={i} className="flex items-start gap-4 p-5 rounded-[4px] border border-[var(--border-mid)] bg-[var(--bg-card)]">
+              <span className="text-sm font-mono text-[var(--primary)] font-bold flex-shrink-0">{String(i + 1).padStart(2, '0')}</span>
+              <p className="text-[14px] font-medium text-[var(--text-secondary-c)] leading-relaxed">{item}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── BRANCH ID CARD ── */}
-      <div className="p-6 md:p-8 rounded-2xl bg-[#0a0f1d] border border-white/10 text-white glass-card relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[20rem] h-[20rem] bg-[#40B2D6]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-        <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#40B2D6] font-bold block mb-4 relative z-10">Branch Identity</span>
-        <div className="grid grid-cols-2 gap-4 relative z-10">
-          <div><span className="text-[10px] font-sans uppercase tracking-[0.15em] text-white/30 block mb-1">Branch ID</span><span className="font-mono text-sm text-white/80">{branchId.id}</span></div>
-          <div><span className="text-[10px] font-sans uppercase tracking-[0.15em] text-white/30 block mb-1">Region</span><span className="font-mono text-sm text-white/80">{branchId.region}</span></div>
-          <div><span className="text-[10px] font-sans uppercase tracking-[0.15em] text-white/30 block mb-1">Institution</span><span className="font-mono text-sm text-white/80">{branchId.institution}</span></div>
-          <div><span className="text-[10px] font-sans uppercase tracking-[0.15em] text-white/30 block mb-1">Oversight</span><span className="font-mono text-sm text-white/80">{branchId.oversight}</span></div>
+      <div className="p-8 rounded-[4px] bg-[var(--bg-dark)] border border-[var(--border-mid)] relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[20rem] h-[20rem] bg-[rgba(245,166,35,0.03)] rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--primary)] font-bold block mb-6 relative z-10">Branch Identity</span>
+        <div className="grid grid-cols-2 gap-6 relative z-10">
+          <div><span className="text-[10px] font-mono uppercase tracking-[0.15em] text-[var(--text-muted-c)] block mb-1">Branch ID</span><span className="font-mono text-sm text-[var(--text-ice)]">{branchId.id}</span></div>
+          <div><span className="text-[10px] font-mono uppercase tracking-[0.15em] text-[var(--text-muted-c)] block mb-1">Region</span><span className="font-mono text-sm text-[var(--text-ice)]">{branchId.region}</span></div>
+          <div><span className="text-[10px] font-mono uppercase tracking-[0.15em] text-[var(--text-muted-c)] block mb-1">Institution</span><span className="font-mono text-sm text-[var(--text-ice)]">{branchId.institution}</span></div>
+          <div><span className="text-[10px] font-mono uppercase tracking-[0.15em] text-[var(--text-muted-c)] block mb-1">Oversight</span><span className="font-mono text-sm text-[var(--text-ice)]">{branchId.oversight}</span></div>
         </div>
       </div>
     </motion.div>

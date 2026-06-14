@@ -34,7 +34,7 @@ export default function Navbar() {
         transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 inset-x-0 z-50 h-16 flex items-center justify-between px-6 md:px-12 transition-all duration-300 ${
           isScrolled || location.pathname !== '/'
-            ? 'bg-[var(--bg-darkest)] border-b border-[var(--border-mid)] shadow-none'
+            ? 'bg-[var(--bg-darkest)]/85 backdrop-blur-md border-b border-[var(--border-mid)] shadow-none'
             : 'bg-transparent border-transparent'
         }`}
       >
@@ -51,18 +51,28 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-10">
           <div className="flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                style={{ fontFamily: 'Chivo Mono' }}
-                className={`relative text-[12px] font-bold tracking-widest uppercase transition-colors ${
-                  location.pathname === link.path ? 'text-[var(--primary)]' : 'text-[var(--text-secondary-c)] hover:text-[var(--text-ice)]'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  style={{ fontFamily: 'Chivo Mono' }}
+                  className={`relative py-2 text-[12px] font-bold tracking-widest uppercase transition-colors ${
+                    isActive ? 'text-[var(--primary)]' : 'text-[var(--text-secondary-c)] hover:text-[var(--text-ice)]'
+                  }`}
+                >
+                  {link.name}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNavIndicator"
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[var(--primary)]"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </div>
         </div>
 

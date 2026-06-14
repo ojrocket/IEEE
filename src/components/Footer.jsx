@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
    return (
-      <footer className="bg-[var(--bg-card)] border-t border-[var(--border-primary)] pt-24 pb-10 px-6 md:px-14 lg:px-20 mt-auto z-10 relative">
+      <footer className="bg-[var(--bg-card)] border-t border-[var(--border-mid)] pt-24 pb-10 px-6 md:px-14 lg:px-20 mt-auto z-10 relative">
          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
             <div className="max-w-xl">
                <div className="flex items-center gap-4 mb-8">

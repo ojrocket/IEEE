@@ -5,27 +5,32 @@
 @tailwind utilities;
 
 :root {
-  /* Stark Technical Palette */
-  --bg-darkest:     #050510;   /* Deepest void */
-  --bg-dark:        #0B0D23;   /* Deep Ultramarine/Indigo */
-  --bg-surface:     #131633;   /* Raised surface */
-  --bg-card:        #1A1E40;   /* Solid block */
+  /* Stark Technical Palette — Warm-Neutral + Multi-Accent Overhaul */
+  --bg-darkest:     #0A0A0F;   /* True near-black warm */
+  --bg-dark:        #111116;   /* Warm charcoal */
+  --bg-surface:     #1A1A22;   /* Raised warm dark surface */
+  --bg-card:        #16161E;   /* Card surface */
   
-  --primary:        #FF4B12;   /* Signal Orange */
-  --accent:         #FF4B12;   
-  --accent-gold:    #FFC300;   /* Safety Yellow */
-  --accent-violet:  #FF4B12;   /* Unified to Orange/Yellow to keep it tight */
-  --neon-cyan:      #F5F5F0;   /* Replaced with Off-white */
+  --primary:        #F5A623;   /* Warm Amber */
+  --accent:         #22D3EE;   /* Electric Cyan */
+  --accent-gold:    #F5A623;   /* Same as primary */
+  --accent-violet:  #A78BFA;   /* True Violet */
+  --neon-cyan:      #22D3EE;   /* Electric Cyan */
+  --accent-emerald: #34D399;   /* Success / Emerald Accent */
+  --accent-rose:    #FB7185;   /* Warning / Rose Accent */
   
-  --text-ice:       #F5F5F0;   /* Off-white technical text */
-  --text-secondary-c: #B4B9D2;
-  --text-muted-c:   #6C7498;
-  --text-dim:       #40466A;
+  --gradient-start: #F5A623;
+  --gradient-end:   #22D3EE;
   
-  --border-subtle:  #1A1E40;
-  --border-mid:     #2B3159;
-  --border-gold:    #FFC300;
-  --border-primary: #FF4B12;
+  --text-ice:       #F0F0F5;   /* Cool near-white */
+  --text-secondary-c: #9CA3AF; /* Neutral gray */
+  --text-muted-c:   #6B7280;   /* Mid gray */
+  --text-dim:       #374151;   /* Dark gray */
+  
+  --border-subtle:  #1F1F2A;
+  --border-mid:     #2A2A35;
+  --border-gold:    #F5A623;
+  --border-primary: #F5A623;
 }
 
 /* ── BODY DEFAULTS ── */
@@ -89,9 +94,9 @@ body.is-loading { overflow: hidden; height: 100vh; }
   color: var(--text-ice);
 }
 .headline-display .word-gold  { color: var(--accent-gold); }
-.headline-display .word-cyan  { color: var(--accent); }
+.headline-display .word-cyan  { color: var(--neon-cyan); }
 .headline-display .word-dim   { color: var(--text-muted-c); font-style: italic; font-weight: 500; }
-.headline-display .word-violet{ color: var(--accent); }
+.headline-display .word-violet{ color: var(--accent-violet); }
 
 /* ── SECTION HEADER (Technical) ── */
 .section-label {
@@ -110,7 +115,8 @@ body.is-loading { overflow: hidden; height: 100vh; }
   display: inline-block;
   width: 12px;
   height: 12px;
-  background: var(--primary);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  border-radius: 2px;
   flex-shrink: 0;
 }
 
@@ -118,13 +124,32 @@ body.is-loading { overflow: hidden; height: 100vh; }
 .solid-card {
   background: var(--bg-card);
   border: 1px solid var(--border-mid);
-  border-radius: 0px; /* Hard edges */
+  border-radius: 4px; /* Slightly rounded corners */
   padding: 32px;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 .solid-card:hover {
   background: var(--bg-surface);
-  border-color: var(--text-muted-c);
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(245, 166, 35, 0.08);
+  transform: translateY(-2px);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.accent-glow {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+.accent-glow:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.1);
+  transform: translateY(-2px);
 }
 /* For grids */
 .technical-grid {
@@ -246,7 +271,7 @@ body.is-loading { overflow: hidden; height: 100vh; }
   letter-spacing: -0.04em;
 }
 .stat-number.gold  { color: var(--accent-gold); }
-.stat-number.violet{ color: var(--primary); }
+.stat-number.violet{ color: var(--accent-violet); }
 .stat-label {
   font-family: 'Chivo Mono', monospace;
   font-size: 13px;
@@ -302,9 +327,9 @@ body.is-loading { overflow: hidden; height: 100vh; }
   color: var(--accent-gold);
 }
 .badge-event.violet {
-  background: rgba(255,75,18,0.1);
-  border-color: var(--primary);
-  color: var(--primary);
+  background: rgba(167,139,250,0.1);
+  border-color: var(--accent-violet);
+  color: var(--accent-violet);
 }
 
 /* ── SCROLLBAR ── */

@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -19,21 +19,21 @@ const marqueeItems = [
 ];
 
 const bentoStats = [
-  { value: 520, suffix: '+', label: 'Active Members', icon: Users, cls: 'bento-wide', bg: 'bg-white/5', text: 'text-blue-50' },
-  { value: 65, suffix: '+', label: 'Events Hosted', icon: Calendar, cls: '', bg: 'bg-[#3C72B0]/20', text: 'text-blue-50' },
-  { value: 6, suffix: '', label: 'Technical Chapters', icon: Cpu, cls: '', bg: 'bg-[#40B2D6]/20', text: 'text-blue-50' },
-  { value: 25, suffix: '+', label: 'Awards Won', icon: Award, cls: '', bg: 'bg-white/5', text: 'text-blue-50' },
-  { value: 5, suffix: '', label: 'Years of Excellence', icon: Sparkles, cls: '', bg: 'bg-white/5', text: 'text-blue-50' },
-  { value: 419, suffix: 'K+', label: 'Global IEEE Network', icon: Globe, cls: 'bento-wide', bg: 'bg-gradient-to-br from-[#3C72B0]/20 to-[#40B2D6]/20', text: 'text-blue-50' },
+  { value: 520, suffix: '+', label: 'Active Members', icon: Users, cls: 'bento-wide', bg: 'bg-[var(--bg-card)]', text: 'text-[var(--text-ice)]' },
+  { value: 65, suffix: '+', label: 'Events Hosted', icon: Calendar, cls: '', bg: 'bg-[rgba(245,166,35,0.08)]', text: 'text-[var(--text-ice)]' },
+  { value: 6, suffix: '', label: 'Technical Chapters', icon: Cpu, cls: '', bg: 'bg-[rgba(34,211,238,0.08)]', text: 'text-[var(--text-ice)]' },
+  { value: 25, suffix: '+', label: 'Awards Won', icon: Award, cls: '', bg: 'bg-[var(--bg-card)]', text: 'text-[var(--text-ice)]' },
+  { value: 5, suffix: '', label: 'Years of Excellence', icon: Sparkles, cls: '', bg: 'bg-[var(--bg-card)]', text: 'text-[var(--text-ice)]' },
+  { value: 419, suffix: 'K+', label: 'Global IEEE Network', icon: Globe, cls: 'bento-wide', bg: 'bg-gradient-to-br from-[rgba(245,166,35,0.08)] to-[rgba(34,211,238,0.08)]', text: 'text-[var(--text-ice)]' },
 ];
 
 const chapters = [
-  { name: 'Computer Society', tags: ['AI/ML', 'Software'], desc: 'Advancing computing technology and software innovation.', accent: '#0A66C2', members: '150+' },
-  { name: 'Robotics & Automation', tags: ['Arduino', 'ROS'], desc: 'Designing autonomous systems and industrial automation.', accent: '#EF4444', members: '90+' },
-  { name: 'Signal Processing', tags: ['DSP', '5G'], desc: 'Digital signal processing and next-gen communications.', accent: '#F59E0B', members: '70+' },
-  { name: 'Women in Engineering', tags: ['Leadership', 'Community'], desc: 'Empowering women through mentorship and growth.', accent: '#EC4899', members: '100+' },
-  { name: 'Power & Energy', tags: ['Renewable', 'Smart Grid'], desc: 'Sustainable energy solutions and power systems.', accent: '#10B981', members: '80+' },
-  { name: 'Special Interest Group', tags: ['Innovation', 'Research'], desc: 'Niche technical domains and emerging research.', accent: '#8B5CF6', members: '60+' },
+  { name: 'Computer Society', tags: ['AI/ML', 'Software'], desc: 'Advancing computing technology and software innovation.', accent: '#F5A623', members: '150+' },
+  { name: 'Robotics & Automation', tags: ['Arduino', 'ROS'], desc: 'Designing autonomous systems and industrial automation.', accent: '#FB7185', members: '90+' },
+  { name: 'Signal Processing', tags: ['DSP', '5G'], desc: 'Digital signal processing and next-gen communications.', accent: '#22D3EE', members: '70+' },
+  { name: 'Women in Engineering', tags: ['Leadership', 'Community'], desc: 'Empowering women through mentorship and growth.', accent: '#A78BFA', members: '100+' },
+  { name: 'Power & Energy', tags: ['Renewable', 'Smart Grid'], desc: 'Sustainable energy solutions and power systems.', accent: '#34D399', members: '80+' },
+  { name: 'Special Interest Group', tags: ['Innovation', 'Research'], desc: 'Niche technical domains and emerging research.', accent: '#F5A623', members: '60+' },
 ];
 
 const events = [
@@ -83,9 +83,17 @@ function TiltCard({ children, className = '' }) {
 /* ═══════════ MAIN ═══════════ */
 export default function Home() {
   const container = useRef(null);
+  const heroRef = useRef(null);
   const bentoRef = useRef(null);
   const [bentoInView, setBentoInView] = useState(false);
   const { isMobile, isLowEndDevice } = useIsMobile();
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1.2]);
 
   useEffect(() => {
     const el = bentoRef.current;
@@ -157,7 +165,7 @@ export default function Home() {
     <div ref={container}>
 
       {/* ══════════ HERO ══════════ */}
-      <section className="min-h-[100dvh] flex flex-col justify-center overflow-hidden px-6 md:px-14 lg:px-20 relative bg-[var(--bg-darkest)]">
+      <section ref={heroRef} className="min-h-[100dvh] flex flex-col justify-center overflow-hidden px-6 md:px-14 lg:px-20 relative bg-[var(--bg-darkest)]">
         {/* Scroll-driven video background */}
         <ScrollVideo
           src="/videos/hero-scroll.mp4"
@@ -172,6 +180,49 @@ export default function Home() {
             backgroundSize: '32px 32px',
           }}
         />
+
+        {/* Scroll-driven decorative SVG circuit path */}
+        <svg
+          className="absolute right-0 top-0 w-full md:w-2/3 h-full opacity-[0.08] md:opacity-[0.12] pointer-events-none z-[3]"
+          viewBox="0 0 1000 1000"
+          preserveAspectRatio="none"
+        >
+          <motion.path
+            d="M 800,0 V 150 L 650,300 H 400 L 250,450 V 650 L 400,800 H 700 L 850,950 V 1000"
+            stroke="var(--neon-cyan)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            style={{ pathLength }}
+          />
+          <motion.path
+            d="M 650,300 V 380 L 550,480 H 300 V 600"
+            stroke="var(--accent-violet)"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            style={{ pathLength }}
+          />
+          <motion.circle
+            cx="650"
+            cy="300"
+            r="5"
+            fill="var(--neon-cyan)"
+            style={{ opacity: pathLength }}
+          />
+          <motion.circle
+            cx="250"
+            cy="450"
+            r="5"
+            fill="var(--neon-cyan)"
+            style={{ opacity: pathLength }}
+          />
+          <motion.circle
+            cx="400"
+            cy="800"
+            r="5"
+            fill="var(--neon-cyan)"
+            style={{ opacity: pathLength }}
+          />
+        </svg>
 
         <div className="relative z-10 max-w-[1280px] mx-auto w-full">
           <div className="mb-4">

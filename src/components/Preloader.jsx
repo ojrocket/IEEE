@@ -1,24 +1,27 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Preloader() {
+   const [progress, setProgress] = useState(0);
    const [isLoading, setIsLoading] = useState(true);
-   const numberRef = useRef(null);
 
    useEffect(() => {
       document.body.classList.add('is-loading');
       let count = 0;
       const interval = setInterval(() => {
-         count++;
-         if (numberRef.current) numberRef.current.textContent = count;
+         count += 2;
          if (count >= 100) {
+            count = 100;
+            setProgress(100);
             clearInterval(interval);
             setTimeout(() => {
                setIsLoading(false);
                document.body.classList.remove('is-loading');
-            }, 300);
+            }, 600);
+         } else {
+            setProgress(count);
          }
-      }, 12);
+      }, 20);
 
       return () => {
          clearInterval(interval);
@@ -30,62 +33,74 @@ export default function Preloader() {
       <AnimatePresence>
          {isLoading && (
             <motion.div
-               initial={{ opacity: 1 }}
+               initial={{ clipPath: 'inset(0% 0% 0% 0%)' }}
                exit={{
-                  opacity: 0,
+                  clipPath: 'inset(0% 0% 100% 0%)',
                   transition: {
-                     duration: 0.4,
-                     ease: "easeInOut"
+                     duration: 0.8,
+                     ease: [0.76, 0, 0.24, 1]
                   }
                }}
-               className="fixed inset-0 z-[100] bg-[#0a0f1d] flex items-center justify-center"
+               className="fixed inset-0 z-[100] bg-[var(--bg-darkest)] flex flex-col justify-between p-8 md:p-16 overflow-hidden select-none"
             >
-               {/* Optional Logo element - adding placeholder as requested */}
-               <div className="w-7 h-7 opacity-30 mb-6 object-contain bg-ieee-cyan rounded-full animate-pulse" />
+               {/* Radial glow pulse in background */}
+               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,166,35,0.03)_0%,transparent_60%)] animate-pulse pointer-events-none" />
 
-               <div className="relative w-full px-12 md:px-24 flex flex-col items-center">
-                  
-                  {/* Top Label */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#2d4a6b] mt-3"
-                  >
-                    Experience Loading
-                  </motion.div>
+               {/* Top Meta Details */}
+               <div className="relative z-10 w-full flex justify-between items-center text-[10px] md:text-[11px] font-mono tracking-[0.2em] text-[var(--text-muted-c)] uppercase">
+                  <span>IEEE SRM AP</span>
+                  <span>EST. 2019</span>
+               </div>
 
-                  {/* Massive Counter */}
-                  <motion.div 
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                    className="font-sans text-[28px] font-light tracking-[0.3em] text-[#5a7fa8] tabular-nums flex items-baseline"
-                  >
-                    <span ref={numberRef}>0</span>
-                    <span className="font-sans text-[16px] font-light text-[#5a7fa8] ml-1">%</span>
-                  </motion.div>
-
-                  {/* Progress Bar */}
-                  <div className="hidden">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: 1.2, ease: "linear" }}
-                      className="h-full bg-[#40B2D6]"
-                    />
+               {/* Center Wordmark Reveal */}
+               <div className="relative z-10 flex flex-col items-center justify-center my-auto">
+                  <div className="relative overflow-hidden py-4">
+                     {/* Masked IEEE Text */}
+                     <motion.h1
+                        initial={{ clipPath: 'inset(0% 100% 0% 0%)' }}
+                        animate={{ clipPath: `inset(0% ${100 - progress}% 0% 0%)` }}
+                        transition={{ ease: "easeOut", duration: 0.1 }}
+                        className="text-7xl md:text-9xl font-black tracking-[-0.05em] text-transparent bg-clip-text bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] select-none uppercase font-display"
+                     >
+                        IEEE
+                     </motion.h1>
+                     
+                     {/* Underlying subtle text */}
+                     <h1 className="absolute inset-0 text-7xl md:text-9xl font-black tracking-[-0.05em] text-[var(--border-subtle)] select-none uppercase font-display pointer-events-none -z-10 py-4">
+                        IEEE
+                     </h1>
                   </div>
 
-                  {/* Footer Label */}
-                  <motion.span 
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.8 }}
-                    className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#2d4a6b] mt-3"
+                  <motion.p
+                     initial={{ opacity: 0, y: 10 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ delay: 0.2, duration: 0.6 }}
+                     className="text-xs font-mono uppercase tracking-[0.3em] text-[var(--text-secondary-c)] mt-4 text-center"
                   >
-                    EST. 2019 — SRM UNIVERSITY AP
-                  </motion.span>
+                     Advancing Technology for Humanity
+                  </motion.p>
+               </div>
 
+               {/* Bottom Progress Tracker & Bar */}
+               <div className="relative z-10 w-full flex flex-col gap-4">
+                  <div className="flex justify-between items-end">
+                     <span className="text-[10px] md:text-[11px] font-mono tracking-[0.2em] text-[var(--text-muted-c)] uppercase">
+                        Loading System Assets...
+                     </span>
+                     <span className="font-mono text-2xl font-bold text-[var(--text-ice)] tabular-nums">
+                        {progress}%
+                     </span>
+                  </div>
+
+                  {/* Progress Line */}
+                  <div className="w-full h-[2px] bg-[var(--border-subtle)] overflow-hidden">
+                     <motion.div
+                        className="h-full bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)]"
+                        initial={{ width: '0%' }}
+                        animate={{ width: `${progress}%` }}
+                        transition={{ ease: "easeOut", duration: 0.1 }}
+                     />
+                  </div>
                </div>
             </motion.div>
          )}

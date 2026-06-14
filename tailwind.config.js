@@ -7,30 +7,60 @@ export default {
   theme: {
     extend: {
       colors: {
+        bg: {
+          darkest: 'var(--bg-darkest)',
+          dark: 'var(--bg-dark)',
+          surface: 'var(--bg-surface)',
+          card: 'var(--bg-card)',
+        },
+        primary: 'var(--primary)',
+        accent: {
+          DEFAULT: 'var(--accent)',
+          gold: 'var(--accent-gold)',
+          violet: 'var(--accent-violet)',
+          emerald: 'var(--accent-emerald)',
+          rose: 'var(--accent-rose)',
+        },
+        neon: {
+          cyan: 'var(--neon-cyan)',
+        },
+        text: {
+          ice: 'var(--text-ice)',
+          secondary: 'var(--text-secondary-c)',
+          muted: 'var(--text-muted-c)',
+          dim: 'var(--text-dim)',
+        },
+        border: {
+          subtle: 'var(--border-subtle)',
+          mid: 'var(--border-mid)',
+          gold: 'var(--border-gold)',
+          primary: 'var(--border-primary)',
+        },
         blue: {
-          50: '#EAF3FB',
-          100: '#C8DFF5',
-          200: '#a7c6e0',
-          300: '#7da8d1',
-          400: '#5a8dc0',
-          500: '#3C72B0',
-          600: '#2e5a8f',
-          700: '#264875',
-          800: '#203c62',
-          900: '#1d3455',
-          950: '#12233b',
+          50: '#F5F5F7',
+          100: '#EAEAEF',
+          200: '#D5D5DD',
+          300: '#B5B5C0',
+          400: '#9090A0',
+          500: '#6A6A78',
+          600: '#525260',
+          700: '#3D3D4B',
+          800: '#2A2A35',
+          900: '#1A1A22',
+          955: '#0A0A0F', // helper mapping for ultra dark
+          950: '#111116',
         },
         ieee: {
-          deep: '#0a0f1d',
-          bright: '#3C72B0',
-          cyan: '#40B2D6',
-          'void':     '#0D1117',   // deepest bg — darker than ieee-deep
-          'depth':    '#1C3A5E',   // mid-layer surface
-          'gold':     '#E8A838',   // achievement, CTA accent — warm contrast
-          'electric': '#0ECAD4',   // brighter cyan for key interactive moments  
-          'violet':   '#7B61FF',   // society/tech accent — cool purple
-          'ice':      '#E2EEF9',   // cool near-white for text (NOT warm white)
-          'mist':     'rgba(64,178,214,0.08)',  // ultra-subtle tint fills
+          deep: 'var(--bg-darkest)',
+          bright: 'var(--primary)',
+          cyan: 'var(--neon-cyan)',
+          'void':     'var(--bg-darkest)',
+          'depth':    'var(--bg-dark)',
+          'gold':     'var(--accent-gold)',
+          'electric': 'var(--neon-cyan)',
+          'violet':   'var(--accent-violet)',
+          'ice':      'var(--text-ice)',
+          'mist':     'rgba(34, 211, 238, 0.08)',
         }
       },
       fontFamily: {

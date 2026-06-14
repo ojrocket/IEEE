@@ -9,15 +9,15 @@ import { CheckCircle, ChevronDown } from 'lucide-react';
 
 const FAQItem = ({ faq, isOpen, onClick }) => {
   return (
-    <div className="border-t border-white/5 first:border-t-0 font-body">
+    <div className="border-t border-[var(--border-mid)] first:border-t-0 font-body">
       <button
         onClick={onClick}
         className="w-full py-8 flex items-center justify-between text-left group transition-colors"
       >
-        <span className={`text-lg font-medium tracking-tight transition-colors ${isOpen ? 'text-[#40B2D6]' : 'text-blue-50 group-hover:text-[#40B2D6]'}`}>
+        <span className={`text-lg font-bold tracking-tight transition-colors ${isOpen ? 'text-[var(--primary)]' : 'text-[var(--text-ice)] group-hover:text-[var(--primary)]'}`}>
           {faq.question}
         </span>
-        <ChevronDown className={`w-5 h-5 text-[#40B2D6] transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-5 h-5 text-[var(--primary)] transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -28,7 +28,7 @@ const FAQItem = ({ faq, isOpen, onClick }) => {
             transition={{ duration: 0.5, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <p className="pb-8 text-blue-200/60 font-medium leading-relaxed max-w-3xl">
+            <p className="pb-8 text-[var(--text-secondary-c)] font-medium leading-relaxed max-w-3xl">
               {faq.answer}
             </p>
           </motion.div>
@@ -48,38 +48,37 @@ const Workshop = () => {
   ];
 
   return (
-    <div className="bg-[#0a0f1d] text-blue-50 font-body">
+    <div className="bg-[var(--bg-darkest)] text-[var(--text-ice)] font-body">
       <WorkshopHero />
 
-      <section className="bg-[#0a0f1d] border-t border-white/5 border-b border-white/5">
+      <section className="bg-[var(--bg-darkest)] border-t border-[var(--border-mid)] border-b border-[var(--border-mid)]">
         <WorkshopQuickInfo />
       </section>
 
-      <section className="bg-[#0a0f1d] border-b border-white/5">
+      <section className="bg-[var(--bg-darkest)] border-b border-[var(--border-mid)]">
         <SpeakersSection />
       </section>
 
-      <section className="bg-[#0a0f1d] border-b border-white/5">
+      <section className="bg-[var(--bg-darkest)] border-b border-[var(--border-mid)]">
         <AgendaSection />
       </section>
 
-      <section className="bg-[#0a0f1d] border-b border-white/5">
+      <section className="bg-[var(--bg-darkest)] border-b border-[var(--border-mid)]">
         <LearningOutcomes />
       </section>
 
       {/* Who Can Attend Section */}
-      <section className="py-24 bg-[#0a0f1d] border-t border-white/5 overflow-hidden">
+      <section className="py-24 bg-[var(--bg-darkest)] border-t border-[var(--border-mid)] overflow-hidden">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-20 space-y-4">
-            <motion.h2 
+          <div className="text-center mb-20">
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="section-index mx-auto"
+              className="section-label mx-auto mb-4 w-fit"
             >
               Who Can Attend?
-            </motion.h2>
-            <div className="w-16 h-1 bg-[#40B2D6] mx-auto rounded-full" />
+            </motion.div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
@@ -97,19 +96,19 @@ const Workshop = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="p-6 rounded-2xl glass-card border border-white/5 flex items-center group transition-all"
+                    className="solid-card p-6 border border-[var(--border-mid)] bg-[var(--bg-card)] rounded-[4px] flex items-center group transition-all"
                   >
-                    <CheckCircle className="w-5 h-5 text-[#40B2D6] mr-6 transition-colors" />
-                    <span className="text-blue-200/60 font-medium transition-colors">{text}</span>
+                    <CheckCircle className="w-5 h-5 text-[var(--accent-emerald)] mr-6 flex-shrink-0" />
+                    <span className="text-[var(--text-secondary-c)] font-medium transition-colors">{text}</span>
                   </motion.div>
                 ))}
              </div>
              
              <div className="relative group">
-                <div className="relative p-12 rounded-[36px] glass-card border border-white/5 text-center">
-                   <h3 className="font-display text-3xl font-light text-blue-50 mb-6 uppercase tracking-tight">Reserve Your Spot</h3>
-                   <p className="text-blue-200/40 mb-10 font-light">Early bird registration ends in 48 hours. Secure your seat now.</p>
-                   <button className="ieee-btn-primary w-full py-4 text-xs tracking-widest uppercase">
+                <div className="relative p-12 rounded-[4px] border border-[var(--border-mid)] bg-[var(--bg-card)] text-center">
+                   <h3 className="font-display text-3xl font-black text-[var(--text-ice)] mb-6 uppercase tracking-tight">Reserve Your Spot</h3>
+                   <p className="text-[var(--text-muted-c)] mb-10 font-medium">Early bird registration ends in 48 hours. Secure your seat now.</p>
+                   <button className="bg-[var(--primary)] hover:bg-[var(--accent-gold)] text-[var(--bg-darkest)] w-full py-4 text-[12px] font-bold tracking-widest uppercase transition-all">
                      Register Now
                    </button>
                 </div>
@@ -120,19 +119,18 @@ const Workshop = () => {
 
       {/* FAQ Section */}
       <section className="py-24 container mx-auto px-6 max-w-4xl">
-         <div className="text-center mb-20 space-y-4">
-            <motion.h2 
+         <div className="text-center mb-20">
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="section-index mx-auto"
+              className="section-label mx-auto mb-4 w-fit"
             >
               Frequently Asked Questions
-            </motion.h2>
-            <div className="w-16 h-1 bg-[#40B2D6] mx-auto rounded-full" />
+            </motion.div>
           </div>
 
-          <div className="border-b border-white/5">
+          <div className="border-b border-[var(--border-mid)]">
             {faqs.map((faq, i) => (
               <FAQItem 
                 key={i} 
