@@ -1,4 +1,4 @@
-import { motion } from 'react';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
